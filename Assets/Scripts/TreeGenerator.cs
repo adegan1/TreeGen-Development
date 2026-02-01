@@ -4,35 +4,70 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
 {
-    [SerializeField] private string axiom = "B";
-    [SerializeField] private int iterations = 3;
-    [SerializeField] private float segmentLength = 1f;
-    [SerializeField] private Material treeMaterial;
+    private const int DefaultSegments = 8;
 
-    // Thickness parameters
+    private struct BranchPoint
+    {
+        public Vector3 pos;
+        public float radius;
+
+        public BranchPoint(Vector3 pos, float radius)
+        {
+            this.pos = pos;
+            this.radius = radius;
+        }
+    }
+
+    [Header("Tree Materials")]
+    [SerializeField] private Material barkMaterial;
+    [SerializeField] private Material leafMaterial;
+
+    [Header("Tree Generation")]
+    [SerializeField] private string axiom = "B";
+    [Range(1, 10)]
+    [SerializeField] private int iterations = 3;
+    [Range(0.1f, 5f)]
+    [SerializeField] private float segmentLength = 1f;
+
+    [Header("Thickness")]
+    [Range(0.1f, 2f)]
     [SerializeField] private float initialRadius = 0.5f;
+    [Range(0.5f, 0.99f)]
     [SerializeField] private float taperFactor = 0.9f; // Radius multiplier per segment
+    [Range(0.3f, 0.95f)]
     [SerializeField] private float branchRadiusFactor = 0.7f; // Radius multiplier for new branches
 
-    // Leaf parameters
-    [SerializeField] private Material leafMaterial;
+    [Header("Leaves")]
+    [Range(0.05f, 10f)]
     [SerializeField] private float leafWidth = 0.25f;
+    [Range(0.05f, 10f)]
     [SerializeField] private float leafLength = 0.4f;
+    [Range(0.1f, 20f)]
     [SerializeField] private float leafDensity = 1.2f; // Leaves per segment
+    [Range(0f, 1f)]
     [SerializeField] private float leafStartHeightNormalized = 0.5f; // 0 = trunk base height, 1 = highest point
+    [Range(-0.5f, 1f)]
     [SerializeField] private float leafRadiusOffset = 0.1f; // Push leaves away from branch surface
+    [Range(0f, 1f)]
     [SerializeField] private float leafSizeVariation = 0.2f; // Range of size randomization (0-1)
     [SerializeField] private bool doubleSidedLeaves = true;
 
-    // Branch connection parameters
+    [Header("Branch Connection")]
+    [Range(0f, 1f)]
     [SerializeField] private float branchConnectionExtrusionLength = 0.2f; // How far to extrude child ring back along parent
 
-    // L-system parameters
+    [Header("L-System Parameters")]
+    [Range(0f, 100f)]
     [SerializeField] private float growthProbability = 50f; // Probability (0-100) of branch growth
+    [Range(0f, 100f)]
     [SerializeField] private float branchProbability = 50f; // Probability (0-100) of branch type selection
+    [Range(0f, 90f)]
     [SerializeField] private float angleXMin = 15f; // Minimum angle for left rotation
+    [Range(0f, 90f)]
     [SerializeField] private float angleXMax = 45f; // Maximum angle for left rotation
+    [Range(-180f, 0f)]
     [SerializeField] private float angleYMin = -30f; // Minimum angle for right rotation
+    [Range(0f, 180f)]
     [SerializeField] private float angleYMax = 30f; // Maximum angle for right rotation
 
     private string expandedTree;
@@ -107,19 +142,14 @@ public class TreeGenerator : MonoBehaviour
     void CreateMesh()
     {
         // Validate material
-        if (treeMaterial == null)
+        if (barkMaterial == null)
         {
             Debug.LogError("Tree Material is not assigned!");
             return;
         }
 
         // Create GameObject and components
-        GameObject treeObject = new GameObject("Tree");
-        var meshFilter = treeObject.AddComponent<MeshFilter>();
-        Mesh mesh = new Mesh();
-        meshFilter.mesh = mesh;
-        var meshRenderer = treeObject.AddComponent<MeshRenderer>();
-        meshRenderer.material = treeMaterial;
+        GameObject treeObject = CreateMeshObject("Tree", barkMaterial, null, out Mesh mesh);
 
         // Initialize mesh data
         List<Vector3> vertices = new List<Vector3>();
@@ -134,10 +164,10 @@ public class TreeGenerator : MonoBehaviour
         // Initialize stacks
         transformStack = new Stack<TransformInfoHelper>();
         Stack<float> radiusStack = new Stack<float>();
-        Stack<List<(Vector3 pos, float radius)>> branchStack = new Stack<List<(Vector3 pos, float radius)>>();
+        Stack<List<BranchPoint>> branchStack = new Stack<List<BranchPoint>>();
         Stack<bool> firstSegmentStack = new Stack<bool>();
         Stack<Vector3> branchConnectionDirStack = new Stack<Vector3>();
-        List<List<(Vector3 pos, float radius)>> allBranches = new List<List<(Vector3 pos, float radius)>>();
+        List<List<BranchPoint>> allBranches = new List<List<BranchPoint>>();
 
         // Create temporary transform for tree generation
         Transform treeTransform = treeObject.transform;
@@ -145,10 +175,10 @@ public class TreeGenerator : MonoBehaviour
         treeTransform.rotation = transform.rotation;
 
         float currentRadius = initialRadius;
-        List<(Vector3 pos, float radius)> currentBranch = new List<(Vector3 pos, float radius)>();
+        List<BranchPoint> currentBranch = new List<BranchPoint>();
         bool isFirstSegmentInBranch = false;
         Vector3 currentConnectionDirection = Vector3.zero;
-        currentBranch.Add((treeTransform.position, currentRadius));
+        currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
 
         // Process L-system string
         foreach (char instruction in expandedTree)
@@ -163,7 +193,7 @@ public class TreeGenerator : MonoBehaviour
                         ? currentRadius * branchRadiusFactor * taperFactor
                         : currentRadius * taperFactor;
                     currentRadius = endRadius;
-                    currentBranch.Add((treeTransform.position, currentRadius));
+                    currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
                     isFirstSegmentInBranch = false;
                     break;
 
@@ -183,14 +213,14 @@ public class TreeGenerator : MonoBehaviour
                     firstSegmentStack.Push(isFirstSegmentInBranch);
                     branchConnectionDirStack.Push(currentConnectionDirection);
                     isFirstSegmentInBranch = true;
-                    currentBranch = new List<(Vector3 pos, float radius)>();
-                    currentBranch.Add((treeTransform.position, currentRadius));
+                    currentBranch = new List<BranchPoint>();
+                    currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
                     break;
 
                 case ']':
                     // Generate mesh for the branch
                     Vector3 parentConnectionDir = branchConnectionDirStack.Peek();
-                    AddTube(vertices, triangles, uvs, currentBranch, 8, parentConnectionDir);
+                    AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, parentConnectionDir);
                     allBranches.Add(currentBranch);
                     // Restore transform and radius state
                     TransformInfoHelper savedTransform = transformStack.Pop();
@@ -217,7 +247,7 @@ public class TreeGenerator : MonoBehaviour
         }
 
         // Generate mesh for the main trunk
-        AddTube(vertices, triangles, uvs, currentBranch, 8, Vector3.zero);
+        AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, Vector3.zero);
         allBranches.Add(currentBranch);
 
         // Assign mesh data
@@ -231,13 +261,7 @@ public class TreeGenerator : MonoBehaviour
         if (leafMaterial != null && leafDensity > 0f)
         {
             CreateLeaves(leafVertices, leafTriangles, leafUvs, allBranches);
-            GameObject leafObject = new GameObject("Leaves");
-            leafObject.transform.SetParent(treeObject.transform, false);
-            var leafFilter = leafObject.AddComponent<MeshFilter>();
-            var leafMesh = new Mesh();
-            leafFilter.mesh = leafMesh;
-            var leafRenderer = leafObject.AddComponent<MeshRenderer>();
-            leafRenderer.material = leafMaterial;
+            GameObject leafObject = CreateMeshObject("Leaves", leafMaterial, treeObject.transform, out Mesh leafMesh);
             leafMesh.vertices = leafVertices.ToArray();
             leafMesh.triangles = leafTriangles.ToArray();
             leafMesh.uv = leafUvs.ToArray();
@@ -249,7 +273,7 @@ public class TreeGenerator : MonoBehaviour
         treeObject.transform.position = new Vector3(treeObject.transform.position.x, generatorY, treeObject.transform.position.z);
     }
 
-    private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<(Vector3 pos, float radius)> points, int segments, Vector3 parentConnectionDir)
+    private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<BranchPoint> points, int segments, Vector3 parentConnectionDir)
     {
         if (points.Count < 2) return;
 
@@ -265,8 +289,7 @@ public class TreeGenerator : MonoBehaviour
             float radius = points[0].radius;
             
             // Generate the connection ring at the extruded position
-            Vector3 perpendicular = Vector3.Cross(parentConnectionDir, Vector3.up).normalized;
-            if (perpendicular == Vector3.zero) perpendicular = Vector3.Cross(parentConnectionDir, Vector3.right).normalized;
+            Vector3 perpendicular = GetPerpendicular(parentConnectionDir);
             
             for (int j = 0; j < segments; j++)
             {
@@ -280,7 +303,9 @@ public class TreeGenerator : MonoBehaviour
         // Add all ring vertices for the main branch
         for (int i = 0; i < pointCount; i++)
         {
-            var (pos, radius) = points[i];
+            BranchPoint point = points[i];
+            Vector3 pos = point.pos;
+            float radius = point.radius;
             Vector3 direction;
             if (i < pointCount - 1)
             {
@@ -292,8 +317,7 @@ public class TreeGenerator : MonoBehaviour
             }
             
             // Use branch's own direction for all rings
-            Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized;
-            if (perpendicular == Vector3.zero) perpendicular = Vector3.Cross(direction, Vector3.right).normalized;
+            Vector3 perpendicular = GetPerpendicular(direction);
 
             for (int j = 0; j < segments; j++)
             {
@@ -325,7 +349,7 @@ public class TreeGenerator : MonoBehaviour
         }
     }
 
-    private void CreateLeaves(List<Vector3> leafVertices, List<int> leafTriangles, List<Vector2> leafUvs, List<List<(Vector3 pos, float radius)>> branches)
+    private void CreateLeaves(List<Vector3> leafVertices, List<int> leafTriangles, List<Vector2> leafUvs, List<List<BranchPoint>> branches)
     {
         if (branches.Count == 0) return;
 
@@ -333,7 +357,7 @@ public class TreeGenerator : MonoBehaviour
         float maxY = float.NegativeInfinity;
         foreach (var branch in branches)
         {
-            foreach (var point in branch)
+            foreach (BranchPoint point in branch)
             {
                 minY = Mathf.Min(minY, point.pos.y);
                 maxY = Mathf.Max(maxY, point.pos.y);
@@ -365,8 +389,7 @@ public class TreeGenerator : MonoBehaviour
                     float along = Random.value;
                     Vector3 pos = Vector3.Lerp(start, end, along);
 
-                    Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized;
-                    if (perpendicular == Vector3.zero) perpendicular = Vector3.Cross(direction, Vector3.right).normalized;
+                    Vector3 perpendicular = GetPerpendicular(direction);
                     Vector3 binormal = Vector3.Cross(direction, perpendicular).normalized;
                     float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
                     Vector3 radial = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * binormal).normalized;
@@ -421,5 +444,33 @@ public class TreeGenerator : MonoBehaviour
             leafTriangles.Add(startIndex + 2);
             leafTriangles.Add(startIndex + 0);
         }
+    }
+
+    private static Vector3 GetPerpendicular(Vector3 direction)
+    {
+        Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized;
+        if (perpendicular == Vector3.zero)
+        {
+            perpendicular = Vector3.Cross(direction, Vector3.right).normalized;
+        }
+        return perpendicular;
+    }
+
+    private static GameObject CreateMeshObject(string name, Material material, Transform parent, out Mesh mesh)
+    {
+        GameObject obj = new GameObject(name);
+        if (parent != null)
+        {
+            obj.transform.SetParent(parent, false);
+        }
+
+        var meshFilter = obj.AddComponent<MeshFilter>();
+        mesh = new Mesh();
+        meshFilter.mesh = mesh;
+
+        var meshRenderer = obj.AddComponent<MeshRenderer>();
+        meshRenderer.material = material;
+
+        return obj;
     }
 }
