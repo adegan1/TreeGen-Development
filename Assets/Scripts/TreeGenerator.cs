@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text;
-using UnityEngine.Splines;
 using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
@@ -9,6 +8,20 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private int iterations = 3;
     [SerializeField] private float segmentLength = 1f;
     [SerializeField] private Material treeMaterial;
+
+    // Thickness parameters
+    [SerializeField] private float initialRadius = 0.5f;
+    [SerializeField] private float taperFactor = 0.9f; // Radius multiplier per segment
+    [SerializeField] private float branchRadiusFactor = 0.7f; // Radius multiplier for new branches
+
+    // Leaf parameters
+    [SerializeField] private Material leafMaterial;
+    [SerializeField] private float leafWidth = 0.25f;
+    [SerializeField] private float leafLength = 0.4f;
+    [SerializeField] private float leafDensity = 1.2f; // Leaves per segment
+    [SerializeField] private float leafStartHeightNormalized = 0.5f; // 0 = trunk base height, 1 = highest point
+    [SerializeField] private float leafRadiusOffset = 0.1f; // Push leaves away from branch surface
+    [SerializeField] private bool doubleSidedLeaves = true;
 
     // L-system parameters
     [SerializeField] private float growthProbability = 50f; // Probability (0-100) of branch growth
@@ -20,7 +33,6 @@ public class TreeGenerator : MonoBehaviour
 
     private string expandedTree;
     private Stack<TransformInfoHelper> transformStack;
-    private Stack<int> splineIndexStack;
 
     // Get the Y position of the generator
     private float generatorY => transform.position.y;
@@ -100,29 +112,37 @@ public class TreeGenerator : MonoBehaviour
         // Create GameObject and components
         GameObject treeObject = new GameObject("Tree");
         var meshFilter = treeObject.AddComponent<MeshFilter>();
-        meshFilter.mesh = new Mesh();
+        Mesh mesh = new Mesh();
+        meshFilter.mesh = mesh;
         var meshRenderer = treeObject.AddComponent<MeshRenderer>();
         meshRenderer.material = treeMaterial;
 
-        // Setup spline container
-        var container = treeObject.AddComponent<SplineContainer>();
-        container.RemoveSplineAt(0);
-        var extrude = treeObject.AddComponent<SplineExtrude>();
-        extrude.Container = container;
+        // Initialize mesh data
+        List<Vector3> vertices = new List<Vector3>();
+        List<int> triangles = new List<int>();
+        List<Vector2> uvs = new List<Vector2>();
 
-        // Initialize stacks and first spline
+        // Leaf mesh data
+        List<Vector3> leafVertices = new List<Vector3>();
+        List<int> leafTriangles = new List<int>();
+        List<Vector2> leafUvs = new List<Vector2>();
+
+        // Initialize stacks
         transformStack = new Stack<TransformInfoHelper>();
-        splineIndexStack = new Stack<int>();
-        
-        var currentSpline = container.AddSpline();
-        var splineIndex = container.Splines.FindIndex(currentSpline);
-        
+        Stack<float> radiusStack = new Stack<float>();
+        Stack<List<(Vector3 pos, float radius)>> branchStack = new Stack<List<(Vector3 pos, float radius)>>();
+        Stack<bool> firstSegmentStack = new Stack<bool>();
+        List<List<(Vector3 pos, float radius)>> allBranches = new List<List<(Vector3 pos, float radius)>>();
+
         // Create temporary transform for tree generation
         Transform treeTransform = treeObject.transform;
         treeTransform.position = transform.position;
         treeTransform.rotation = transform.rotation;
-        
-        currentSpline.Add(new BezierKnot(treeTransform.position), TangentMode.AutoSmooth);
+
+        float currentRadius = initialRadius;
+        List<(Vector3 pos, float radius)> currentBranch = new List<(Vector3 pos, float radius)>();
+        bool isFirstSegmentInBranch = false;
+        currentBranch.Add((treeTransform.position, currentRadius));
 
         // Process L-system string
         foreach (char instruction in expandedTree)
@@ -131,7 +151,12 @@ public class TreeGenerator : MonoBehaviour
             {
                 case 'F':
                     treeTransform.Translate(Vector3.up * segmentLength);
-                    currentSpline.Add(new BezierKnot(treeTransform.position), TangentMode.AutoSmooth);
+                    float endRadius = isFirstSegmentInBranch
+                        ? currentRadius * branchRadiusFactor * taperFactor
+                        : currentRadius * taperFactor;
+                    currentRadius = endRadius;
+                    currentBranch.Add((treeTransform.position, currentRadius));
+                    isFirstSegmentInBranch = false;
                     break;
 
                 case 'B':
@@ -139,36 +164,31 @@ public class TreeGenerator : MonoBehaviour
                     break;
 
                 case '[':
-                    // Save current transform state
+                    // Save current transform and radius state
                     transformStack.Push(new TransformInfoHelper()
                     {
                         position = treeTransform.position,
                         rotation = treeTransform.rotation
                     });
-                    splineIndexStack.Push(splineIndex);
-
-                    // Create new branch spline
-                    int knnotCount = currentSpline.Count;
-                    int previousSplineIndex = splineIndex;
-                    currentSpline = container.AddSpline();
-                    splineIndex = container.Splines.FindIndex(currentSpline);
-                    
-                    currentSpline.Add(new BezierKnot(treeTransform.position), TangentMode.AutoSmooth);
-                    
-                    // Link splines at branch point
-                    container.LinkKnots(
-                        new SplineKnotIndex(previousSplineIndex, knnotCount - 1),
-                        new SplineKnotIndex(splineIndex, 0)
-                    );
+                    radiusStack.Push(currentRadius);
+                    branchStack.Push(currentBranch);
+                    firstSegmentStack.Push(isFirstSegmentInBranch);
+                    isFirstSegmentInBranch = true;
+                    currentBranch = new List<(Vector3 pos, float radius)>();
+                    currentBranch.Add((treeTransform.position, currentRadius));
                     break;
 
                 case ']':
-                    // Restore transform state
+                    // Generate mesh for the branch
+                    AddTube(vertices, triangles, uvs, currentBranch, 8);
+                    allBranches.Add(currentBranch);
+                    // Restore transform and radius state
                     TransformInfoHelper savedTransform = transformStack.Pop();
                     treeTransform.position = savedTransform.position;
                     treeTransform.rotation = savedTransform.rotation;
-                    splineIndex = splineIndexStack.Pop();
-                    currentSpline = container.Splines[splineIndex];
+                    currentRadius = radiusStack.Pop();
+                    currentBranch = branchStack.Pop();
+                    isFirstSegmentInBranch = firstSegmentStack.Pop();
                     break;
 
                 case 'l':
@@ -184,7 +204,180 @@ public class TreeGenerator : MonoBehaviour
                     break;
             }
         }
+
+        // Generate mesh for the main trunk
+        AddTube(vertices, triangles, uvs, currentBranch, 8);
+        allBranches.Add(currentBranch);
+
+        // Assign mesh data
+        mesh.vertices = vertices.ToArray();
+        mesh.triangles = triangles.ToArray();
+        mesh.uv = uvs.ToArray();
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
+
+        // Create leaves
+        if (leafMaterial != null && leafDensity > 0f)
+        {
+            CreateLeaves(leafVertices, leafTriangles, leafUvs, allBranches);
+            GameObject leafObject = new GameObject("Leaves");
+            leafObject.transform.SetParent(treeObject.transform, false);
+            var leafFilter = leafObject.AddComponent<MeshFilter>();
+            var leafMesh = new Mesh();
+            leafFilter.mesh = leafMesh;
+            var leafRenderer = leafObject.AddComponent<MeshRenderer>();
+            leafRenderer.material = leafMaterial;
+            leafMesh.vertices = leafVertices.ToArray();
+            leafMesh.triangles = leafTriangles.ToArray();
+            leafMesh.uv = leafUvs.ToArray();
+            leafMesh.RecalculateNormals();
+            leafMesh.RecalculateBounds();
+        }
+
         // Set tree object's Y position to generator's Y position
         treeObject.transform.position = new Vector3(treeObject.transform.position.x, generatorY, treeObject.transform.position.z);
+    }
+
+    private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<(Vector3 pos, float radius)> points, int segments)
+    {
+        if (points.Count < 2) return;
+
+        int startVertexIndex = vertices.Count;
+        int pointCount = points.Count;
+
+        // Add all ring vertices
+        for (int i = 0; i < pointCount; i++)
+        {
+            var (pos, radius) = points[i];
+            Vector3 direction;
+            if (i < pointCount - 1)
+            {
+                direction = (points[i + 1].pos - pos).normalized;
+            }
+            else
+            {
+                direction = (pos - points[i - 1].pos).normalized;
+            }
+            Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized;
+            if (perpendicular == Vector3.zero) perpendicular = Vector3.Cross(direction, Vector3.right).normalized;
+
+            for (int j = 0; j < segments; j++)
+            {
+                float angle = j * Mathf.PI * 2 / segments;
+                Vector3 offset = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * Vector3.Cross(direction, perpendicular)) * radius;
+                vertices.Add(pos + offset);
+                uvs.Add(new Vector2(j / (float)segments, i / (float)(pointCount - 1)));
+            }
+        }
+
+        // Add triangles between rings
+        for (int i = 0; i < pointCount - 1; i++)
+        {
+            int ringStart = startVertexIndex + i * segments;
+            int nextRingStart = startVertexIndex + (i + 1) * segments;
+            for (int j = 0; j < segments; j++)
+            {
+                int nextJ = (j + 1) % segments;
+                // First triangle (reversed for outward normals)
+                triangles.Add(ringStart + j);
+                triangles.Add(nextRingStart + nextJ);
+                triangles.Add(nextRingStart + j);
+                // Second triangle
+                triangles.Add(ringStart + j);
+                triangles.Add(ringStart + nextJ);
+                triangles.Add(nextRingStart + nextJ);
+            }
+        }
+    }
+
+    private void CreateLeaves(List<Vector3> leafVertices, List<int> leafTriangles, List<Vector2> leafUvs, List<List<(Vector3 pos, float radius)>> branches)
+    {
+        if (branches.Count == 0) return;
+
+        float minY = float.PositiveInfinity;
+        float maxY = float.NegativeInfinity;
+        foreach (var branch in branches)
+        {
+            foreach (var point in branch)
+            {
+                minY = Mathf.Min(minY, point.pos.y);
+                maxY = Mathf.Max(maxY, point.pos.y);
+            }
+        }
+        float heightRange = Mathf.Max(0.0001f, maxY - minY);
+
+        foreach (var branch in branches)
+        {
+            if (branch.Count < 2) continue;
+
+            int segmentCount = branch.Count - 1;
+            for (int i = 0; i < segmentCount; i++)
+            {
+                float segmentHeightNormalized = (branch[i].pos.y - minY) / heightRange;
+                if (segmentHeightNormalized < leafStartHeightNormalized) continue;
+
+                float leavesForSegment = leafDensity;
+                int leafCount = Mathf.FloorToInt(leavesForSegment);
+                if (Random.value < (leavesForSegment - leafCount)) leafCount++;
+
+                Vector3 start = branch[i].pos;
+                Vector3 end = branch[i + 1].pos;
+                Vector3 direction = (end - start).normalized;
+                float radius = branch[i].radius;
+
+                for (int l = 0; l < leafCount; l++)
+                {
+                    float along = Random.value;
+                    Vector3 pos = Vector3.Lerp(start, end, along);
+
+                    Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized;
+                    if (perpendicular == Vector3.zero) perpendicular = Vector3.Cross(direction, Vector3.right).normalized;
+                    Vector3 binormal = Vector3.Cross(direction, perpendicular).normalized;
+                    float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+                    Vector3 radial = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * binormal).normalized;
+                    pos += radial * (radius + leafRadiusOffset);
+
+                    Quaternion rotation = Quaternion.LookRotation(radial, direction) * Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+                    AddLeafQuad(leafVertices, leafTriangles, leafUvs, pos, rotation, leafWidth, leafLength, doubleSidedLeaves);
+                }
+            }
+        }
+    }
+
+    private void AddLeafQuad(List<Vector3> leafVertices, List<int> leafTriangles, List<Vector2> leafUvs, Vector3 center, Quaternion rotation, float width, float length, bool doubleSided)
+    {
+        int startIndex = leafVertices.Count;
+        float halfWidth = width * 0.5f;
+        float halfLength = length * 0.5f;
+
+        Vector3 right = rotation * Vector3.right * halfWidth;
+        Vector3 up = rotation * Vector3.up * halfLength;
+
+        leafVertices.Add(center - right - up);
+        leafVertices.Add(center + right - up);
+        leafVertices.Add(center + right + up);
+        leafVertices.Add(center - right + up);
+
+        leafUvs.Add(new Vector2(0f, 0f));
+        leafUvs.Add(new Vector2(1f, 0f));
+        leafUvs.Add(new Vector2(1f, 1f));
+        leafUvs.Add(new Vector2(0f, 1f));
+
+        leafTriangles.Add(startIndex + 0);
+        leafTriangles.Add(startIndex + 1);
+        leafTriangles.Add(startIndex + 2);
+        leafTriangles.Add(startIndex + 0);
+        leafTriangles.Add(startIndex + 2);
+        leafTriangles.Add(startIndex + 3);
+
+        if (doubleSided)
+        {
+            leafTriangles.Add(startIndex + 2);
+            leafTriangles.Add(startIndex + 1);
+            leafTriangles.Add(startIndex + 0);
+            leafTriangles.Add(startIndex + 3);
+            leafTriangles.Add(startIndex + 2);
+            leafTriangles.Add(startIndex + 0);
+        }
     }
 }

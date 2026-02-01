@@ -444,6 +444,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: angleYMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: angleYMin
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafDensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: taperFactor
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f3bc923360a6e4a87b47f8f35a5325, type: 2}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: initialRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafRadiusOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafStartNormalized
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
