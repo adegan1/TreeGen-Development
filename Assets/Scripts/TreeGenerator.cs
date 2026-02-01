@@ -42,7 +42,7 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private float leafWidth = 0.25f;
     [Range(0.05f, 10f)]
     [SerializeField] private float leafLength = 0.4f;
-    [Range(0.1f, 20f)]
+    [Range(0f, 20f)]
     [SerializeField] private float leafDensity = 1.2f; // Leaves per segment
     [Range(0f, 1f)]
     [SerializeField] private float leafStartHeightNormalized = 0.5f; // 0 = trunk base height, 1 = highest point
@@ -50,7 +50,7 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private float leafRadiusOffset = 0.1f; // Push leaves away from branch surface
     [Range(0f, 1f)]
     [SerializeField] private float leafSizeVariation = 0.2f; // Range of size randomization (0-1)
-    [SerializeField] private bool doubleSidedLeaves = true;
+    [SerializeField] private bool doubleSidedLeaves = false;
 
     [Header("Branch Connection")]
     [Range(0f, 1f)]

@@ -44,13 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57438d7b3e004a4c8b77f12b7e0a05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  axiom: FB
+  barkMaterial: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
+  axiom: FFBB
   iterations: 5
   segmentLength: 1
-  treeMaterial: {fileID: 2100000, guid: 43574a32b01bbc545aaa3bacd1c707a3, type: 2}
-  growthProbability: 50
+  initialRadius: 1.33
+  taperFactor: 0.928
+  branchRadiusFactor: 0.7
+  leafWidth: 0.39
+  leafLength: 1.24
+  leafDensity: 0
+  leafStartHeightNormalized: 0.5
+  leafRadiusOffset: 0.1
+  leafSizeVariation: 0.76
+  doubleSidedLeaves: 0
+  branchConnectionExtrusionLength: 0.2
+  growthProbability: 33.7
   branchProbability: 50
-  angleXMin: -30
-  angleXMax: 30
-  angleYMin: 50
-  angleYMax: 75
+  angleXMin: 0
+  angleXMax: 30.3
+  angleYMin: 0
+  angleYMax: 41

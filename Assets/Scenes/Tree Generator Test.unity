@@ -466,12 +466,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: taperFactor
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
