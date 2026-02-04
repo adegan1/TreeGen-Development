@@ -241,16 +241,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 1.67
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 1.28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -477,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 1.67
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: iterations
@@ -485,12 +489,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 1.28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -590,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 1.67
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: iterations
@@ -598,12 +606,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 1.28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -707,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 1.67
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: iterations
@@ -715,12 +727,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 1.28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -820,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 1.67
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: iterations
@@ -828,12 +844,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 1.28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 

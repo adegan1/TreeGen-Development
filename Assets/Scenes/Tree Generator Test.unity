@@ -445,6 +445,10 @@ PrefabInstance:
       value: Tree Generator
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: axiom
+      value: FB
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafSize
       value: 1
       objectReference: {fileID: 0}
@@ -454,47 +458,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: angleYMin
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafWidth
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: iterations
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafLength
-      value: 2.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafDensity
-      value: 5
+      value: 15.3
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: taperFactor
-      value: 0.9
+      value: 0.806
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
+      objectReference: {fileID: 2100000, guid: 43574a32b01bbc545aaa3bacd1c707a3, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
+      objectReference: {fileID: 2100000, guid: 51f3bc923360a6e4a87b47f8f35a5325, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: treeMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: initialRadius
-      value: 1
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: segmentLength
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafRadiusOffset
-      value: 0.1
+      value: 0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: branchProbability
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: doubleSidedLeaves
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: growthProbability
+      value: 44.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: leafSizeVariation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: branchRadiusFactor
+      value: 0.736
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafStartNormalized
@@ -502,7 +530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: leafStartHeightNormalized
-      value: 0.45
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      propertyPath: branchConnectionExtrusionLength
+      value: 0.352
       objectReference: {fileID: 0}
     - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
       propertyPath: m_LocalPosition.x
