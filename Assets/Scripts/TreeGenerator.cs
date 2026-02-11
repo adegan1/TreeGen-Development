@@ -23,13 +23,28 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private Material barkMaterial;
     [Tooltip("Material applied to the leaves")]
     [SerializeField] private Material leafMaterial;
+    [Tooltip("How many times the bark texture repeats around the branch circumference")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float barkTilingHorizontal = 1f;
+    [Tooltip("How many times the bark texture repeats per unit of branch length")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float barkTilingVertical = 1f;
+    [Tooltip("Random UV offset per branch to break up repetition (0 = none, 1 = full randomization)")]
+    [Range(0f, 1f)]
+    [SerializeField] private float barkUVRandomness = 0.3f;
+    [Tooltip("Noise-based UV distortion strength to add organic variation")]
+    [Range(0f, 0.5f)]
+    [SerializeField] private float barkUVNoiseStrength = 0.1f;
+    [Tooltip("Scale of the noise pattern used for UV distortion")]
+    [Range(0.1f, 5f)]
+    [SerializeField] private float barkUVNoiseScale = 1f;
 
     [Header("Tree Generation")]
-    [Tooltip("Starting symbol for the L-System (B = Branch, F = Forward). Leave as 'B' for standard trees")]
-    [SerializeField] private string axiom = "B";
+    [Tooltip("Starting symbol for the L-System (B = Branch, F = Forward). Leave as 'FB' for standard trees")]
+    [SerializeField] private string lSystemSeed = "B";
     [Tooltip("Number of times to expand the tree structure. Higher values create more complex trees")]
     [Range(1, 10)]
-    [SerializeField] private int iterations = 3;
+    [SerializeField] private int complexity = 3;
     [Tooltip("Length of each branch segment in units")]
     [Range(0.1f, 5f)]
     [SerializeField] private float segmentLength = 1f;
@@ -37,13 +52,13 @@ public class TreeGenerator : MonoBehaviour
     [Header("Thickness")]
     [Tooltip("Starting thickness of the tree trunk at the base")]
     [Range(0.1f, 2f)]
-    [SerializeField] private float initialRadius = 0.5f;
+    [SerializeField] private float baseThickness = 0.5f;
     [Tooltip("How much branches thin out per segment (1.0 = no thinning, 0.5 = rapid thinning)")]
     [Range(0.5f, 1.0f)]
-    [SerializeField] private float taperFactor = 0.9f; // Radius multiplier per segment
+    [SerializeField] private float branchThinningRate = 0.9f; // Radius multiplier per segment
     [Tooltip("How much thinner child branches are compared to their parent branch")]
     [Range(0.3f, 0.95f)]
-    [SerializeField] private float branchRadiusFactor = 0.7f; // Radius multiplier for new branches
+    [SerializeField] private float childBranchThickness = 0.7f; // Radius multiplier for new branches
 
     [Header("Leaves")]
     [Tooltip("Width of each leaf in units")]
@@ -60,7 +75,7 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private float leafStartHeight = 0.5f; // 0 = trunk base height, 1 = highest point
     [Tooltip("How far leaves extend away from the branch surface. Negative values push leaves inward")]
     [Range(-0.5f, 1f)]
-    [SerializeField] private float leafRadiusOffset = 0.1f; // Push leaves away from branch surface
+    [SerializeField] private float leafDistanceFromBranch = 0.1f; // Push leaves away from branch surface
     [Tooltip("Random variation in leaf sizes (0 = uniform, 1 = highly varied)")]
     [Range(0f, 1f)]
     [SerializeField] private float leafSizeVariation = 0.2f; // Range of size randomization (0-1)
@@ -70,27 +85,27 @@ public class TreeGenerator : MonoBehaviour
     [Header("Branch Connection")]
     [Tooltip("How far branches extend back into their parent branch for smoother connections")]
     [Range(0f, 1f)]
-    [SerializeField] private float branchConnectionExtrusionLength = 0.2f; // How far to extrude child ring back along parent
+    [SerializeField] private float branchBlendDistance = 0.2f; // How far to extrude child ring back along parent
 
-    [Header("L-System Parameters")]
+    [Header("Advanced Growth Parameters")]
     [Tooltip("Probability (0-100) that branch segments grow longer. Higher values create taller trees")]
     [Range(0f, 100f)]
-    [SerializeField] private float growthProbability = 50f; // Probability (0-100) of branch growth
+    [SerializeField] private float segmentGrowthChance = 50f; // Probability (0-100) of branch growth
     [Tooltip("Probability (0-100) affecting branch pattern distribution. Experiment for different shapes")]
     [Range(0f, 100f)]
-    [SerializeField] private float branchProbability = 50f; // Probability (0-100) of branch type selection
+    [SerializeField] private float branchPatternVariation = 50f; // Probability (0-100) of branch type selection
     [Tooltip("Minimum angle for branch rotation (affects how spread out branches are)")]
     [Range(0f, 90f)]
-    [SerializeField] private float angleXMin = 15f; // Minimum angle for left rotation
+    [SerializeField] private float minBranchAngle = 15f; // Minimum angle for left rotation
     [Tooltip("Maximum angle for branch rotation (affects how spread out branches are)")]
     [Range(0f, 90f)]
-    [SerializeField] private float angleXMax = 45f; // Maximum angle for left rotation
+    [SerializeField] private float maxBranchAngle = 45f; // Maximum angle for left rotation
     [Tooltip("Minimum vertical angle for branches (negative = downward, positive = upward)")]
     [Range(-180f, 0f)]
-    [SerializeField] private float angleYMin = -30f; // Minimum angle for right rotation
+    [SerializeField] private float minVerticalAngle = -30f; // Minimum angle for right rotation
     [Tooltip("Maximum vertical angle for branches (negative = downward, positive = upward)")]
     [Range(0f, 180f)]
-    [SerializeField] private float angleYMax = 30f; // Maximum angle for right rotation
+    [SerializeField] private float maxVerticalAngle = 30f; // Maximum angle for right rotation
 
     private string expandedTree;
     private Stack<TransformInfoHelper> transformStack;
@@ -112,7 +127,7 @@ public class TreeGenerator : MonoBehaviour
     public void RegenerateTree()
     {
         ClearTree();
-        expandedTree = axiom;
+        expandedTree = lSystemSeed;
         ExpandTreeString();
         CreateMesh();
     }
@@ -164,9 +179,9 @@ public class TreeGenerator : MonoBehaviour
 
     void ExpandTreeString()
     {
-        StringBuilder expandedTreeBuilder = new StringBuilder(axiom);
+        StringBuilder expandedTreeBuilder = new StringBuilder(lSystemSeed);
 
-        for (int i = 0; i < iterations; i++)
+        for (int i = 0; i < complexity; i++)
         {
             StringBuilder nextIteration = new StringBuilder();
             
@@ -176,12 +191,12 @@ public class TreeGenerator : MonoBehaviour
                 {
                     case 'F':
                         // Randomly decide between single or double forward segment
-                        nextIteration.Append(Random.Range(0f, 100f) > growthProbability ? "F" : "FF");
+                        nextIteration.Append(Random.Range(0f, 100f) > segmentGrowthChance ? "F" : "FF");
                         break;
 
                     case 'B':
                         // Randomly choose branch configuration
-                        nextIteration.Append(Random.Range(0f, 100f) > branchProbability 
+                        nextIteration.Append(Random.Range(0f, 100f) > branchPatternVariation 
                             ? "[llFB][rFB]" 
                             : "[lFB][rrFB]");
                         break;
@@ -235,13 +250,14 @@ public class TreeGenerator : MonoBehaviour
         Stack<bool> firstSegmentStack = new Stack<bool>();
         Stack<Vector3> branchConnectionDirStack = new Stack<Vector3>();
         List<List<BranchPoint>> allBranches = new List<List<BranchPoint>>();
+        int branchCounter = 0; // For unique branch seeds
 
         // Create temporary transform for tree generation
         Transform treeTransform = treeObject.transform;
         treeTransform.position = transform.position;
         treeTransform.rotation = transform.rotation;
 
-        float currentRadius = initialRadius;
+        float currentRadius = baseThickness;
         List<BranchPoint> currentBranch = new List<BranchPoint>();
         bool isFirstSegmentInBranch = false;
         Vector3 currentConnectionDirection = Vector3.zero;
@@ -257,8 +273,8 @@ public class TreeGenerator : MonoBehaviour
                     treeTransform.Translate(Vector3.up * segmentLength);
                     currentConnectionDirection = (treeTransform.position - prevPos).normalized;
                     float endRadius = isFirstSegmentInBranch
-                        ? currentRadius * branchRadiusFactor * taperFactor
-                        : currentRadius * taperFactor;
+                        ? currentRadius * childBranchThickness * branchThinningRate
+                        : currentRadius * branchThinningRate;
                     currentRadius = endRadius;
                     currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
                     isFirstSegmentInBranch = false;
@@ -287,7 +303,7 @@ public class TreeGenerator : MonoBehaviour
                 case ']':
                     // Generate mesh for the branch
                     Vector3 parentConnectionDir = branchConnectionDirStack.Peek();
-                    AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, parentConnectionDir);
+                    AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, parentConnectionDir, branchCounter++);
                     allBranches.Add(currentBranch);
                     // Restore transform and radius state
                     TransformInfoHelper savedTransform = transformStack.Pop();
@@ -301,20 +317,20 @@ public class TreeGenerator : MonoBehaviour
 
                 case 'l':
                     // Left rotation
-                    treeTransform.Rotate(Vector3.back, Random.Range(angleXMin, angleXMax));
-                    treeTransform.Rotate(Vector3.up, Random.Range(angleYMin, angleYMax));
+                    treeTransform.Rotate(Vector3.back, Random.Range(minBranchAngle, maxBranchAngle));
+                    treeTransform.Rotate(Vector3.up, Random.Range(minVerticalAngle, maxVerticalAngle));
                     break;
 
                 case 'r':
                     // Right rotation
-                    treeTransform.Rotate(Vector3.forward, Random.Range(angleYMin, angleYMax));
-                    treeTransform.Rotate(Vector3.up, Random.Range(angleYMin, angleYMax));
+                    treeTransform.Rotate(Vector3.forward, Random.Range(minVerticalAngle, maxVerticalAngle));
+                    treeTransform.Rotate(Vector3.up, Random.Range(minVerticalAngle, maxVerticalAngle));
                     break;
             }
         }
 
         // Generate mesh for the main trunk
-        AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, Vector3.zero);
+        AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, Vector3.zero, branchCounter++);
         allBranches.Add(currentBranch);
 
         // Assign mesh data
@@ -341,19 +357,30 @@ public class TreeGenerator : MonoBehaviour
         treeObject.transform.position = new Vector3(treeObject.transform.position.x, generatorY, treeObject.transform.position.z);
     }
 
-    private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<BranchPoint> points, int segments, Vector3 parentConnectionDir)
+    private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<BranchPoint> points, int segments, Vector3 parentConnectionDir, int branchSeed)
     {
         if (points.Count < 2) return;
 
         int startVertexIndex = vertices.Count;
         int pointCount = points.Count;
         
+        // Calculate cumulative distances along the branch for proper UV mapping
+        float[] cumulativeDistances = new float[pointCount];
+        cumulativeDistances[0] = 0f;
+        for (int i = 1; i < pointCount; i++)
+        {
+            cumulativeDistances[i] = cumulativeDistances[i - 1] + Vector3.Distance(points[i - 1].pos, points[i].pos);
+        }
+        float totalLength = cumulativeDistances[pointCount - 1];
+        
         // If this is a child branch, add an extra ring extruded back along parent direction
         int ringOffset = 0;
-        if (parentConnectionDir != Vector3.zero && branchConnectionExtrusionLength > 0f)
+        float connectionDistance = 0f;
+        if (parentConnectionDir != Vector3.zero && branchBlendDistance > 0f)
         {
             ringOffset = 1;
-            Vector3 connectionPos = points[0].pos - parentConnectionDir * branchConnectionExtrusionLength;
+            connectionDistance = branchBlendDistance;
+            Vector3 connectionPos = points[0].pos - parentConnectionDir * branchBlendDistance;
             float radius = points[0].radius;
             
             // Generate the connection ring at the extruded position
@@ -363,8 +390,23 @@ public class TreeGenerator : MonoBehaviour
             {
                 float angle = j * Mathf.PI * 2 / segments;
                 Vector3 offset = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * Vector3.Cross(parentConnectionDir, perpendicular)) * radius;
-                vertices.Add(connectionPos + offset);
-                uvs.Add(new Vector2(j / (float)segments, -0.1f));
+                Vector3 vertexWorldPos = connectionPos + offset;
+                vertices.Add(vertexWorldPos);
+                
+                float u = (j / (float)segments) * barkTilingHorizontal;
+                float v = (-connectionDistance / totalLength) * totalLength * barkTilingVertical;
+                Vector2 baseUV = new Vector2(u, v);
+                
+                // Apply texture variation
+                Vector2 finalUV = BarkTextureUtility.ApplyAllUVVariation(
+                    baseUV,
+                    vertexWorldPos,
+                    branchSeed,
+                    barkUVRandomness,
+                    barkUVNoiseScale,
+                    barkUVNoiseStrength
+                );
+                uvs.Add(finalUV);
             }
         }
 
@@ -391,8 +433,24 @@ public class TreeGenerator : MonoBehaviour
             {
                 float angle = j * Mathf.PI * 2 / segments;
                 Vector3 offset = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * Vector3.Cross(direction, perpendicular)) * radius;
-                vertices.Add(pos + offset);
-                uvs.Add(new Vector2(j / (float)segments, (i + ringOffset) / (float)(pointCount + ringOffset - 1)));
+                Vector3 vertexWorldPos = pos + offset;
+                vertices.Add(vertexWorldPos);
+                
+                // Calculate UVs based on actual distance and circumference
+                float u = (j / (float)segments) * barkTilingHorizontal;
+                float v = (cumulativeDistances[i] / totalLength) * totalLength * barkTilingVertical;
+                Vector2 baseUV = new Vector2(u, v);
+                
+                // Apply texture variation
+                Vector2 finalUV = BarkTextureUtility.ApplyAllUVVariation(
+                    baseUV,
+                    vertexWorldPos,
+                    branchSeed,
+                    barkUVRandomness,
+                    barkUVNoiseScale,
+                    barkUVNoiseStrength
+                );
+                uvs.Add(finalUV);
             }
         }
 
@@ -476,7 +534,7 @@ public class TreeGenerator : MonoBehaviour
                     Vector3 binormal = Vector3.Cross(direction, perpendicular).normalized;
                     float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
                     Vector3 radial = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * binormal).normalized;
-                    pos += radial * (radius + leafRadiusOffset);
+                    pos += radial * (radius + leafDistanceFromBranch);
 
                     // Add rotation diversity
                     Quaternion rotation = Quaternion.LookRotation(radial, direction) * Quaternion.Euler(Random.Range(-45f, 45f), Random.Range(0f, 360f), Random.Range(-45f, 45f));
