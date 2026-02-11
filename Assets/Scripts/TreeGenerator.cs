@@ -19,59 +19,82 @@ public class TreeGenerator : MonoBehaviour
     }
 
     [Header("Tree Materials")]
+    [Tooltip("Material applied to the tree trunk and branches")]
     [SerializeField] private Material barkMaterial;
+    [Tooltip("Material applied to the leaves")]
     [SerializeField] private Material leafMaterial;
 
     [Header("Tree Generation")]
+    [Tooltip("Starting symbol for the L-System (B = Branch, F = Forward). Leave as 'B' for standard trees")]
     [SerializeField] private string axiom = "B";
+    [Tooltip("Number of times to expand the tree structure. Higher values create more complex trees")]
     [Range(1, 10)]
     [SerializeField] private int iterations = 3;
+    [Tooltip("Length of each branch segment in units")]
     [Range(0.1f, 5f)]
     [SerializeField] private float segmentLength = 1f;
 
     [Header("Thickness")]
+    [Tooltip("Starting thickness of the tree trunk at the base")]
     [Range(0.1f, 2f)]
     [SerializeField] private float initialRadius = 0.5f;
-    [Range(0.5f, 0.99f)]
+    [Tooltip("How much branches thin out per segment (1.0 = no thinning, 0.5 = rapid thinning)")]
+    [Range(0.5f, 1.0f)]
     [SerializeField] private float taperFactor = 0.9f; // Radius multiplier per segment
+    [Tooltip("How much thinner child branches are compared to their parent branch")]
     [Range(0.3f, 0.95f)]
     [SerializeField] private float branchRadiusFactor = 0.7f; // Radius multiplier for new branches
 
     [Header("Leaves")]
+    [Tooltip("Width of each leaf in units")]
     [Range(0.05f, 10f)]
     [SerializeField] private float leafWidth = 0.25f;
+    [Tooltip("Length of each leaf in units")]
     [Range(0.05f, 10f)]
     [SerializeField] private float leafLength = 0.4f;
+    [Tooltip("Average number of leaves per branch segment. Higher values create fuller foliage")]
     [Range(0f, 20f)]
     [SerializeField] private float leafDensity = 1.2f; // Leaves per segment
+    [Tooltip("Where leaves start appearing on the tree (0 = bottom, 1 = top only)")]
     [Range(0f, 1f)]
-    [SerializeField] private float leafStartHeightNormalized = 0.5f; // 0 = trunk base height, 1 = highest point
+    [SerializeField] private float leafStartHeight = 0.5f; // 0 = trunk base height, 1 = highest point
+    [Tooltip("How far leaves extend away from the branch surface. Negative values push leaves inward")]
     [Range(-0.5f, 1f)]
     [SerializeField] private float leafRadiusOffset = 0.1f; // Push leaves away from branch surface
+    [Tooltip("Random variation in leaf sizes (0 = uniform, 1 = highly varied)")]
     [Range(0f, 1f)]
     [SerializeField] private float leafSizeVariation = 0.2f; // Range of size randomization (0-1)
+    [Tooltip("Makes leaves visible from both sides instead of just the front")]
     [SerializeField] private bool doubleSidedLeaves = false;
 
     [Header("Branch Connection")]
+    [Tooltip("How far branches extend back into their parent branch for smoother connections")]
     [Range(0f, 1f)]
     [SerializeField] private float branchConnectionExtrusionLength = 0.2f; // How far to extrude child ring back along parent
 
     [Header("L-System Parameters")]
+    [Tooltip("Probability (0-100) that branch segments grow longer. Higher values create taller trees")]
     [Range(0f, 100f)]
     [SerializeField] private float growthProbability = 50f; // Probability (0-100) of branch growth
+    [Tooltip("Probability (0-100) affecting branch pattern distribution. Experiment for different shapes")]
     [Range(0f, 100f)]
     [SerializeField] private float branchProbability = 50f; // Probability (0-100) of branch type selection
+    [Tooltip("Minimum angle for branch rotation (affects how spread out branches are)")]
     [Range(0f, 90f)]
     [SerializeField] private float angleXMin = 15f; // Minimum angle for left rotation
+    [Tooltip("Maximum angle for branch rotation (affects how spread out branches are)")]
     [Range(0f, 90f)]
     [SerializeField] private float angleXMax = 45f; // Maximum angle for left rotation
+    [Tooltip("Minimum vertical angle for branches (negative = downward, positive = upward)")]
     [Range(-180f, 0f)]
     [SerializeField] private float angleYMin = -30f; // Minimum angle for right rotation
+    [Tooltip("Maximum vertical angle for branches (negative = downward, positive = upward)")]
     [Range(0f, 180f)]
     [SerializeField] private float angleYMax = 30f; // Maximum angle for right rotation
 
     private string expandedTree;
     private Stack<TransformInfoHelper> transformStack;
+    private GameObject generatedTree; // Reference to the tree created by this generator
 
     // Get the Y position of the generator
     private float generatorY => transform.position.y;
@@ -79,9 +102,52 @@ public class TreeGenerator : MonoBehaviour
 
     void Start()
     {
+        // Only generate a tree if one doesn't already exist
+        if (transform.Find("Tree") == null)
+        {
+            RegenerateTree();
+        }
+    }
+
+    public void RegenerateTree()
+    {
+        ClearTree();
         expandedTree = axiom;
         ExpandTreeString();
         CreateMesh();
+    }
+
+    private void ClearTree()
+    {
+        // Destroy the tree generated by this specific generator
+        if (generatedTree != null)
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(generatedTree);
+            }
+            else
+            {
+                DestroyImmediate(generatedTree);
+            }
+            generatedTree = null;
+        }
+        else
+        {
+            // Fallback: Check for any existing "Tree" child (handles play mode transitions)
+            Transform existingTree = transform.Find("Tree");
+            if (existingTree != null)
+            {
+                if (Application.isPlaying)
+                {
+                    Destroy(existingTree.gameObject);
+                }
+                else
+                {
+                    DestroyImmediate(existingTree.gameObject);
+                }
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -150,6 +216,7 @@ public class TreeGenerator : MonoBehaviour
 
         // Create GameObject and components
         GameObject treeObject = CreateMeshObject("Tree", barkMaterial, null, out Mesh mesh);
+        generatedTree = treeObject; // Store reference to this generator's tree
 
         // Initialize mesh data
         List<Vector3> vertices = new List<Vector3>();
@@ -269,7 +336,8 @@ public class TreeGenerator : MonoBehaviour
             leafMesh.RecalculateBounds();
         }
 
-        // Set tree object's Y position to generator's Y position
+        // Make tree a child of the generator and set position
+        treeObject.transform.SetParent(transform, true);
         treeObject.transform.position = new Vector3(treeObject.transform.position.x, generatorY, treeObject.transform.position.z);
     }
 
@@ -347,6 +415,21 @@ public class TreeGenerator : MonoBehaviour
                 triangles.Add(nextRingStart + nextJ);
             }
         }
+
+        // Add end cap to close off the branch
+        BranchPoint lastPoint = points[pointCount - 1];
+        int centerVertexIndex = vertices.Count;
+        vertices.Add(lastPoint.pos);
+        uvs.Add(new Vector2(0.5f, 0.5f));
+
+        int lastRingStart = startVertexIndex + (totalRings - 1) * segments;
+        for (int j = 0; j < segments; j++)
+        {
+            int nextJ = (j + 1) % segments;
+            triangles.Add(centerVertexIndex);
+            triangles.Add(lastRingStart + j);
+            triangles.Add(lastRingStart + nextJ);
+        }
     }
 
     private void CreateLeaves(List<Vector3> leafVertices, List<int> leafTriangles, List<Vector2> leafUvs, List<List<BranchPoint>> branches)
@@ -373,7 +456,7 @@ public class TreeGenerator : MonoBehaviour
             for (int i = 0; i < segmentCount; i++)
             {
                 float segmentHeightNormalized = (branch[i].pos.y - minY) / heightRange;
-                if (segmentHeightNormalized < leafStartHeightNormalized) continue;
+                if (segmentHeightNormalized < leafStartHeight) continue;
 
                 float leavesForSegment = leafDensity;
                 int leafCount = Mathf.FloorToInt(leavesForSegment);
