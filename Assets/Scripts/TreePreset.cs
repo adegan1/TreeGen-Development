@@ -7,6 +7,10 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "TreeGen/Tree Preset", fileName = "TreePreset")]
 public class TreePreset : ScriptableObject
 {
+    [Header("Materials")]
+    public Material barkMaterial;
+    public Material leafMaterial;
+
     [HideInInspector]
     public TreeGenerator.TreeStructureMode structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
     [HideInInspector]
@@ -30,7 +34,8 @@ public class TreePreset : ScriptableObject
     public float trunkNoiseStrength = 0.2f;
 
     [Header("Branches")]
-    [Range(1, 5)]
+    public bool noBranches = false;
+    [Range(0, 5)]
     public int branchLevels = 3;
     [Range(1, 12)]
     public int branchesPerLevel = 3;
@@ -114,6 +119,13 @@ public class TreePreset : ScriptableObject
     public bool doubleSidedLeaves = false;
     [Range(-0.5f, 1f)]
     public float leafDistanceFromBranch = 0.1f;
+    [Range(0.1f, 10f)]
+    public float planeLeafTextureTiling = 1f;
+    public bool enablePlaneLeafSizeByHeight = false;
+    [Range(0.1f, 10f)]
+    public float planeLeafSizeBottom = 1f;
+    [Range(0.1f, 10f)]
+    public float planeLeafSizeTop = 1f;
     [HideInInspector]
     [Range(0f, 1f)]
     public float leafClumpiness = 0.5f;
@@ -230,6 +242,18 @@ public class TreePreset : ScriptableObject
 public static class TreePresetDefaults
 {
     private const string PresetFolder = "Assets/TreePresets";
+    private const string MaterialFolder = "Assets/Materials";
+    private const string PresetMaterialFolder = "Assets/Materials/Presets";
+
+    private static Material LoadMaterial(string name)
+    {
+        return AssetDatabase.LoadAssetAtPath<Material>(MaterialFolder + "/" + name + ".mat");
+    }
+
+    private static Material LoadPresetMaterial(string name)
+    {
+        return AssetDatabase.LoadAssetAtPath<Material>(PresetMaterialFolder + "/" + name + ".mat");
+    }
 
     public static void CreateDefaultPresets()
     {
@@ -238,8 +262,30 @@ public static class TreePresetDefaults
             AssetDatabase.CreateFolder("Assets", "TreePresets");
         }
 
+        Material barkMat = LoadMaterial("WoodMaterial");
+        Material leafClusterMat = LoadMaterial("LeafCluster");
+        Material leafPlaneMat = LoadMaterial("LeafPlane");
+        Material pineLeafMat = LoadMaterial("PineLeaf");
+        Material leafDomeMat = LoadMaterial("LeafDome");
+        Material solidLeafMat = LoadMaterial("SolidLeaf");
+
+        Material barkBrownMat = LoadPresetMaterial("Bark_Brown");
+        Material barkWhiteMat = LoadPresetMaterial("Bark_White");
+        Material barkRedwoodMat = LoadPresetMaterial("Bark_Redwood");
+
+        Material leafClusterLushMat = LoadPresetMaterial("LeafCluster_LushGreen");
+        Material leafClusterLightMat = LoadPresetMaterial("LeafCluster_LightGreen");
+        Material leafClusterYellowMat = LoadPresetMaterial("LeafCluster_Yellow");
+        Material leafClusterRedMat = LoadPresetMaterial("LeafCluster_Red");
+        Material leafClusterOliveMat = LoadPresetMaterial("LeafCluster_Olive");
+
+        Material pineLeafDarkMat = LoadPresetMaterial("PineLeaf_Dark");
+        Material solidLeafBushMat = LoadPresetMaterial("SolidLeaf_Bush");
+
         CreateOrUpdatePreset(PresetFolder + "/Oak.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterLushMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.65f;
             preset.baseThickness = 0.75f;
@@ -327,6 +373,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Pine.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = pineLeafDarkMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.9f;
             preset.baseThickness = 0.55f;
@@ -342,15 +390,15 @@ public static class TreePresetDefaults
             preset.minBranchesPerLevel = 3;
             preset.maxBranchesPerLevel = 5;
             preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.85f;
-            preset.branchLengthFalloff = 0.75f;
+            preset.branchLengthFactor = 0.95f;
+            preset.branchLengthFalloff = 0.6f;
             preset.branchSpawnStart = 0.15f;
             preset.branchSpawnEnd = 0.98f;
             preset.branchDistributionPower = 1.1f;
             preset.branchAngleMin = 10f;
-            preset.branchAngleMax = 28f;
-            preset.branchUpwardBias = 0.05f;
-            preset.branchDroop = 0.25f;
+            preset.branchAngleMax = 35f;
+            preset.branchUpwardBias = 0.02f;
+            preset.branchDroop = 0.3f;
             preset.branchNoiseScale = 0.3f;
             preset.branchNoiseStrength = 0.08f;
             preset.branchTwistJitter = 8f;
@@ -389,67 +437,32 @@ public static class TreePresetDefaults
             };
 
             preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.05f;
-            preset.leafLength = 0.36f;
+            preset.leafWidth = 1.25f;
+            preset.leafLength = 4.5f;
             preset.leafDensity = 14f;
-            preset.leafStartHeight = 0.18f;
+            preset.leafStartHeight = 0.1f;
             preset.leafSizeVariation = 0.12f;
             preset.doubleSidedLeaves = true;
             preset.leafDistanceFromBranch = 0.035f;
+            preset.enablePlaneLeafSizeByHeight = true;
+            preset.planeLeafSizeBottom = 2f;
+            preset.planeLeafSizeTop = 0.5f;
             preset.leafClumpiness = 0.7f;
             preset.leafClumpSpread = 0.2f;
             preset.leafTipBias = 0.8f;
             preset.leafUpAlignment = 0.1f;
-            preset.leafSizeByHeight = 0.4f;
+            preset.leafSizeByHeight = 0.55f;
             preset.leafRadialJitter = 0.04f;
             preset.minBranchRadiusForLeaves = 0.015f;
             preset.maxLeafCount = 9500;
             preset.branchBlendDistance = 0.16f;
         });
 
-        CreateOrUpdatePreset(PresetFolder + "/Palm.asset", preset =>
-        {
-            preset.structureMode = TreeGenerator.TreeStructureMode.LSystem;
-            preset.lSystemSeed = "FFFFFB";
-            preset.complexity = 2;
-            preset.segmentLength = 1.1f;
-            preset.baseThickness = 0.55f;
-            preset.branchThinningRate = 0.95f;
-            preset.childBranchThickness = 0.85f;
-            preset.leafMode = TreeGenerator.LeafGenerationMode.Domes;
-            preset.leafDensity = 1.6f;
-            preset.leafStartHeight = 0.6f;
-            preset.leafSizeVariation = 0.18f;
-            preset.domeRadius = 2.8f;
-            preset.domeShapeX = 1.1f;
-            preset.domeShapeY = 0.55f;
-            preset.domeShapeZ = 1.1f;
-            preset.domeOffset = 0.85f;
-            preset.domeSegments = 14;
-            preset.domeNoiseStrength = 0.08f;
-            preset.domeNoiseScale = 2f;
-            preset.domeTextureTiling = 1.2f;
-            preset.randomizeDomeRotation = true;
-            preset.segmentGrowthChance = 45f;
-            preset.branchPatternVariation = 25f;
-            preset.minBranchAngle = 10f;
-            preset.maxBranchAngle = 25f;
-            preset.minVerticalAngle = -5f;
-            preset.maxVerticalAngle = 45f;
-            preset.branchBlendDistance = 0.1f;
-            preset.branchBendChance = 0.1f;
-            preset.branchBendStrength = 1.5f;
-            preset.minBranchRadiusForLeaves = 0.02f;
-            preset.maxLeafCount = 3200;
-            preset.canopyTargetEnabled = false;
-            preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
-            preset.minBranchUpward = 0.02f;
-            preset.clampBranchesAboveBase = false;
-            preset.branchGroundClearance = 0.05f;
-        });
 
         CreateOrUpdatePreset(PresetFolder + "/Ash.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterOliveMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
             preset.baseThickness = 0.55f;
@@ -513,6 +526,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Aspen.asset", preset =>
         {
+            preset.barkMaterial = barkWhiteMat;
+            preset.leafMaterial = leafClusterYellowMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
             preset.baseThickness = 0.42f;
@@ -576,6 +591,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Maple.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterRedMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.6f;
             preset.baseThickness = 0.6f;
@@ -639,6 +656,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Birch.asset", preset =>
         {
+            preset.barkMaterial = barkWhiteMat;
+            preset.leafMaterial = leafClusterLightMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
             preset.baseThickness = 0.4f;
@@ -700,70 +719,11 @@ public static class TreePresetDefaults
             preset.branchBlendDistance = 0.22f;
         });
 
-        CreateOrUpdatePreset(PresetFolder + "/Willow.asset", preset =>
-        {
-            preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
-            preset.segmentLength = 0.7f;
-            preset.baseThickness = 0.65f;
-            preset.branchThinningRate = 0.92f;
-            preset.childBranchThickness = 0.78f;
-
-            preset.trunkHeight = 8f;
-            preset.trunkHeightVariation = 0.18f;
-            preset.trunkLeanStrength = 0.2f;
-            preset.trunkNoiseScale = 0.4f;
-            preset.trunkNoiseStrength = 0.18f;
-            preset.branchLevels = 2;
-            preset.minBranchesPerLevel = 3;
-            preset.maxBranchesPerLevel = 4;
-            preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.95f;
-            preset.branchLengthFalloff = 0.78f;
-            preset.branchSpawnStart = 0.2f;
-            preset.branchSpawnEnd = 0.95f;
-            preset.branchDistributionPower = 1.35f;
-            preset.branchAngleMin = 40f;
-            preset.branchAngleMax = 75f;
-            preset.branchUpwardBias = 0.02f;
-            preset.branchDroop = 0.7f;
-            preset.branchNoiseScale = 0.4f;
-            preset.branchNoiseStrength = 0.12f;
-            preset.branchTwistJitter = 12f;
-            preset.maxGeneratedBranches = 85;
-            preset.minBranchUpward = 0.02f;
-            preset.clampBranchesAboveBase = false;
-            preset.branchGroundClearance = 0.05f;
-
-            preset.canopyTargetEnabled = false;
-            preset.canopyCenterOffset = new Vector3(0f, 5.2f, 0f);
-            preset.canopyRadii = new Vector3(4.6f, 2.6f, 4.6f);
-            preset.canopyAttraction = 0.3f;
-            preset.canopySurfaceTarget = true;
-            preset.canopyHeightStart = 0.3f;
-            preset.canopyHeightEnd = 1f;
-            preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
-
-            preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.055f;
-            preset.leafLength = 0.32f;
-            preset.leafDensity = 13f;
-            preset.leafStartHeight = 0.28f;
-            preset.leafSizeVariation = 0.2f;
-            preset.doubleSidedLeaves = true;
-            preset.leafDistanceFromBranch = 0.05f;
-            preset.leafClumpiness = 0.6f;
-            preset.leafClumpSpread = 0.25f;
-            preset.leafTipBias = 0.7f;
-            preset.leafUpAlignment = 0.1f;
-            preset.leafSizeByHeight = 0.35f;
-            preset.leafRadialJitter = 0.05f;
-            preset.minBranchRadiusForLeaves = 0.02f;
-            preset.maxLeafCount = 9500;
-            preset.branchBlendDistance = 0.22f;
-        });
 
         CreateOrUpdatePreset(PresetFolder + "/Bush.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = solidLeafBushMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.45f;
             preset.baseThickness = 0.3f;
@@ -827,6 +787,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Redwood.asset", preset =>
         {
+            preset.barkMaterial = barkRedwoodMat;
+            preset.leafMaterial = pineLeafDarkMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 1.05f;
             preset.baseThickness = 0.9f;
@@ -842,15 +804,15 @@ public static class TreePresetDefaults
             preset.minBranchesPerLevel = 3;
             preset.maxBranchesPerLevel = 5;
             preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.55f;
-            preset.branchLengthFalloff = 0.68f;
-            preset.branchSpawnStart = 0.45f;
+            preset.branchLengthFactor = 0.85f;
+            preset.branchLengthFalloff = 0.55f;
+            preset.branchSpawnStart = 0.25f;
             preset.branchSpawnEnd = 0.98f;
             preset.branchDistributionPower = 1.4f;
             preset.branchAngleMin = 12f;
-            preset.branchAngleMax = 30f;
-            preset.branchUpwardBias = 0.25f;
-            preset.branchDroop = 0.2f;
+            preset.branchAngleMax = 40f;
+            preset.branchUpwardBias = 0.15f;
+            preset.branchDroop = 0.3f;
             preset.branchNoiseScale = 0.25f;
             preset.branchNoiseStrength = 0.08f;
             preset.branchTwistJitter = 8f;
@@ -869,18 +831,21 @@ public static class TreePresetDefaults
             preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
 
             preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.05f;
-            preset.leafLength = 0.3f;
+            preset.leafWidth = 1.25f;
+            preset.leafLength = 4.5f;
             preset.leafDensity = 12.5f;
-            preset.leafStartHeight = 0.65f;
+            preset.leafStartHeight = 0.45f;
             preset.leafSizeVariation = 0.1f;
             preset.doubleSidedLeaves = true;
             preset.leafDistanceFromBranch = 0.04f;
+            preset.enablePlaneLeafSizeByHeight = true;
+            preset.planeLeafSizeBottom = 2f;
+            preset.planeLeafSizeTop = 0.5f;
             preset.leafClumpiness = 0.6f;
             preset.leafClumpSpread = 0.2f;
             preset.leafTipBias = 0.7f;
             preset.leafUpAlignment = 0.15f;
-            preset.leafSizeByHeight = 0.4f;
+            preset.leafSizeByHeight = 0.6f;
             preset.leafRadialJitter = 0.04f;
             preset.minBranchRadiusForLeaves = 0.015f;
             preset.maxLeafCount = 9800;
@@ -889,6 +854,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Oak_Young.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterLushMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.45f;
@@ -952,6 +919,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Maple_Young.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterRedMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.45f;
@@ -1015,6 +984,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Birch_Young.asset", preset =>
         {
+            preset.barkMaterial = barkWhiteMat;
+            preset.leafMaterial = leafClusterLightMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.38f;
@@ -1078,6 +1049,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Aspen_Young.asset", preset =>
         {
+            preset.barkMaterial = barkWhiteMat;
+            preset.leafMaterial = leafClusterYellowMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.38f;
@@ -1141,6 +1114,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Ash_Young.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = leafClusterOliveMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.6f;
             preset.baseThickness = 0.42f;
@@ -1202,77 +1177,18 @@ public static class TreePresetDefaults
             preset.branchBlendDistance = 0.22f;
         });
 
-        CreateOrUpdatePreset(PresetFolder + "/Willow_Young.asset", preset =>
-        {
-            preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
-            preset.segmentLength = 0.65f;
-            preset.baseThickness = 0.45f;
-            preset.branchThinningRate = 0.92f;
-            preset.childBranchThickness = 0.75f;
-
-            preset.trunkHeight = 5f;
-            preset.trunkHeightVariation = 0.22f;
-            preset.trunkLeanStrength = 0.28f;
-            preset.trunkNoiseScale = 0.5f;
-            preset.trunkNoiseStrength = 0.26f;
-            preset.branchLevels = 2;
-            preset.minBranchesPerLevel = 3;
-            preset.maxBranchesPerLevel = 4;
-            preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.85f;
-            preset.branchLengthFalloff = 0.75f;
-            preset.branchSpawnStart = 0.2f;
-            preset.branchSpawnEnd = 0.9f;
-            preset.branchDistributionPower = 1.4f;
-            preset.branchAngleMin = 35f;
-            preset.branchAngleMax = 70f;
-            preset.branchUpwardBias = 0.05f;
-            preset.branchDroop = 0.65f;
-            preset.branchNoiseScale = 0.45f;
-            preset.branchNoiseStrength = 0.14f;
-            preset.branchTwistJitter = 14f;
-            preset.maxGeneratedBranches = 70;
-            preset.minBranchUpward = 0.02f;
-            preset.clampBranchesAboveBase = false;
-            preset.branchGroundClearance = 0.03f;
-
-            preset.canopyTargetEnabled = false;
-            preset.canopyCenterOffset = new Vector3(0f, 3.8f, 0f);
-            preset.canopyRadii = new Vector3(2.6f, 1.9f, 2.6f);
-            preset.canopyAttraction = 0.38f;
-            preset.canopySurfaceTarget = true;
-            preset.canopyHeightStart = 0.3f;
-            preset.canopyHeightEnd = 1f;
-            preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
-
-            preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.055f;
-            preset.leafLength = 0.28f;
-            preset.leafDensity = 12f;
-            preset.leafStartHeight = 0.3f;
-            preset.leafSizeVariation = 0.2f;
-            preset.doubleSidedLeaves = true;
-            preset.leafDistanceFromBranch = 0.05f;
-            preset.leafClumpiness = 0.6f;
-            preset.leafClumpSpread = 0.25f;
-            preset.leafTipBias = 0.7f;
-            preset.leafUpAlignment = 0.1f;
-            preset.leafSizeByHeight = 0.35f;
-            preset.leafRadialJitter = 0.05f;
-            preset.minBranchRadiusForLeaves = 0.02f;
-            preset.maxLeafCount = 8200;
-            preset.branchBlendDistance = 0.22f;
-        });
 
         CreateOrUpdatePreset(PresetFolder + "/Pine_Young.asset", preset =>
         {
+            preset.barkMaterial = barkBrownMat;
+            preset.leafMaterial = pineLeafDarkMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.8f;
             preset.baseThickness = 0.38f;
             preset.branchThinningRate = 0.93f;
             preset.childBranchThickness = 0.65f;
 
-            preset.trunkHeight = 6.5f;
+            preset.trunkHeight = 20f;
             preset.trunkHeightVariation = 0.18f;
             preset.trunkLeanStrength = 0.12f;
             preset.trunkNoiseScale = 0.3f;
@@ -1281,15 +1197,15 @@ public static class TreePresetDefaults
             preset.minBranchesPerLevel = 3;
             preset.maxBranchesPerLevel = 4;
             preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.75f;
-            preset.branchLengthFalloff = 0.72f;
+            preset.branchLengthFactor = 0.9f;
+            preset.branchLengthFalloff = 0.6f;
             preset.branchSpawnStart = 0.15f;
             preset.branchSpawnEnd = 0.95f;
             preset.branchDistributionPower = 1.2f;
             preset.branchAngleMin = 18f;
-            preset.branchAngleMax = 35f;
-            preset.branchUpwardBias = 0.1f;
-            preset.branchDroop = 0.35f;
+            preset.branchAngleMax = 40f;
+            preset.branchUpwardBias = 0.05f;
+            preset.branchDroop = 0.4f;
             preset.branchNoiseScale = 0.35f;
             preset.branchNoiseStrength = 0.1f;
             preset.branchTwistJitter = 10f;
@@ -1308,18 +1224,21 @@ public static class TreePresetDefaults
             preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
 
             preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.05f;
-            preset.leafLength = 0.34f;
+            preset.leafWidth = 1.25f;
+            preset.leafLength = 4.5f;
             preset.leafDensity = 13f;
             preset.leafStartHeight = 0.25f;
             preset.leafSizeVariation = 0.14f;
             preset.doubleSidedLeaves = true;
             preset.leafDistanceFromBranch = 0.04f;
+            preset.enablePlaneLeafSizeByHeight = true;
+            preset.planeLeafSizeBottom = 7f;
+            preset.planeLeafSizeTop = 0.8f;
             preset.leafClumpiness = 0.65f;
             preset.leafClumpSpread = 0.2f;
             preset.leafTipBias = 0.75f;
             preset.leafUpAlignment = 0.15f;
-            preset.leafSizeByHeight = 0.35f;
+            preset.leafSizeByHeight = 0.55f;
             preset.leafRadialJitter = 0.05f;
             preset.minBranchRadiusForLeaves = 0.015f;
             preset.maxLeafCount = 8200;
@@ -1328,6 +1247,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Redwood_Young.asset", preset =>
         {
+            preset.barkMaterial = barkRedwoodMat;
+            preset.leafMaterial = pineLeafDarkMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.95f;
             preset.baseThickness = 0.6f;
@@ -1343,15 +1264,15 @@ public static class TreePresetDefaults
             preset.minBranchesPerLevel = 3;
             preset.maxBranchesPerLevel = 4;
             preset.branchLevelDensityFalloff = 0.8f;
-            preset.branchLengthFactor = 0.6f;
-            preset.branchLengthFalloff = 0.68f;
-            preset.branchSpawnStart = 0.3f;
+            preset.branchLengthFactor = 0.85f;
+            preset.branchLengthFalloff = 0.55f;
+            preset.branchSpawnStart = 0.2f;
             preset.branchSpawnEnd = 0.9f;
             preset.branchDistributionPower = 1.4f;
             preset.branchAngleMin = 20f;
-            preset.branchAngleMax = 40f;
-            preset.branchUpwardBias = 0.3f;
-            preset.branchDroop = 0.25f;
+            preset.branchAngleMax = 45f;
+            preset.branchUpwardBias = 0.2f;
+            preset.branchDroop = 0.35f;
             preset.branchNoiseScale = 0.3f;
             preset.branchNoiseStrength = 0.1f;
             preset.branchTwistJitter = 10f;
@@ -1370,18 +1291,21 @@ public static class TreePresetDefaults
             preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
 
             preset.leafMode = TreeGenerator.LeafGenerationMode.Planes;
-            preset.leafWidth = 0.05f;
-            preset.leafLength = 0.3f;
+            preset.leafWidth = 1.25f;
+            preset.leafLength = 4.5f;
             preset.leafDensity = 12f;
-            preset.leafStartHeight = 0.6f;
+            preset.leafStartHeight = 0.4f;
             preset.leafSizeVariation = 0.12f;
             preset.doubleSidedLeaves = true;
             preset.leafDistanceFromBranch = 0.04f;
+            preset.enablePlaneLeafSizeByHeight = true;
+            preset.planeLeafSizeBottom = 2f;
+            preset.planeLeafSizeTop = 0.5f;
             preset.leafClumpiness = 0.6f;
             preset.leafClumpSpread = 0.2f;
             preset.leafTipBias = 0.7f;
             preset.leafUpAlignment = 0.15f;
-            preset.leafSizeByHeight = 0.4f;
+            preset.leafSizeByHeight = 0.6f;
             preset.leafRadialJitter = 0.04f;
             preset.minBranchRadiusForLeaves = 0.015f;
             preset.maxLeafCount = 8200;

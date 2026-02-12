@@ -14,7 +14,6 @@ public partial class TreeGenerator
         bool reachedMaxLeaves = false;
         int leafSeed = 0; // For UV randomization
 
-        const float radialJitter = 0.02f;
 
         foreach (var branch in branches)
         {
@@ -67,17 +66,24 @@ public partial class TreeGenerator
                     Vector3 binormal = Vector3.Cross(direction, perpendicular).normalized;
                     float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
                     Vector3 radial = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * binormal).normalized;
-                    float radialOffset = branchRadius + leafDistanceFromBranch + Random.Range(-radialJitter, radialJitter);
+                    float radialOffset = branchRadius + leafDistanceFromBranch + Random.Range(-leafRadialJitter, leafRadialJitter);
                     radialOffset = Mathf.Max(branchRadius, radialOffset);
                     pos += radial * radialOffset;
 
-                    // Add rotation diversity
-                    Quaternion rotation = Quaternion.LookRotation(radial, Vector3.up) * Quaternion.Euler(Random.Range(-45f, 45f), Random.Range(0f, 360f), Random.Range(-45f, 45f));
+                    // Align leaf length outward from the branch
+                    Quaternion rotation = Quaternion.LookRotation(direction, radial);
+                    rotation = Quaternion.AngleAxis(Random.Range(0f, 360f), radial) * rotation;
 
-                    // Add size variation
+                    // Add size variation and optional vertical taper (larger at bottom, smaller at top)
                     float sizeVariationMultiplier = 1f + Random.Range(-leafSizeVariation, leafSizeVariation);
-                    float variedWidth = leafWidth * sizeVariationMultiplier;
-                    float variedLength = leafLength * sizeVariationMultiplier;
+                    float heightT = Mathf.Clamp01(segmentHeightNormalized);
+                    float heightSizeMultiplier = 1f;
+                    if (enablePlaneLeafSizeByHeight)
+                    {
+                        heightSizeMultiplier = Mathf.Lerp(planeLeafSizeBottom, planeLeafSizeTop, heightT);
+                    }
+                    float variedWidth = leafWidth * sizeVariationMultiplier * heightSizeMultiplier;
+                    float variedLength = leafLength * sizeVariationMultiplier * heightSizeMultiplier;
 
                     AddLeafQuad(leafVertices, leafTriangles, leafUvs, leafColors, pos, rotation, variedWidth, variedLength, doubleSidedLeaves, leafSeed++);
                     totalLeavesGenerated++;
@@ -109,12 +115,13 @@ public partial class TreeGenerator
         leafColors.Add(leafColor);
 
         // Apply UV variation to each corner
+        float uvTiling = Mathf.Max(0.01f, planeLeafTextureTiling);
         Vector2[] baseUVs = new Vector2[]
         {
-            new Vector2(0f, 0f),
-            new Vector2(1f, 0f),
-            new Vector2(1f, 1f),
-            new Vector2(0f, 1f)
+            new Vector2(0f, 0f) * uvTiling,
+            new Vector2(1f, 0f) * uvTiling,
+            new Vector2(1f, 1f) * uvTiling,
+            new Vector2(0f, 1f) * uvTiling
         };
 
         for (int i = 0; i < 4; i++)

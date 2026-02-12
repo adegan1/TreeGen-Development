@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
   m_Name: Ash
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: f90d81093d7492446bf0963189a88df6, type: 2}
   structureMode: 1
   lSystemSeed: FB
   complexity: 3
@@ -22,6 +24,7 @@ MonoBehaviour:
   trunkLeanStrength: 0.18
   trunkNoiseScale: 0.35
   trunkNoiseStrength: 0.18
+  noBranches: 0
   branchLevels: 2
   branchesPerLevel: 3
   minBranchesPerLevel: 3
@@ -62,6 +65,9 @@ MonoBehaviour:
   leafSizeVariation: 0.2
   doubleSidedLeaves: 0
   leafDistanceFromBranch: 0.1
+  enablePlaneLeafSizeByHeight: 0
+  planeLeafSizeBottom: 1
+  planeLeafSizeTop: 1
   leafClumpiness: 0.5
   leafClumpSpread: 0.25
   leafTipBias: 0.6

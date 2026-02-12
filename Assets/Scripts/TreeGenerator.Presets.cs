@@ -10,6 +10,16 @@ public partial class TreeGenerator
             return;
         }
 
+        if (newPreset.barkMaterial != null)
+        {
+            barkMaterial = newPreset.barkMaterial;
+        }
+
+        if (newPreset.leafMaterial != null)
+        {
+            leafMaterial = newPreset.leafMaterial;
+        }
+
         segmentLength = newPreset.segmentLength;
 
         randomSeed = newPreset.randomSeed;
@@ -19,7 +29,7 @@ public partial class TreeGenerator
         trunkNoiseScale = newPreset.trunkNoiseScale;
         trunkNoiseStrength = newPreset.trunkNoiseStrength;
 
-        branchLevels = newPreset.branchLevels;
+        branchLevels = newPreset.noBranches ? 0 : newPreset.branchLevels;
         branchesPerLevel = newPreset.branchesPerLevel;
         branchLevelDensityFalloff = newPreset.branchLevelDensityFalloff;
         branchLengthFactor = newPreset.branchLengthFactor;
@@ -56,6 +66,10 @@ public partial class TreeGenerator
         leafSizeVariation = newPreset.leafSizeVariation;
         doubleSidedLeaves = newPreset.doubleSidedLeaves;
         leafDistanceFromBranch = newPreset.leafDistanceFromBranch;
+        planeLeafTextureTiling = newPreset.planeLeafTextureTiling;
+        enablePlaneLeafSizeByHeight = newPreset.enablePlaneLeafSizeByHeight;
+        planeLeafSizeBottom = newPreset.planeLeafSizeBottom;
+        planeLeafSizeTop = newPreset.planeLeafSizeTop;
 
         leafTransparency = newPreset.leafTransparency;
         leafUVRandomness = newPreset.leafUVRandomness;

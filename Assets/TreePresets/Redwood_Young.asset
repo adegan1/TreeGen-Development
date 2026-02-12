@@ -12,30 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
   m_Name: Redwood_Young
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: 9f708d980141a6443a05c73b1401dd81, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 99813732e8f8e46478f65b18468c1ed0, type: 2}
   structureMode: 1
   lSystemSeed: FB
   complexity: 3
-  segmentLength: 0.95
+  segmentLength: 1.6
   randomSeed: 0
-  trunkHeight: 9
+  trunkHeight: 11.28
   trunkHeightVariation: 0.12
   trunkLeanStrength: 0.08
   trunkNoiseScale: 0.25
   trunkNoiseStrength: 0.12
-  branchLevels: 3
-  branchesPerLevel: 3
+  noBranches: 0
+  branchLevels: 1
+  branchesPerLevel: 1
   minBranchesPerLevel: 3
   maxBranchesPerLevel: 4
   branchLevelDensityFalloff: 0.8
-  branchLengthFactor: 0.6
-  branchLengthFalloff: 0.68
-  branchSpawnStart: 0.3
+  branchLengthFactor: 0.85
+  branchLengthFalloff: 0.55
+  branchSpawnStart: 0.2
   branchSpawnEnd: 0.9
   branchDistributionPower: 1.4
-  branchAngleMin: 20
-  branchAngleMax: 40
-  branchUpwardBias: 0.3
-  branchDroop: 0.25
+  branchAngleMin: 0
+  branchAngleMax: 0
+  branchUpwardBias: 0
+  branchDroop: 0.35
   branchNoiseScale: 0.3
   branchNoiseStrength: 0.1
   branchTwistJitter: 10
@@ -55,18 +58,22 @@ MonoBehaviour:
   branchThinningRate: 0.94
   childBranchThickness: 0.62
   leafMode: 0
-  leafWidth: 0.05
-  leafLength: 0.3
+  leafWidth: 1.34
+  leafLength: 4.07
   leafDensity: 12
-  leafStartHeight: 0.6
+  leafStartHeight: 0.408
   leafSizeVariation: 0.12
   doubleSidedLeaves: 1
   leafDistanceFromBranch: 0.04
+  planeLeafTextureTiling: 1
+  enablePlaneLeafSizeByHeight: 1
+  planeLeafSizeBottom: 5.07
+  planeLeafSizeTop: 1.81
   leafClumpiness: 0.6
   leafClumpSpread: 0.2
   leafTipBias: 0.7
   leafUpAlignment: 0.15
-  leafSizeByHeight: 0.4
+  leafSizeByHeight: 0.6
   leafRadialJitter: 0.04
   leafTransparency: 1
   leafUVRandomness: 0.2

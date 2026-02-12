@@ -12,30 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
   m_Name: Redwood
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: 9f708d980141a6443a05c73b1401dd81, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 99813732e8f8e46478f65b18468c1ed0, type: 2}
   structureMode: 1
   lSystemSeed: FB
   complexity: 3
-  segmentLength: 1.05
+  segmentLength: 2.64
   randomSeed: 0
-  trunkHeight: 15
+  trunkHeight: 20
   trunkHeightVariation: 0.1
   trunkLeanStrength: 0.06
   trunkNoiseScale: 0.2
   trunkNoiseStrength: 0.1
-  branchLevels: 3
-  branchesPerLevel: 3
+  noBranches: 0
+  branchLevels: 1
+  branchesPerLevel: 1
   minBranchesPerLevel: 3
   maxBranchesPerLevel: 5
   branchLevelDensityFalloff: 0.8
-  branchLengthFactor: 0.55
-  branchLengthFalloff: 0.68
-  branchSpawnStart: 0.45
+  branchLengthFactor: 0.85
+  branchLengthFalloff: 0.55
+  branchSpawnStart: 0.25
   branchSpawnEnd: 0.98
   branchDistributionPower: 1.4
-  branchAngleMin: 12
-  branchAngleMax: 30
-  branchUpwardBias: 0.25
-  branchDroop: 0.2
+  branchAngleMin: 0
+  branchAngleMax: 0
+  branchUpwardBias: 0
+  branchDroop: 0.3
   branchNoiseScale: 0.25
   branchNoiseStrength: 0.08
   branchTwistJitter: 8
@@ -51,22 +54,26 @@ MonoBehaviour:
   canopyHeightStart: 0.6
   canopyHeightEnd: 1
   canopyVolumes: []
-  baseThickness: 0.9
-  branchThinningRate: 0.95
-  childBranchThickness: 0.6
+  baseThickness: 1.65
+  branchThinningRate: 0.843
+  childBranchThickness: 0.56
   leafMode: 0
-  leafWidth: 0.05
-  leafLength: 0.3
-  leafDensity: 12.5
-  leafStartHeight: 0.65
-  leafSizeVariation: 0.1
+  leafWidth: 2.16
+  leafLength: 5.36
+  leafDensity: 13.33
+  leafStartHeight: 0.435
+  leafSizeVariation: 0.431
   doubleSidedLeaves: 1
   leafDistanceFromBranch: 0.04
+  planeLeafTextureTiling: 0.92
+  enablePlaneLeafSizeByHeight: 1
+  planeLeafSizeBottom: 5.92
+  planeLeafSizeTop: 2.39
   leafClumpiness: 0.6
   leafClumpSpread: 0.2
   leafTipBias: 0.7
   leafUpAlignment: 0.15
-  leafSizeByHeight: 0.4
+  leafSizeByHeight: 0.6
   leafRadialJitter: 0.04
   leafTransparency: 1
   leafUVRandomness: 0.2

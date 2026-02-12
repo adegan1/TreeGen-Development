@@ -83,6 +83,10 @@ public class TreeGeneratorEditor : Editor
     SerializedProperty leafLength;
     SerializedProperty doubleSidedLeaves;
     SerializedProperty leafDistanceFromBranch;
+    SerializedProperty planeLeafTextureTiling;
+    SerializedProperty enablePlaneLeafSizeByHeight;
+    SerializedProperty planeLeafSizeBottom;
+    SerializedProperty planeLeafSizeTop;
     
     // Leaf Appearance
     SerializedProperty leafTransparency;
@@ -192,6 +196,10 @@ public class TreeGeneratorEditor : Editor
         leafLength = serializedObject.FindProperty("leafLength");
         doubleSidedLeaves = serializedObject.FindProperty("doubleSidedLeaves");
         leafDistanceFromBranch = serializedObject.FindProperty("leafDistanceFromBranch");
+        planeLeafTextureTiling = serializedObject.FindProperty("planeLeafTextureTiling");
+        enablePlaneLeafSizeByHeight = serializedObject.FindProperty("enablePlaneLeafSizeByHeight");
+        planeLeafSizeBottom = serializedObject.FindProperty("planeLeafSizeBottom");
+        planeLeafSizeTop = serializedObject.FindProperty("planeLeafSizeTop");
         
         // Leaf Appearance
         leafTransparency = serializedObject.FindProperty("leafTransparency");
@@ -398,6 +406,13 @@ public class TreeGeneratorEditor : Editor
         {
             EditorGUI.indentLevel++;
             EditorGUILayout.LabelField("Guided Growth", EditorStyles.miniLabel);
+            bool noBranches = branchLevels.intValue <= 0;
+            bool newNoBranches = EditorGUILayout.Toggle("No Branches", noBranches);
+            if (newNoBranches != noBranches)
+            {
+                branchLevels.intValue = newNoBranches ? 0 : Mathf.Max(1, branchLevels.intValue);
+            }
+            EditorGUI.BeginDisabledGroup(branchLevels.intValue <= 0);
             EditorGUILayout.PropertyField(branchLevels);
             EditorGUILayout.PropertyField(branchesPerLevel);
             EditorGUILayout.PropertyField(branchLevelDensityFalloff);
@@ -420,6 +435,8 @@ public class TreeGeneratorEditor : Editor
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.PropertyField(branchBlendDistance);
+
+            EditorGUI.EndDisabledGroup();
 
             EditorGUILayout.Space(3);
             EditorGUILayout.LabelField("Canopy Targeting", EditorStyles.miniLabel);
@@ -460,6 +477,15 @@ public class TreeGeneratorEditor : Editor
                 EditorGUILayout.PropertyField(leafWidth);
                 EditorGUILayout.PropertyField(leafLength);
                 EditorGUILayout.PropertyField(leafDistanceFromBranch);
+                EditorGUILayout.PropertyField(planeLeafTextureTiling, new GUIContent("Texture Tiling"));
+                EditorGUILayout.PropertyField(enablePlaneLeafSizeByHeight, new GUIContent("Size By Height"));
+                if (enablePlaneLeafSizeByHeight.boolValue)
+                {
+                    EditorGUI.indentLevel++;
+                    EditorGUILayout.PropertyField(planeLeafSizeBottom, new GUIContent("Size Bottom"));
+                    EditorGUILayout.PropertyField(planeLeafSizeTop, new GUIContent("Size Top"));
+                    EditorGUI.indentLevel--;
+                }
                 EditorGUILayout.PropertyField(doubleSidedLeaves);
             }
             else if (mode == TreeGenerator.LeafGenerationMode.Clusters)

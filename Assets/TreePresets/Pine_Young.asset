@@ -12,30 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
   m_Name: Pine_Young
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 7be463d439a2a594e9dd50d9c2f05245, type: 2}
   structureMode: 1
   lSystemSeed: FB
   complexity: 3
   segmentLength: 0.8
   randomSeed: 0
-  trunkHeight: 6.5
+  trunkHeight: 12.62
   trunkHeightVariation: 0.18
   trunkLeanStrength: 0.12
   trunkNoiseScale: 0.3
   trunkNoiseStrength: 0.15
+  noBranches: 1
   branchLevels: 3
   branchesPerLevel: 3
   minBranchesPerLevel: 3
   maxBranchesPerLevel: 4
   branchLevelDensityFalloff: 0.8
-  branchLengthFactor: 0.75
-  branchLengthFalloff: 0.72
+  branchLengthFactor: 0.9
+  branchLengthFalloff: 0.6
   branchSpawnStart: 0.15
   branchSpawnEnd: 0.95
   branchDistributionPower: 1.2
   branchAngleMin: 18
-  branchAngleMax: 35
-  branchUpwardBias: 0.1
-  branchDroop: 0.35
+  branchAngleMax: 40
+  branchUpwardBias: 0.05
+  branchDroop: 0.4
   branchNoiseScale: 0.35
   branchNoiseStrength: 0.1
   branchTwistJitter: 10
@@ -51,22 +54,25 @@ MonoBehaviour:
   canopyHeightStart: 0.25
   canopyHeightEnd: 1
   canopyVolumes: []
-  baseThickness: 0.38
-  branchThinningRate: 0.93
+  baseThickness: 0.309
+  branchThinningRate: 0.89
   childBranchThickness: 0.65
   leafMode: 0
-  leafWidth: 0.05
-  leafLength: 0.34
+  leafWidth: 0.4
+  leafLength: 3.37
   leafDensity: 13
-  leafStartHeight: 0.25
+  leafStartHeight: 0.188
   leafSizeVariation: 0.14
   doubleSidedLeaves: 1
   leafDistanceFromBranch: 0.04
+  enablePlaneLeafSizeByHeight: 1
+  planeLeafSizeBottom: 4.8
+  planeLeafSizeTop: 0.68
   leafClumpiness: 0.65
   leafClumpSpread: 0.2
   leafTipBias: 0.75
   leafUpAlignment: 0.15
-  leafSizeByHeight: 0.35
+  leafSizeByHeight: 0.55
   leafRadialJitter: 0.05
   leafTransparency: 1
   leafUVRandomness: 0.2
@@ -97,7 +103,7 @@ MonoBehaviour:
   domeNoiseStrength: 0.12
   randomizeDomeRotation: 1
   domeTextureTiling: 1
-  maxLeafCount: 8200
+  maxLeafCount: 7059
   optimizeLeafDistribution: 1
   minBranchRadiusForLeaves: 0.015
   branchBlendDistance: 0.18

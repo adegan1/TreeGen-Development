@@ -12,30 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
   m_Name: Pine
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 7be463d439a2a594e9dd50d9c2f05245, type: 2}
   structureMode: 1
   lSystemSeed: FFFFB
   complexity: 4
   segmentLength: 0.9
   randomSeed: 0
-  trunkHeight: 12
+  trunkHeight: 20
   trunkHeightVariation: 0.12
   trunkLeanStrength: 0.08
   trunkNoiseScale: 0.25
   trunkNoiseStrength: 0.12
+  noBranches: 1
   branchLevels: 3
   branchesPerLevel: 3
   minBranchesPerLevel: 3
   maxBranchesPerLevel: 5
   branchLevelDensityFalloff: 0.8
-  branchLengthFactor: 0.85
-  branchLengthFalloff: 0.75
+  branchLengthFactor: 0.95
+  branchLengthFalloff: 0.6
   branchSpawnStart: 0.15
   branchSpawnEnd: 0.98
   branchDistributionPower: 1.1
   branchAngleMin: 10
-  branchAngleMax: 28
-  branchUpwardBias: 0.05
-  branchDroop: 0.25
+  branchAngleMax: 35
+  branchUpwardBias: 0.02
+  branchDroop: 0.3
   branchNoiseScale: 0.3
   branchNoiseStrength: 0.08
   branchTwistJitter: 8
@@ -63,22 +66,25 @@ MonoBehaviour:
     surfaceTarget: 1
     heightStart: 0.5
     heightEnd: 1
-  baseThickness: 0.55
-  branchThinningRate: 0.94
+  baseThickness: 0.487
+  branchThinningRate: 0.884
   childBranchThickness: 0.62
   leafMode: 0
-  leafWidth: 0.05
-  leafLength: 0.36
-  leafDensity: 14
-  leafStartHeight: 0.18
-  leafSizeVariation: 0.12
+  leafWidth: 0.87
+  leafLength: 4.97
+  leafDensity: 12.71
+  leafStartHeight: 0.29
+  leafSizeVariation: 0.082
   doubleSidedLeaves: 1
   leafDistanceFromBranch: 0.035
+  enablePlaneLeafSizeByHeight: 1
+  planeLeafSizeBottom: 6.86
+  planeLeafSizeTop: 0.76
   leafClumpiness: 0.7
   leafClumpSpread: 0.2
   leafTipBias: 0.8
   leafUpAlignment: 0.1
-  leafSizeByHeight: 0.4
+  leafSizeByHeight: 0.55
   leafRadialJitter: 0.04
   leafTransparency: 1
   leafUVRandomness: 0.2

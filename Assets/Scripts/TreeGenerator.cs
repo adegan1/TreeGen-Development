@@ -103,8 +103,8 @@ public partial class TreeGenerator : MonoBehaviour
     [SerializeField] private float trunkNoiseStrength = 0.2f;
 
     [Header("Branches")]
-    [Tooltip("How many branching levels to generate (1 = only primary branches)")]
-    [Range(1, 5)]
+    [Tooltip("How many branching levels to generate (0 = no branches, 1 = only primary branches)")]
+    [Range(0, 5)]
     [SerializeField] private int branchLevels = 3;
     [Tooltip("Branches spawned per parent at each level")]
     [Range(1, 12)]
@@ -203,6 +203,28 @@ public partial class TreeGenerator : MonoBehaviour
     [Tooltip("How far plane leaves extend from the branch surface (Plane mode only)")]
     [Range(-0.5f, 1f)]
     [SerializeField] private float leafDistanceFromBranch = 0.1f;
+
+    [Header("Plane Leaf UVs")]
+    [Tooltip("Texture tiling for plane leaves")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float planeLeafTextureTiling = 1f;
+
+    [Header("Plane Leaf Size By Height")]
+    [Tooltip("Scale plane leaf size from bottom to top")]
+    [SerializeField] private bool enablePlaneLeafSizeByHeight = false;
+    [Tooltip("Size multiplier at the bottom of the tree (Plane mode)")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float planeLeafSizeBottom = 1f;
+    [Tooltip("Size multiplier at the top of the tree (Plane mode)")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float planeLeafSizeTop = 1f;
+
+    [HideInInspector]
+    [Range(0f, 1f)]
+    [SerializeField] private float leafSizeByHeight = 0.3f;
+    [HideInInspector]
+    [Range(0f, 0.2f)]
+    [SerializeField] private float leafRadialJitter = 0.04f;
     
     [Header("Leaf Appearance")]
     [Tooltip("Transparency of the leaf material (0 = fully transparent, 1 = fully opaque). Note: Material must support transparency")]

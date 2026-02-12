@@ -56,6 +56,9 @@ public partial class TreeGenerator
             }
         }
 
+        bool stabilizeTwist = branchSeed == 0;
+        Vector3 previousPerpendicular = Vector3.zero;
+
         // Add all ring vertices for the main branch
         for (int i = 0; i < pointCount; i++)
         {
@@ -73,7 +76,24 @@ public partial class TreeGenerator
             }
 
             // Use branch's own direction for all rings
-            Vector3 perpendicular = GetPerpendicular(direction);
+            Vector3 perpendicular;
+            if (stabilizeTwist && previousPerpendicular != Vector3.zero)
+            {
+                Vector3 projected = previousPerpendicular - direction * Vector3.Dot(previousPerpendicular, direction);
+                if (projected.sqrMagnitude < 0.0001f)
+                {
+                    perpendicular = GetPerpendicular(direction);
+                }
+                else
+                {
+                    perpendicular = projected.normalized;
+                }
+            }
+            else
+            {
+                perpendicular = GetPerpendicular(direction);
+            }
+            previousPerpendicular = perpendicular;
 
             for (int j = 0; j < segments; j++)
             {
