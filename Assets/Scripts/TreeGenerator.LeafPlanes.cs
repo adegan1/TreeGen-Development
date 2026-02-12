@@ -7,7 +7,7 @@ public partial class TreeGenerator
     {
         if (branches.Count == 0) return;
 
-        (float minY, float maxY, float heightRange) = CalculateHeightRange(branches);
+        (float minY, _, float heightRange) = CalculateHeightRange(branches);
 
         // Track total leaf count for performance limiting
         int totalLeavesGenerated = 0;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -242,6 +243,7 @@ public class TreePreset : ScriptableObject
 public static class TreePresetDefaults
 {
     private const string PresetFolder = "Assets/TreePresets";
+    private const string PresetDefaultsFolder = "Assets/TreePresets/Defaults";
     private const string MaterialFolder = "Assets/Materials";
     private const string PresetMaterialFolder = "Assets/Materials/Presets";
 
@@ -257,10 +259,7 @@ public static class TreePresetDefaults
 
     public static void CreateDefaultPresets()
     {
-        if (!AssetDatabase.IsValidFolder(PresetFolder))
-        {
-            AssetDatabase.CreateFolder("Assets", "TreePresets");
-        }
+        EnsurePresetDefaultsFolder();
 
         Material barkMat = LoadMaterial("WoodMaterial");
         Material leafClusterMat = LoadMaterial("LeafCluster");
@@ -272,10 +271,11 @@ public static class TreePresetDefaults
         Material barkBrownMat = LoadPresetMaterial("Bark_Brown");
         Material barkWhiteMat = LoadPresetMaterial("Bark_White");
         Material barkRedwoodMat = LoadPresetMaterial("Bark_Redwood");
+        Material barkGrayMat = LoadPresetMaterial("Bark_Gray");
 
         Material leafClusterLushMat = LoadPresetMaterial("LeafCluster_LushGreen");
         Material leafClusterLightMat = LoadPresetMaterial("LeafCluster_LightGreen");
-        Material leafClusterYellowMat = LoadPresetMaterial("LeafCluster_Yellow");
+        Material leafClusterLimeMat = LoadPresetMaterial("LeafCluster_Lime");
         Material leafClusterRedMat = LoadPresetMaterial("LeafCluster_Red");
         Material leafClusterOliveMat = LoadPresetMaterial("LeafCluster_Olive");
 
@@ -527,7 +527,7 @@ public static class TreePresetDefaults
         CreateOrUpdatePreset(PresetFolder + "/Aspen.asset", preset =>
         {
             preset.barkMaterial = barkWhiteMat;
-            preset.leafMaterial = leafClusterYellowMat;
+            preset.leafMaterial = leafClusterLimeMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
             preset.baseThickness = 0.42f;
@@ -1050,7 +1050,7 @@ public static class TreePresetDefaults
         CreateOrUpdatePreset(PresetFolder + "/Aspen_Young.asset", preset =>
         {
             preset.barkMaterial = barkWhiteMat;
-            preset.leafMaterial = leafClusterYellowMat;
+            preset.leafMaterial = leafClusterLimeMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.38f;
@@ -1312,20 +1312,223 @@ public static class TreePresetDefaults
             preset.branchBlendDistance = 0.2f;
         });
 
+        CreateOrUpdatePreset(PresetFolder + "/Leafless.asset", preset =>
+        {
+            preset.barkMaterial = barkGrayMat;
+            preset.leafMaterial = leafClusterLightMat;
+            preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
+            preset.segmentLength = 0.7f;
+            preset.baseThickness = 0.6f;
+            preset.branchThinningRate = 0.9f;
+            preset.childBranchThickness = 0.72f;
+
+            preset.trunkHeight = 9f;
+            preset.trunkHeightVariation = 0.2f;
+            preset.trunkLeanStrength = 0.25f;
+            preset.trunkNoiseScale = 0.5f;
+            preset.trunkNoiseStrength = 0.28f;
+            preset.branchLevels = 4;
+            preset.branchesPerLevel = 5;
+            preset.branchLevelDensityFalloff = 0.9f;
+            preset.branchLengthFactor = 0.8f;
+            preset.branchLengthFalloff = 0.7f;
+            preset.branchAngleMin = 20f;
+            preset.branchAngleMax = 65f;
+            preset.branchUpwardBias = 0.08f;
+            preset.branchDroop = 0.35f;
+            preset.branchNoiseScale = 0.75f;
+            preset.branchNoiseStrength = 0.25f;
+            preset.branchTwistJitter = 24f;
+            preset.maxGeneratedBranches = 220;
+            preset.minBranchUpward = 0.01f;
+            preset.clampBranchesAboveBase = false;
+            preset.branchGroundClearance = 0.05f;
+
+            preset.canopyTargetEnabled = false;
+            preset.canopyCenterOffset = new Vector3(0f, 6.5f, 0f);
+            preset.canopyRadii = new Vector3(3f, 3f, 3f);
+            preset.canopyAttraction = 0.4f;
+            preset.canopySurfaceTarget = true;
+            preset.canopyHeightStart = 0.2f;
+            preset.canopyHeightEnd = 1f;
+            preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
+
+            preset.leafMode = TreeGenerator.LeafGenerationMode.Clusters;
+            preset.leafDensity = 0f;
+            preset.leafStartHeight = 1f;
+            preset.leafSizeVariation = 0f;
+            preset.clusterRadius = 1.5f;
+            preset.clusterSizeMin = 0.85f;
+            preset.clusterSizeMax = 1.2f;
+            preset.clusterShapeX = 1.2f;
+            preset.clusterShapeY = 1f;
+            preset.clusterShapeZ = 1.2f;
+            preset.clusterNoiseStrength = 0.18f;
+            preset.clusterNoiseScale = 2f;
+            preset.clusterSegments = 14;
+            preset.clusterTextureTiling = 4.5f;
+            preset.clusterOffset = 0.2f;
+            preset.minBranchRadiusForLeaves = 0.5f;
+            preset.maxLeafCount = 0;
+            preset.branchBlendDistance = 0.2f;
+        });
+
+        CreateOrUpdatePreset(PresetFolder + "/Leafless_Young.asset", preset =>
+        {
+            preset.barkMaterial = barkGrayMat;
+            preset.leafMaterial = leafClusterLightMat;
+            preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
+            preset.segmentLength = 0.6f;
+            preset.baseThickness = 0.45f;
+            preset.branchThinningRate = 0.9f;
+            preset.childBranchThickness = 0.74f;
+
+            preset.trunkHeight = 5.5f;
+            preset.trunkHeightVariation = 0.22f;
+            preset.trunkLeanStrength = 0.28f;
+            preset.trunkNoiseScale = 0.55f;
+            preset.trunkNoiseStrength = 0.3f;
+            preset.branchLevels = 3;
+            preset.branchesPerLevel = 5;
+            preset.branchLevelDensityFalloff = 0.9f;
+            preset.branchLengthFactor = 0.75f;
+            preset.branchLengthFalloff = 0.72f;
+            preset.branchAngleMin = 20f;
+            preset.branchAngleMax = 65f;
+            preset.branchUpwardBias = 0.1f;
+            preset.branchDroop = 0.4f;
+            preset.branchNoiseScale = 0.8f;
+            preset.branchNoiseStrength = 0.28f;
+            preset.branchTwistJitter = 26f;
+            preset.maxGeneratedBranches = 140;
+            preset.minBranchUpward = 0.01f;
+            preset.clampBranchesAboveBase = false;
+            preset.branchGroundClearance = 0.03f;
+
+            preset.canopyTargetEnabled = false;
+            preset.canopyCenterOffset = new Vector3(0f, 3.8f, 0f);
+            preset.canopyRadii = new Vector3(2.2f, 2.2f, 2.2f);
+            preset.canopyAttraction = 0.4f;
+            preset.canopySurfaceTarget = true;
+            preset.canopyHeightStart = 0.25f;
+            preset.canopyHeightEnd = 1f;
+            preset.canopyVolumes = new List<TreeGenerator.CanopyVolumeSettings>();
+
+            preset.leafMode = TreeGenerator.LeafGenerationMode.Clusters;
+            preset.leafDensity = 0f;
+            preset.leafStartHeight = 1f;
+            preset.leafSizeVariation = 0f;
+            preset.clusterRadius = 1.4f;
+            preset.clusterSizeMin = 0.85f;
+            preset.clusterSizeMax = 1.15f;
+            preset.clusterShapeX = 1.2f;
+            preset.clusterShapeY = 1f;
+            preset.clusterShapeZ = 1.2f;
+            preset.clusterNoiseStrength = 0.18f;
+            preset.clusterNoiseScale = 2f;
+            preset.clusterSegments = 14;
+            preset.clusterTextureTiling = 4.5f;
+            preset.clusterOffset = 0.2f;
+            preset.minBranchRadiusForLeaves = 0.5f;
+            preset.maxLeafCount = 0;
+            preset.branchBlendDistance = 0.2f;
+        });
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
 
-    private static void CreateOrUpdatePreset(string assetPath, System.Action<TreePreset> applyValues)
+    public static void SaveCurrentPresetsAsDefaults()
+    {
+        EnsurePresetDefaultsFolder();
+
+        string[] guids = AssetDatabase.FindAssets("t:TreePreset", new[] { PresetFolder });
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string sourcePath = AssetDatabase.GUIDToAssetPath(guids[i]);
+            if (sourcePath.StartsWith(PresetDefaultsFolder + "/", System.StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            string fileName = Path.GetFileName(sourcePath);
+            if (string.IsNullOrEmpty(fileName))
+            {
+                continue;
+            }
+
+            string destPath = PresetDefaultsFolder + "/" + fileName;
+            if (AssetDatabase.LoadAssetAtPath<TreePreset>(destPath) != null)
+            {
+                AssetDatabase.DeleteAsset(destPath);
+            }
+
+            AssetDatabase.CopyAsset(sourcePath, destPath);
+        }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
+
+    private static void EnsurePresetDefaultsFolder()
+    {
+        if (!AssetDatabase.IsValidFolder(PresetFolder))
+        {
+            AssetDatabase.CreateFolder("Assets", "TreePresets");
+        }
+
+        if (!AssetDatabase.IsValidFolder(PresetDefaultsFolder))
+        {
+            AssetDatabase.CreateFolder(PresetFolder, "Defaults");
+        }
+    }
+
+    private static TreePreset LoadDefaultSource(string assetPath)
+    {
+        if (!AssetDatabase.IsValidFolder(PresetDefaultsFolder))
+        {
+            return null;
+        }
+
+        string fileName = Path.GetFileName(assetPath);
+        if (string.IsNullOrEmpty(fileName))
+        {
+            return null;
+        }
+
+        string sourcePath = PresetDefaultsFolder + "/" + fileName;
+        if (string.Equals(sourcePath, assetPath, System.StringComparison.OrdinalIgnoreCase))
+        {
+            return null;
+        }
+
+        return AssetDatabase.LoadAssetAtPath<TreePreset>(sourcePath);
+    }
+
+    private static void CreateOrUpdatePreset(string assetPath, System.Action<TreePreset> applyValues, bool overwriteExisting = false)
     {
         TreePreset preset = AssetDatabase.LoadAssetAtPath<TreePreset>(assetPath);
+        if (preset != null && !overwriteExisting)
+        {
+            return;
+        }
+
         if (preset == null)
         {
             preset = ScriptableObject.CreateInstance<TreePreset>();
             AssetDatabase.CreateAsset(preset, assetPath);
         }
 
-        applyValues(preset);
+        TreePreset sourcePreset = LoadDefaultSource(assetPath);
+        if (sourcePreset != null)
+        {
+            EditorUtility.CopySerialized(sourcePreset, preset);
+            preset.name = Path.GetFileNameWithoutExtension(assetPath);
+        }
+        else
+        {
+            applyValues(preset);
+        }
         EditorUtility.SetDirty(preset);
     }
 }

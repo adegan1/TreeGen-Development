@@ -221,7 +221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -266,14 +266,22 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: be40872f6bf887244bfe187894bb2ef8, type: 2}
+      objectReference: {fileID: 11400000, guid: 0c77a3b39a702fc47876feaf0abc7b62, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 1.18
+      objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDensity
-      value: 8
+      value: 11.53
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeight
@@ -282,11 +290,11 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+      objectReference: {fileID: 2100000, guid: e7a2aed818fe8b64b813648bd91ad40c, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 7800
@@ -313,11 +321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterRadius
-      value: 1.5
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeX
-      value: 1.15
+      value: 1.035
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeY
@@ -344,8 +352,16 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
       value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchNoiseScale
@@ -392,6 +408,10 @@ PrefabInstance:
       value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchBlendDistance
       value: 0.22
       objectReference: {fileID: 0}
@@ -424,8 +444,16 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -443,7 +471,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -490,9 +518,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f8153bc901d41b84889f07c2a03fc968, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
-      propertyPath: trunkHeight
-      value: 2.5
+      propertyPath: leafWidth
+      value: 0.79
       objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.357
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f8bde2ed743c4544fa458f2bddcf4def, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -503,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: baseThickness
-      value: 0.3
+      value: 0.212
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyRadii.x
@@ -519,23 +567,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterOffset
-      value: 0.15
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterRadius
-      value: 1.5
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeX
-      value: 1.2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeY
-      value: 1
+      value: 0.841
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeZ
-      value: 1.2
+      value: 1.635
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
@@ -546,12 +594,16 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
-      value: 1.2
+      value: 1.141
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMin
-      value: 0.9
+      value: 0.951
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSegments
@@ -559,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.1
+      value: 0.031
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: minBranchUpward
@@ -578,6 +630,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
       value: 0.45
       objectReference: {fileID: 0}
@@ -587,19 +643,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchTwistJitter
-      value: 12
+      value: 17.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterNoiseScale
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkLeanStrength
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
-      propertyPath: branchThinningRate
+      propertyPath: branchLengthFactor
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.814
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseStrength
@@ -627,11 +695,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: childBranchThickness
-      value: 0.75
+      value: 0.629
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterNoiseStrength
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 5.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeightVariation
@@ -643,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
-      value: 0.3
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: minBranchRadiusForLeaves
@@ -669,7 +745,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -716,16 +792,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e53c5e9d394f76247934e2014bfe802c, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
-      value: 0.2
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 15.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 0953957cdf7934b44877edd21a02df03, type: 2}
+      objectReference: {fileID: 2100000, guid: f4da8bb094f92a147ace90d6ffe02acf, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
-      value: 10500
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: baseThickness
@@ -753,15 +849,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeX
-      value: 1.25
+      value: 1.659
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeY
-      value: 1.05
+      value: 1.829
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeZ
-      value: 1.1
+      value: 1.635
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
@@ -769,27 +865,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMax
-      value: 55
+      value: 38.1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMin
-      value: 25
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
       value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.3
+      value: 0.392
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseScale
       value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchUpwardBias
-      value: 0.2
+      value: 0.322
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
@@ -798,6 +902,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafTransparency
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 27.3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyHeightStart
@@ -828,6 +936,10 @@ PrefabInstance:
       value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellThickness
       value: 1.2
       objectReference: {fileID: 0}
@@ -844,6 +956,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 6.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxGeneratedBranches
       value: 95
       objectReference: {fileID: 0}
@@ -852,8 +968,16 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -871,7 +995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -918,6 +1042,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 39e888346cf810c47865c41ef20c0c33, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.2
       objectReference: {fileID: 0}
@@ -927,8 +1059,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeight
-      value: 5.2
+      value: 4.28
       objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -1004,6 +1140,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchUpwardBias
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
@@ -1232,7 +1372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1277,7 +1417,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: 7e6fb4dcafb7b7648ae43b93d35c9144, type: 2}
+      objectReference: {fileID: 11400000, guid: ea911f2c41881c642ae4e0fd1de02454, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMode
       value: 0
@@ -1526,7 +1666,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1571,34 +1711,42 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: 98c692c51d76c0242a9ef8e3f06ffc66, type: 2}
+      objectReference: {fileID: 11400000, guid: fd844dd337ad63a4cbedf6190d589ca7, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 6.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 2.43
+      objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDensity
-      value: 8
+      value: 14.12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeight
-      value: 10
+      value: 15.68
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+      objectReference: {fileID: 2100000, guid: 2db606fe54825b0439bd17b305947988, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
+      objectReference: {fileID: 2100000, guid: 14a27d4d2aeda2c488f45b70cc51987b, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 8200
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: baseThickness
-      value: 0.42
+      value: 0.473
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyRadii.x
@@ -1626,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeY
-      value: 0.95
+      value: 1.524
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeZ
@@ -1638,19 +1786,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMax
-      value: 35
+      value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMin
-      value: 12
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.55
+      value: 0.333
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseScale
@@ -1662,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchUpwardBias
-      value: 0.5
+      value: 0.424
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
@@ -1686,15 +1838,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafSizeVariation
-      value: 0.18
+      value: 0.282
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchLengthFactor
-      value: 0.7
+      value: 0.592
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchThinningRate
-      value: 0.94
+      value: 0.937
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseStrength
@@ -1737,8 +1893,20 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafTextureTiling
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1756,7 +1924,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1801,30 +1969,34 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: 0dd543a166cfe024e8bd98b7f46f7cf2, type: 2}
+      objectReference: {fileID: 11400000, guid: 705326b00ed225442ace3237f622e2a9, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDensity
-      value: 7
+      value: 10.27
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeight
       value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 0953957cdf7934b44877edd21a02df03, type: 2}
+      objectReference: {fileID: 2100000, guid: f4da8bb094f92a147ace90d6ffe02acf, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 6200
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: baseThickness
-      value: 0.45
+      value: 0.443
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyRadii.x
@@ -1848,15 +2020,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeX
-      value: 1.25
+      value: 1.341
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeY
-      value: 0.95
+      value: 1.629
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterShapeZ
-      value: 1.1
+      value: 1.453
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
@@ -1864,15 +2036,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMax
-      value: 55
+      value: 45.5
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMin
-      value: 25
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
-      value: 1.25
+      value: 1.216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSegments
@@ -1880,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.25
+      value: 0.357
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseScale
@@ -1955,6 +2131,10 @@ PrefabInstance:
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxGeneratedBranches
       value: 65
       objectReference: {fileID: 0}
@@ -1990,7 +2170,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2032,6 +2212,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree Generator - Oak
       objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: f58d1663f1e50af44923f0eb5462255d, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f8bde2ed743c4544fa458f2bddcf4def, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.465
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.541
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.918
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 5.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
@@ -2048,7 +2260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2095,6 +2307,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 34ff3b54bff7d8e47aee6c74a2c5646e, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.35
       objectReference: {fileID: 0}
@@ -2106,6 +2330,18 @@ PrefabInstance:
       propertyPath: trunkHeight
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f8bde2ed743c4544fa458f2bddcf4def, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fccdd3ed1c95f4a4083ec31a3d0c34ee, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 6000
@@ -2125,6 +2361,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyRadii.z
       value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterRadius
@@ -2159,12 +2399,20 @@ PrefabInstance:
       value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSegments
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseScale
@@ -2187,6 +2435,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeTop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchTwistJitter
       value: 12
       objectReference: {fileID: 0}
@@ -2199,12 +2451,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkLeanStrength
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchLengthFactor
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseStrength
@@ -2215,12 +2479,20 @@ PrefabInstance:
       value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchNoiseStrength
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellThickness
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeBottom
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyCenterOffset.y
@@ -2235,6 +2507,10 @@ PrefabInstance:
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 5.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxGeneratedBranches
       value: 60
       objectReference: {fileID: 0}
@@ -2247,12 +2523,278 @@ PrefabInstance:
       value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDistanceFromBranch
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: minBranchRadiusForLeaves
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: enablePlaneLeafSizeByHeight
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &971958130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Leafless - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26e873faf5de2a244a8abe5f7c283366, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 06238a93c9b44a11ba008c717192c551, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 33.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.708
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevelDensityFalloff
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2270,7 +2812,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2315,7 +2857,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: 070d12c50f85abf499fb6f729d1e70a9, type: 2}
+      objectReference: {fileID: 11400000, guid: f55f2350632e13c419a58a0a2d1ef9d4, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMode
       value: 0
@@ -2449,6 +2991,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterNoiseScale
       value: 2
       objectReference: {fileID: 0}
@@ -2521,6 +3067,10 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDistanceFromBranch
       value: 0.035
       objectReference: {fileID: 0}
@@ -2548,7 +3098,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2593,7 +3143,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: d3761c0f8900692459306208aa3606a1, type: 2}
+      objectReference: {fileID: 11400000, guid: 1642bb132b437484c96d4480bf7c11dc, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMode
       value: 0
@@ -2827,6 +3377,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevelDensityFalloff
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: enablePlaneLeafSizeByHeight
       value: 1
       objectReference: {fileID: 0}
@@ -2846,7 +3404,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2891,7 +3449,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: preset
       value: 
-      objectReference: {fileID: 11400000, guid: eef8b1f1914bda24f934da2ad69ce61e, type: 2}
+      objectReference: {fileID: 11400000, guid: 576ae067dafe5e8489793ecc8c38da75, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMode
       value: 0
@@ -3132,7 +3690,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3179,25 +3737,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5134ce140b20d09438e1dbc5d642daea, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 2.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDensity
-      value: 7
+      value: 9.73
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkHeight
-      value: 4.8
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+      objectReference: {fileID: 2100000, guid: 2db606fe54825b0439bd17b305947988, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
+      objectReference: {fileID: 2100000, guid: 14a27d4d2aeda2c488f45b70cc51987b, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 5600
@@ -3244,11 +3810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMax
-      value: 50
+      value: 13.4
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchAngleMin
-      value: 22
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
@@ -3260,7 +3826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.4
+      value: 0.388
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkNoiseScale
@@ -3296,7 +3862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafSizeVariation
-      value: 0.2
+      value: 0.475
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkLeanStrength
@@ -3378,7 +3944,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3425,6 +3991,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: bccb314169353b64899e90e7a95c1362, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.15
       objectReference: {fileID: 0}
@@ -3439,11 +4013,11 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+      objectReference: {fileID: 2100000, guid: e7a2aed818fe8b64b813648bd91ad40c, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 5600
@@ -3620,7 +4194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3667,13 +4241,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 766c94dedd4ed394e803f149504544e9, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchDroop
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
-      propertyPath: trunkHeight
-      value: 9.5
+      propertyPath: leafDensity
+      value: 10.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 5.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
@@ -3732,11 +4322,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafStartHeight
-      value: 0.45
+      value: 0.412
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchUpwardBias
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
@@ -3756,7 +4350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafSizeVariation
-      value: 0.2
+      value: 0.357
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: trunkLeanStrength
@@ -3800,6 +4394,264 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &2127166832
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Leafless
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: c2c0f883589acff4c910f8284d9e8430, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.439
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 06238a93c9b44a11ba008c717192c551, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 45.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.888
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.715
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 157
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevelDensityFalloff
+      value: 0.9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3813,6 +4665,8 @@ SceneRoots:
   - {fileID: 212470445}
   - {fileID: 2039342315}
   - {fileID: 460880190}
+  - {fileID: 2127166832}
+  - {fileID: 971958130}
   - {fileID: 545832412}
   - {fileID: 835224404}
   - {fileID: 848953763}

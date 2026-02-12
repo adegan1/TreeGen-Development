@@ -326,11 +326,15 @@ public class TreeGeneratorEditor : Editor
         }
 
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Create Default Presets"))
+        if (GUILayout.Button("Create Missing Default Presets"))
         {
             TreePresetDefaults.CreateDefaultPresets();
             RefreshPresets();
             selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+        }
+        if (GUILayout.Button("Set Defaults From Current Presets"))
+        {
+            TreePresetDefaults.SaveCurrentPresetsAsDefaults();
         }
         if (GUILayout.Button("Refresh Preset List"))
         {

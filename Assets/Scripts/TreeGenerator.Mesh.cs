@@ -3,6 +3,64 @@ using UnityEngine;
 
 public partial class TreeGenerator
 {
+    private List<List<BranchPoint>> BuildBranchMesh(Mesh mesh)
+    {
+        var vertices = new List<Vector3>();
+        var triangles = new List<int>();
+        var uvs = new List<Vector2>();
+
+        List<List<BranchPoint>> branches = GenerateGuidedGrowthBranches(vertices, triangles, uvs);
+
+        mesh.vertices = vertices.ToArray();
+        mesh.triangles = triangles.ToArray();
+        mesh.uv = uvs.ToArray();
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
+
+        return branches;
+    }
+
+    private void BuildLeafMesh(GameObject treeObject, List<List<BranchPoint>> branches)
+    {
+        if (leafMaterial == null || leafDensity <= 0f)
+        {
+            return;
+        }
+
+        var leafVertices = new List<Vector3>();
+        var leafTriangles = new List<int>();
+        var leafUvs = new List<Vector2>();
+        var leafColors = new List<Color>();
+
+        if (leafMode == LeafGenerationMode.Clusters)
+        {
+            CreateLeafClusters(leafVertices, leafTriangles, leafUvs, leafColors, branches);
+        }
+        else if (leafMode == LeafGenerationMode.Domes)
+        {
+            CreateLeafDomes(leafVertices, leafTriangles, leafUvs, leafColors, branches);
+        }
+        else
+        {
+            CreatePlaneLeaves(leafVertices, leafTriangles, leafUvs, leafColors, branches);
+        }
+
+        if (leafVertices.Count == 0 || leafTriangles.Count == 0)
+        {
+            return;
+        }
+
+        GameObject leafObject = CreateMeshObject("Leaves", leafMaterial, treeObject.transform, out Mesh leafMesh);
+        leafMesh.vertices = leafVertices.ToArray();
+        leafMesh.triangles = leafTriangles.ToArray();
+        leafMesh.uv = leafUvs.ToArray();
+        leafMesh.colors = leafColors.ToArray();
+        leafMesh.RecalculateNormals();
+        leafMesh.RecalculateBounds();
+
+        ConfigureLeafMaterialTransparency(leafObject);
+    }
+
     private void AddTube(List<Vector3> vertices, List<int> triangles, List<Vector2> uvs, List<BranchPoint> points, int segments, Vector3 parentConnectionDir, int branchSeed)
     {
         if (points.Count < 2) return;

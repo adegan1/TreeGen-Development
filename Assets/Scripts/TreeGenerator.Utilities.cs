@@ -21,6 +21,63 @@ public partial class TreeGenerator
         return (minY, maxY, heightRange);
     }
 
+    private void CollectLeafEndpoints(List<List<BranchPoint>> branches, float minY, float heightRange, float tipInset, float tipOffset, List<Vector3> endpoints)
+    {
+        endpoints.Clear();
+
+        for (int i = 0; i < branches.Count; i++)
+        {
+            List<BranchPoint> branch = branches[i];
+            if (branch.Count < 2)
+            {
+                continue;
+            }
+
+            BranchPoint endpoint = branch[branch.Count - 1];
+            float endpointHeight = (endpoint.pos.y - minY) / heightRange;
+            if (endpointHeight < leafStartHeight || endpoint.radius < minBranchRadiusForLeaves)
+            {
+                continue;
+            }
+
+            Vector3 branchDir = (branch[branch.Count - 1].pos - branch[branch.Count - 2].pos).normalized;
+            Vector3 endpointPos = endpoint.pos - branchDir * tipInset + branchDir * tipOffset;
+            endpoints.Add(endpointPos);
+        }
+    }
+
+    private void BuildLeafTargets(List<Vector3> endpoints, float proximityRadius, int targetCount, List<Vector3> positions, List<int> nearbyCounts)
+    {
+        positions.Clear();
+        nearbyCounts.Clear();
+
+        if (endpoints.Count == 0 || targetCount <= 0)
+        {
+            return;
+        }
+
+        float proximityRadiusSqr = proximityRadius * proximityRadius;
+        float cellSize = Mathf.Max(0.0001f, proximityRadius);
+        var spatialHash = BuildSpatialHash(endpoints, cellSize);
+
+        var data = new List<(Vector3 pos, int count)>(endpoints.Count);
+        for (int i = 0; i < endpoints.Count; i++)
+        {
+            Vector3 pos = endpoints[i];
+            int nearbyCount = CountNearbyBranchesSpatial(pos, endpoints, spatialHash, cellSize, proximityRadiusSqr);
+            data.Add((pos, nearbyCount));
+        }
+
+        data.Sort((a, b) => a.count.CompareTo(b.count));
+
+        int count = Mathf.Min(targetCount, data.Count);
+        for (int i = 0; i < count; i++)
+        {
+            positions.Add(data[i].pos);
+            nearbyCounts.Add(data[i].count);
+        }
+    }
+
     private static Dictionary<Vector3Int, List<int>> BuildSpatialHash(List<Vector3> positions, float cellSize)
     {
         var hash = new Dictionary<Vector3Int, List<int>>();

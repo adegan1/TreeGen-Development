@@ -7,84 +7,20 @@ public partial class TreeGenerator
     {
         if (branches.Count == 0) return;
 
-        (float minY, float maxY, float heightRange) = CalculateHeightRange(branches);
+        (float minY, _, float heightRange) = CalculateHeightRange(branches);
 
-        // Collect branch endpoints that qualify for clusters with nearby branch counts
         List<Vector3> clusterPositions = new List<Vector3>();
-        List<int> nearbyBranchCounts = new List<int>(); // Track how many branches are near each cluster
+        List<int> nearbyBranchCounts = new List<int>();
+        List<Vector3> allEndpoints = new List<Vector3>();
         int clusterSeed = 0; // For UV randomization
 
-        // First pass: collect all potential cluster positions
-        List<Vector3> allEndpoints = new List<Vector3>();
+        float tipInset = clusterRadius * 0.2f;
+        CollectLeafEndpoints(branches, minY, heightRange, tipInset, clusterOffset, allEndpoints);
 
-        foreach (var branch in branches)
-        {
-            if (branch.Count < 2) continue;
-
-            // Get the endpoint of this branch
-            BranchPoint endpoint = branch[branch.Count - 1];
-            float endpointHeight = (endpoint.pos.y - minY) / heightRange;
-
-            // Check if this endpoint qualifies for a cluster
-            if (endpointHeight >= leafStartHeight && endpoint.radius >= minBranchRadiusForLeaves)
-            {
-                // Position cluster to cover the branch endpoint
-                // Offset inward slightly to ensure branch tip is inside the cluster
-                Vector3 branchDir = (branch[branch.Count - 1].pos - branch[branch.Count - 2].pos).normalized;
-                Vector3 clusterPos = endpoint.pos - branchDir * (clusterRadius * 0.2f) + branchDir * clusterOffset;
-                allEndpoints.Add(clusterPos);
-            }
-        }
-
-        // Calculate center of all endpoints for distance-based sizing
-        Vector3 treeCenter = Vector3.zero;
-        if (allEndpoints.Count > 0)
-        {
-            foreach (Vector3 pos in allEndpoints)
-            {
-                treeCenter += pos;
-            }
-            treeCenter /= allEndpoints.Count;
-        }
-
-        // Second pass: count nearby branches for each endpoint
+        Vector3 treeCenter = CalculateTreeCenter(allEndpoints);
         float clusterProximityRadius = clusterRadius * ClusterProximityRadiusMultiplier;
-        float clusterProximityRadiusSqr = clusterProximityRadius * clusterProximityRadius;
-        float cellSize = Mathf.Max(0.0001f, clusterProximityRadius);
-        var spatialHash = BuildSpatialHash(allEndpoints, cellSize);
-
-        // In cluster mode, leafDensity directly controls the number of clusters
         int targetClusterCount = Mathf.RoundToInt(leafDensity);
-
-        for (int i = 0; i < allEndpoints.Count; i++)
-        {
-            Vector3 pos = allEndpoints[i];
-
-            // Count how many other endpoints are nearby
-            int nearbyCount = CountNearbyBranchesSpatial(pos, allEndpoints, spatialHash, cellSize, clusterProximityRadiusSqr);
-
-            clusterPositions.Add(pos);
-            nearbyBranchCounts.Add(nearbyCount);
-        }
-
-        // Sort clusters by proximity count (ascending) to prioritize isolated/naked branches first
-        // This ensures single branches get covered before adding density to grouped areas
-        var clusterData = new List<(Vector3 pos, int count)>();
-        for (int i = 0; i < clusterPositions.Count; i++)
-        {
-            clusterData.Add((clusterPositions[i], nearbyBranchCounts[i]));
-        }
-        clusterData.Sort((a, b) => a.count.CompareTo(b.count));
-
-        // Take only the target number of clusters
-        clusterPositions.Clear();
-        nearbyBranchCounts.Clear();
-        int clustersToGenerate = Mathf.Min(targetClusterCount, clusterData.Count);
-        for (int i = 0; i < clustersToGenerate; i++)
-        {
-            clusterPositions.Add(clusterData[i].pos);
-            nearbyBranchCounts.Add(clusterData[i].count);
-        }
+        BuildLeafTargets(allEndpoints, clusterProximityRadius, targetClusterCount, clusterPositions, nearbyBranchCounts);
 
         // Generate clusters with size based on branch proximity and distance from center
         int clustersGenerated = 0;

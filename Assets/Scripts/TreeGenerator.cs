@@ -15,6 +15,8 @@ public partial class TreeGenerator : MonoBehaviour
     private const int OuterShellSeedOffset = 1000;
     private const float OuterShellNoiseMultiplier = 1.5f;
     private const float OuterShellNoiseScale = 0.8f;
+    private const string TreeObjectName = "Tree";
+    private static readonly Color CanopyGizmoColor = new Color(0.2f, 0.8f, 0.3f, 1f);
 
     public enum LeafGenerationMode
     {
@@ -337,10 +339,10 @@ public partial class TreeGenerator : MonoBehaviour
     private float generatorY => transform.position.y;
 
 
-    void Start()
+    private void Start()
     {
         // Only generate a tree if one doesn't already exist
-        if (transform.Find("Tree") == null)
+        if (transform.Find(TreeObjectName) == null)
         {
             RegenerateTree();
         }
@@ -370,7 +372,7 @@ public partial class TreeGenerator : MonoBehaviour
         else
         {
             // Fallback: Check for any existing "Tree" child (handles play mode transitions)
-            Transform existingTree = transform.Find("Tree");
+            Transform existingTree = transform.Find(TreeObjectName);
             if (existingTree != null)
             {
                 if (Application.isPlaying)
@@ -398,7 +400,7 @@ public partial class TreeGenerator : MonoBehaviour
         }
 
         Quaternion baseRotation = transform.rotation;
-        DrawCanopyVolumeGizmo(canopyCenterOffset, canopyRadii, baseRotation, new Color(0.2f, 0.8f, 0.3f, 1f));
+        DrawCanopyVolumeGizmo(canopyCenterOffset, canopyRadii, baseRotation, CanopyGizmoColor);
     }
 
     private void DrawCanopyVolumeGizmo(Vector3 centerOffset, Vector3 radii, Quaternion baseRotation, Color color)
@@ -411,7 +413,7 @@ public partial class TreeGenerator : MonoBehaviour
         Gizmos.matrix = prev;
     }
 
-    void CreateMesh()
+    private void CreateMesh()
     {
         // Validate material
         if (barkMaterial == null)
@@ -421,55 +423,11 @@ public partial class TreeGenerator : MonoBehaviour
         }
 
         // Create GameObject and components
-        GameObject treeObject = CreateMeshObject("Tree", barkMaterial, null, out Mesh mesh);
+        GameObject treeObject = CreateMeshObject(TreeObjectName, barkMaterial, null, out Mesh mesh);
         generatedTree = treeObject; // Store reference to this generator's tree
 
-        // Initialize mesh data
-        List<Vector3> vertices = new List<Vector3>();
-        List<int> triangles = new List<int>();
-        List<Vector2> uvs = new List<Vector2>();
-
-        // Leaf mesh data
-        List<Vector3> leafVertices = new List<Vector3>();
-        List<int> leafTriangles = new List<int>();
-        List<Vector2> leafUvs = new List<Vector2>();
-        List<Color> leafColors = new List<Color>(); // For transparency
-
-        List<List<BranchPoint>> allBranches = GenerateGuidedGrowthBranches(vertices, triangles, uvs);
-
-        // Assign mesh data
-        mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles.ToArray();
-        mesh.uv = uvs.ToArray();
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-
-        // Create leaves based on selected mode
-        if (leafMaterial != null && leafDensity > 0f)
-        {
-            if (leafMode == LeafGenerationMode.Clusters)
-            {
-                CreateLeafClusters(leafVertices, leafTriangles, leafUvs, leafColors, allBranches);
-            }
-            else if (leafMode == LeafGenerationMode.Domes)
-            {
-                CreateLeafDomes(leafVertices, leafTriangles, leafUvs, leafColors, allBranches);
-            }
-            else
-            {
-                CreatePlaneLeaves(leafVertices, leafTriangles, leafUvs, leafColors, allBranches);
-            }
-            GameObject leafObject = CreateMeshObject("Leaves", leafMaterial, treeObject.transform, out Mesh leafMesh);
-            leafMesh.vertices = leafVertices.ToArray();
-            leafMesh.triangles = leafTriangles.ToArray();
-            leafMesh.uv = leafUvs.ToArray();
-            leafMesh.colors = leafColors.ToArray();
-            leafMesh.RecalculateNormals();
-            leafMesh.RecalculateBounds();
-            
-            // Configure material transparency
-            ConfigureLeafMaterialTransparency(leafObject);
-        }
+        List<List<BranchPoint>> allBranches = BuildBranchMesh(mesh);
+        BuildLeafMesh(treeObject, allBranches);
 
         // Make tree a child of the generator and set position
         treeObject.transform.SetParent(transform, true);

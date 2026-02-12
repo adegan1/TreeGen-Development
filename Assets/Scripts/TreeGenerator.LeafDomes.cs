@@ -7,57 +7,20 @@ public partial class TreeGenerator
     {
         if (branches.Count == 0) return;
 
-        (float minY, float maxY, float heightRange) = CalculateHeightRange(branches);
+        (float minY, _, float heightRange) = CalculateHeightRange(branches);
 
         List<Vector3> domePositions = new List<Vector3>();
         List<int> nearbyBranchCounts = new List<int>();
+        List<Vector3> allEndpoints = new List<Vector3>();
         int domeSeed = 0;
 
-        List<Vector3> allEndpoints = new List<Vector3>();
-        foreach (var branch in branches)
-        {
-            if (branch.Count < 2) continue;
-
-            BranchPoint endpoint = branch[branch.Count - 1];
-            float endpointHeight = (endpoint.pos.y - minY) / heightRange;
-            if (endpointHeight >= leafStartHeight && endpoint.radius >= minBranchRadiusForLeaves)
-            {
-                Vector3 branchDir = (branch[branch.Count - 1].pos - branch[branch.Count - 2].pos).normalized;
-                Vector3 domePos = endpoint.pos - branchDir * (domeRadius * 0.15f) + branchDir * domeOffset;
-                allEndpoints.Add(domePos);
-            }
-        }
+        float tipInset = domeRadius * 0.15f;
+        CollectLeafEndpoints(branches, minY, heightRange, tipInset, domeOffset, allEndpoints);
 
         Vector3 treeCenter = CalculateTreeCenter(allEndpoints);
         float proximityRadius = domeRadius * ClusterProximityRadiusMultiplier;
-        float proximityRadiusSqr = proximityRadius * proximityRadius;
-        float cellSize = Mathf.Max(0.0001f, proximityRadius);
-        var spatialHash = BuildSpatialHash(allEndpoints, cellSize);
-
         int targetDomeCount = Mathf.RoundToInt(leafDensity);
-        for (int i = 0; i < allEndpoints.Count; i++)
-        {
-            Vector3 pos = allEndpoints[i];
-            int nearbyCount = CountNearbyBranchesSpatial(pos, allEndpoints, spatialHash, cellSize, proximityRadiusSqr);
-            domePositions.Add(pos);
-            nearbyBranchCounts.Add(nearbyCount);
-        }
-
-        var domeData = new List<(Vector3 pos, int count)>();
-        for (int i = 0; i < domePositions.Count; i++)
-        {
-            domeData.Add((domePositions[i], nearbyBranchCounts[i]));
-        }
-        domeData.Sort((a, b) => a.count.CompareTo(b.count));
-
-        domePositions.Clear();
-        nearbyBranchCounts.Clear();
-        int domesToGenerate = Mathf.Min(targetDomeCount, domeData.Count);
-        for (int i = 0; i < domesToGenerate; i++)
-        {
-            domePositions.Add(domeData[i].pos);
-            nearbyBranchCounts.Add(domeData[i].count);
-        }
+        BuildLeafTargets(allEndpoints, proximityRadius, targetDomeCount, domePositions, nearbyBranchCounts);
 
         int domesGenerated = 0;
         int maxDomes = maxLeafCount > 0 ? Mathf.Min(maxLeafCount, domePositions.Count) : domePositions.Count;
