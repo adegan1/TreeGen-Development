@@ -33,9 +33,40 @@ public class TreeGeneratorEditor : Editor
     SerializedProperty barkUVNoiseScale;
     
     // Tree Generation
-    SerializedProperty lSystemSeed;
-    SerializedProperty complexity;
     SerializedProperty segmentLength;
+
+    // Guided Growth
+    SerializedProperty randomSeed;
+    SerializedProperty trunkHeight;
+    SerializedProperty trunkHeightVariation;
+    SerializedProperty trunkLeanStrength;
+    SerializedProperty trunkNoiseScale;
+    SerializedProperty trunkNoiseStrength;
+    SerializedProperty branchLevels;
+    SerializedProperty branchesPerLevel;
+    SerializedProperty branchLevelDensityFalloff;
+    SerializedProperty branchLengthFactor;
+    SerializedProperty branchLengthFalloff;
+    SerializedProperty branchAngleMin;
+    SerializedProperty branchAngleMax;
+    SerializedProperty branchUpwardBias;
+    SerializedProperty branchDroop;
+    SerializedProperty branchNoiseScale;
+    SerializedProperty branchNoiseStrength;
+    SerializedProperty branchTwistJitter;
+    SerializedProperty maxGeneratedBranches;
+    SerializedProperty minBranchUpward;
+    SerializedProperty clampBranchesAboveBase;
+    SerializedProperty branchGroundClearance;
+
+    // Canopy Targeting
+    SerializedProperty canopyTargetEnabled;
+    SerializedProperty canopyCenterOffset;
+    SerializedProperty canopyRadii;
+    SerializedProperty canopyAttraction;
+    SerializedProperty canopySurfaceTarget;
+    SerializedProperty canopyHeightStart;
+    SerializedProperty canopyHeightEnd;
     
     // Thickness
     SerializedProperty baseThickness;
@@ -96,13 +127,6 @@ public class TreeGeneratorEditor : Editor
     // Branch Connection
     SerializedProperty branchBlendDistance;
     
-    // Advanced Growth Parameters
-    SerializedProperty segmentGrowthChance;
-    SerializedProperty branchPatternVariation;
-    SerializedProperty minBranchAngle;
-    SerializedProperty maxBranchAngle;
-    SerializedProperty minVerticalAngle;
-    SerializedProperty maxVerticalAngle;
 
     private void OnEnable()
     {
@@ -120,9 +144,38 @@ public class TreeGeneratorEditor : Editor
         barkUVNoiseScale = serializedObject.FindProperty("barkUVNoiseScale");
         
         // Tree Generation
-        lSystemSeed = serializedObject.FindProperty("lSystemSeed");
-        complexity = serializedObject.FindProperty("complexity");
         segmentLength = serializedObject.FindProperty("segmentLength");
+
+        randomSeed = serializedObject.FindProperty("randomSeed");
+        trunkHeight = serializedObject.FindProperty("trunkHeight");
+        trunkHeightVariation = serializedObject.FindProperty("trunkHeightVariation");
+        trunkLeanStrength = serializedObject.FindProperty("trunkLeanStrength");
+        trunkNoiseScale = serializedObject.FindProperty("trunkNoiseScale");
+        trunkNoiseStrength = serializedObject.FindProperty("trunkNoiseStrength");
+        branchLevels = serializedObject.FindProperty("branchLevels");
+        branchesPerLevel = serializedObject.FindProperty("branchesPerLevel");
+        branchLevelDensityFalloff = serializedObject.FindProperty("branchLevelDensityFalloff");
+        branchLengthFactor = serializedObject.FindProperty("branchLengthFactor");
+        branchLengthFalloff = serializedObject.FindProperty("branchLengthFalloff");
+        branchAngleMin = serializedObject.FindProperty("branchAngleMin");
+        branchAngleMax = serializedObject.FindProperty("branchAngleMax");
+        branchUpwardBias = serializedObject.FindProperty("branchUpwardBias");
+        branchDroop = serializedObject.FindProperty("branchDroop");
+        branchNoiseScale = serializedObject.FindProperty("branchNoiseScale");
+        branchNoiseStrength = serializedObject.FindProperty("branchNoiseStrength");
+        branchTwistJitter = serializedObject.FindProperty("branchTwistJitter");
+        maxGeneratedBranches = serializedObject.FindProperty("maxGeneratedBranches");
+        minBranchUpward = serializedObject.FindProperty("minBranchUpward");
+        clampBranchesAboveBase = serializedObject.FindProperty("clampBranchesAboveBase");
+        branchGroundClearance = serializedObject.FindProperty("branchGroundClearance");
+
+        canopyTargetEnabled = serializedObject.FindProperty("canopyTargetEnabled");
+        canopyCenterOffset = serializedObject.FindProperty("canopyCenterOffset");
+        canopyRadii = serializedObject.FindProperty("canopyRadii");
+        canopyAttraction = serializedObject.FindProperty("canopyAttraction");
+        canopySurfaceTarget = serializedObject.FindProperty("canopySurfaceTarget");
+        canopyHeightStart = serializedObject.FindProperty("canopyHeightStart");
+        canopyHeightEnd = serializedObject.FindProperty("canopyHeightEnd");
         
         // Thickness
         baseThickness = serializedObject.FindProperty("baseThickness");
@@ -183,13 +236,6 @@ public class TreeGeneratorEditor : Editor
         // Branch Connection
         branchBlendDistance = serializedObject.FindProperty("branchBlendDistance");
         
-        // Advanced Growth
-        segmentGrowthChance = serializedObject.FindProperty("segmentGrowthChance");
-        branchPatternVariation = serializedObject.FindProperty("branchPatternVariation");
-        minBranchAngle = serializedObject.FindProperty("minBranchAngle");
-        maxBranchAngle = serializedObject.FindProperty("maxBranchAngle");
-        minVerticalAngle = serializedObject.FindProperty("minVerticalAngle");
-        maxVerticalAngle = serializedObject.FindProperty("maxVerticalAngle");
 
         RefreshPresets();
         selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
@@ -327,9 +373,15 @@ public class TreeGeneratorEditor : Editor
         if (showTreeStructure)
         {
             EditorGUI.indentLevel++;
-            EditorGUILayout.PropertyField(lSystemSeed);
-            EditorGUILayout.PropertyField(complexity);
             EditorGUILayout.PropertyField(segmentLength);
+            EditorGUILayout.Space(4);
+            EditorGUILayout.LabelField("Trunk", EditorStyles.miniLabel);
+            EditorGUILayout.PropertyField(trunkHeight);
+            EditorGUILayout.PropertyField(trunkHeightVariation);
+            EditorGUILayout.PropertyField(trunkLeanStrength);
+            EditorGUILayout.PropertyField(trunkNoiseScale);
+            EditorGUILayout.PropertyField(trunkNoiseStrength);
+            EditorGUILayout.PropertyField(randomSeed);
             
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Branch Thickness", EditorStyles.miniLabel);
@@ -345,13 +397,44 @@ public class TreeGeneratorEditor : Editor
         if (showBranching)
         {
             EditorGUI.indentLevel++;
-            EditorGUILayout.PropertyField(segmentGrowthChance);
-            EditorGUILayout.PropertyField(branchPatternVariation);
-            EditorGUILayout.PropertyField(minBranchAngle);
-            EditorGUILayout.PropertyField(maxBranchAngle);
-            EditorGUILayout.PropertyField(minVerticalAngle);
-            EditorGUILayout.PropertyField(maxVerticalAngle);
+            EditorGUILayout.LabelField("Guided Growth", EditorStyles.miniLabel);
+            EditorGUILayout.PropertyField(branchLevels);
+            EditorGUILayout.PropertyField(branchesPerLevel);
+            EditorGUILayout.PropertyField(branchLevelDensityFalloff);
+            EditorGUILayout.PropertyField(branchLengthFactor);
+            EditorGUILayout.PropertyField(branchLengthFalloff);
+            EditorGUILayout.PropertyField(branchAngleMin);
+            EditorGUILayout.PropertyField(branchAngleMax);
+            EditorGUILayout.PropertyField(branchUpwardBias);
+            EditorGUILayout.PropertyField(branchDroop);
+            EditorGUILayout.PropertyField(branchNoiseScale);
+            EditorGUILayout.PropertyField(branchNoiseStrength);
+            EditorGUILayout.PropertyField(branchTwistJitter);
+            EditorGUILayout.PropertyField(maxGeneratedBranches);
+            EditorGUILayout.PropertyField(minBranchUpward);
+            EditorGUILayout.PropertyField(clampBranchesAboveBase);
+            if (clampBranchesAboveBase.boolValue)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(branchGroundClearance);
+                EditorGUI.indentLevel--;
+            }
             EditorGUILayout.PropertyField(branchBlendDistance);
+
+            EditorGUILayout.Space(3);
+            EditorGUILayout.LabelField("Canopy Targeting", EditorStyles.miniLabel);
+            EditorGUILayout.PropertyField(canopyTargetEnabled);
+            if (canopyTargetEnabled.boolValue)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(canopyCenterOffset);
+                EditorGUILayout.PropertyField(canopyRadii);
+                EditorGUILayout.PropertyField(canopyAttraction);
+                EditorGUILayout.PropertyField(canopySurfaceTarget);
+                EditorGUILayout.PropertyField(canopyHeightStart);
+                EditorGUILayout.PropertyField(canopyHeightEnd);
+                EditorGUI.indentLevel--;
+            }
             EditorGUI.indentLevel--;
         }
         EditorGUILayout.Space(5);

@@ -14,7 +14,7 @@ public partial class TreeGenerator
         bool reachedMaxLeaves = false;
         int leafSeed = 0; // For UV randomization
 
-        float tipBiasPow = Mathf.Lerp(1f, 0.35f, leafTipBias);
+        const float radialJitter = 0.02f;
 
         foreach (var branch in branches)
         {
@@ -58,43 +58,24 @@ public partial class TreeGenerator
                 Vector3 direction = (end - start).normalized;
                 float branchRadius = branch[i].radius;
 
-                int clumpCount = Mathf.Clamp(
-                    Mathf.RoundToInt(Mathf.Lerp(leafCount, Mathf.Max(1, Mathf.CeilToInt(leafCount / 3f)), leafClumpiness)),
-                    1,
-                    Mathf.Max(1, leafCount)
-                );
-                List<float> clumpAnchors = new List<float>(clumpCount);
-                for (int c = 0; c < clumpCount; c++)
-                {
-                    float anchorT = 1f - Mathf.Pow(Random.value, tipBiasPow);
-                    clumpAnchors.Add(anchorT);
-                }
-
                 for (int l = 0; l < leafCount; l++)
                 {
-                    float anchorT = clumpAnchors[Random.Range(0, clumpAnchors.Count)];
-                    float along = Mathf.Clamp01(anchorT + Random.Range(-leafClumpSpread, leafClumpSpread));
+                    float along = Random.value;
                     Vector3 pos = Vector3.Lerp(start, end, along);
 
                     Vector3 perpendicular = GetPerpendicular(direction);
                     Vector3 binormal = Vector3.Cross(direction, perpendicular).normalized;
                     float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
                     Vector3 radial = (Mathf.Cos(angle) * perpendicular + Mathf.Sin(angle) * binormal).normalized;
-                    float radialOffset = branchRadius + leafDistanceFromBranch + Random.Range(-leafRadialJitter, leafRadialJitter);
+                    float radialOffset = branchRadius + leafDistanceFromBranch + Random.Range(-radialJitter, radialJitter);
                     radialOffset = Mathf.Max(branchRadius, radialOffset);
                     pos += radial * radialOffset;
 
                     // Add rotation diversity
-                    Vector3 upDir = Vector3.Slerp(direction, Vector3.up, leafUpAlignment).normalized;
-                    if (upDir.sqrMagnitude < 0.001f)
-                    {
-                        upDir = direction;
-                    }
-                    Quaternion rotation = Quaternion.LookRotation(radial, upDir) * Quaternion.Euler(Random.Range(-45f, 45f), Random.Range(0f, 360f), Random.Range(-45f, 45f));
+                    Quaternion rotation = Quaternion.LookRotation(radial, Vector3.up) * Quaternion.Euler(Random.Range(-45f, 45f), Random.Range(0f, 360f), Random.Range(-45f, 45f));
 
                     // Add size variation
-                    float heightSizeMultiplier = Mathf.Lerp(1f, 1f - leafSizeByHeight, segmentHeightNormalized);
-                    float sizeVariationMultiplier = (1f + Random.Range(-leafSizeVariation, leafSizeVariation)) * heightSizeMultiplier;
+                    float sizeVariationMultiplier = 1f + Random.Range(-leafSizeVariation, leafSizeVariation);
                     float variedWidth = leafWidth * sizeVariationMultiplier;
                     float variedLength = leafLength * sizeVariationMultiplier;
 

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 public partial class TreeGenerator : MonoBehaviour
@@ -23,6 +22,27 @@ public partial class TreeGenerator : MonoBehaviour
         Clusters,     // Spherical leaf clusters around branch groups
         Domes   // Open-bottom domes for soft canopy shapes
     }
+
+    public enum TreeStructureMode
+    {
+        LSystem,
+        GuidedGrowth
+    }
+
+    [System.Serializable]
+    public struct CanopyVolumeSettings
+    {
+        public Vector3 centerOffset;
+        public Vector3 radii;
+        [Range(0f, 1f)]
+        public float attraction;
+        public bool surfaceTarget;
+        [Range(0f, 1f)]
+        public float heightStart;
+        [Range(0f, 1f)]
+        public float heightEnd;
+    }
+
 
     private struct BranchPoint
     {
@@ -60,15 +80,94 @@ public partial class TreeGenerator : MonoBehaviour
     [Range(0.1f, 5f)]
     [SerializeField] private float barkUVNoiseScale = 1f;
 
-    [Header("Tree Generation")]
-    [Tooltip("Starting symbol for the L-System (B = Branch, F = Forward). Leave as 'FB' for standard trees")]
-    [SerializeField] private string lSystemSeed = "B";
-    [Tooltip("Number of times to expand the tree structure. Higher values create more complex trees")]
-    [Range(1, 10)]
-    [SerializeField] private int complexity = 3;
+    [Header("Structure")]
     [Tooltip("Length of each branch segment in units")]
     [Range(0.1f, 5f)]
     [SerializeField] private float segmentLength = 1f;
+    [Tooltip("Seed for deterministic growth (0 = random)")]
+    [SerializeField] private int randomSeed = 0;
+    [Tooltip("Overall trunk height in units")]
+    [Range(1f, 20f)]
+    [SerializeField] private float trunkHeight = 6f;
+    [Tooltip("Randomized variation applied to trunk height")]
+    [Range(0f, 0.5f)]
+    [SerializeField] private float trunkHeightVariation = 0.15f;
+    [Tooltip("How much the trunk leans as it grows")]
+    [Range(0f, 1f)]
+    [SerializeField] private float trunkLeanStrength = 0.2f;
+    [Tooltip("Noise scale for trunk direction variation")]
+    [Range(0.05f, 3f)]
+    [SerializeField] private float trunkNoiseScale = 0.35f;
+    [Tooltip("Noise strength for trunk direction variation")]
+    [Range(0f, 0.8f)]
+    [SerializeField] private float trunkNoiseStrength = 0.2f;
+
+    [Header("Branches")]
+    [Tooltip("How many branching levels to generate (1 = only primary branches)")]
+    [Range(1, 5)]
+    [SerializeField] private int branchLevels = 3;
+    [Tooltip("Branches spawned per parent at each level")]
+    [Range(1, 12)]
+    [SerializeField] private int branchesPerLevel = 3;
+    [Tooltip("Reduce branch counts at higher levels (0.5 = fewer at higher levels)")]
+    [Range(0.2f, 1f)]
+    [SerializeField] private float branchLevelDensityFalloff = 0.7f;
+    [Tooltip("Primary branch length as a fraction of trunk height")]
+    [Range(0.2f, 1.2f)]
+    [SerializeField] private float branchLengthFactor = 0.75f;
+    [Tooltip("Length reduction per branching level")]
+    [Range(0.3f, 0.9f)]
+    [SerializeField] private float branchLengthFalloff = 0.7f;
+    [Tooltip("Minimum branch angle away from parent direction")]
+    [Range(0f, 90f)]
+    [SerializeField] private float branchAngleMin = 20f;
+    [Tooltip("Maximum branch angle away from parent direction")]
+    [Range(0f, 90f)]
+    [SerializeField] private float branchAngleMax = 55f;
+    [Tooltip("Bias branches upward (0 = none, 1 = strong)")]
+    [Range(0f, 1f)]
+    [SerializeField] private float branchUpwardBias = 0.2f;
+    [Tooltip("How much branches droop toward the tips")]
+    [Range(0f, 1f)]
+    [SerializeField] private float branchDroop = 0.25f;
+    [Tooltip("Noise scale for branch direction variation")]
+    [Range(0.05f, 3f)]
+    [SerializeField] private float branchNoiseScale = 0.6f;
+    [Tooltip("Noise strength for branch direction variation")]
+    [Range(0f, 0.8f)]
+    [SerializeField] private float branchNoiseStrength = 0.2f;
+    [Tooltip("Azimuth jitter for branch distribution around the parent")]
+    [Range(0f, 60f)]
+    [SerializeField] private float branchTwistJitter = 12f;
+    [Tooltip("Hard cap on total generated branches (0 = unlimited)")]
+    [Range(0, 500)]
+    [SerializeField] private int maxGeneratedBranches = 120;
+    [Tooltip("Minimum upward component for branch direction (prevents downward spikes)")]
+    [Range(-0.2f, 0.5f)]
+    [SerializeField] private float minBranchUpward = 0.02f;
+    [Tooltip("Keep branch points above the base height")]
+    [SerializeField] private bool clampBranchesAboveBase = false;
+    [Tooltip("Minimum clearance above base when clamping branches")]
+    [Range(0f, 2f)]
+    [SerializeField] private float branchGroundClearance = 0.05f;
+
+    [Header("Canopy Targeting")]
+    [Tooltip("Bias branches toward a canopy volume")]
+    [SerializeField] private bool canopyTargetEnabled = false;
+    [Tooltip("Center of the canopy volume relative to the generator")]
+    [SerializeField] private Vector3 canopyCenterOffset = new Vector3(0f, 5f, 0f);
+    [Tooltip("Canopy volume radii (ellipsoid) in local space")]
+    [SerializeField] private Vector3 canopyRadii = new Vector3(3f, 2.5f, 3f);
+    [Tooltip("Strength of branch attraction toward the canopy")]
+    [Range(0f, 1f)]
+    [SerializeField] private float canopyAttraction = 0.35f;
+    [Tooltip("Use canopy surface instead of center as the target")]
+    [SerializeField] private bool canopySurfaceTarget = true;
+    [Tooltip("Height range for applying canopy attraction (0 = base, 1 = top)")]
+    [Range(0f, 1f)]
+    [SerializeField] private float canopyHeightStart = 0.35f;
+    [Range(0f, 1f)]
+    [SerializeField] private float canopyHeightEnd = 1f;
 
     [Header("Thickness")]
     [Tooltip("Starting thickness of the tree trunk at the base")]
@@ -104,24 +203,6 @@ public partial class TreeGenerator : MonoBehaviour
     [Tooltip("How far plane leaves extend from the branch surface (Plane mode only)")]
     [Range(-0.5f, 1f)]
     [SerializeField] private float leafDistanceFromBranch = 0.1f;
-    [Tooltip("How strongly leaves form clumps along each branch segment (Plane mode only)")]
-    [Range(0f, 1f)]
-    [SerializeField] private float leafClumpiness = 0.5f;
-    [Tooltip("How far leaf positions can drift from a clump center, as a fraction of segment length (Plane mode only)")]
-    [Range(0.01f, 1f)]
-    [SerializeField] private float leafClumpSpread = 0.25f;
-    [Tooltip("Bias leaf placement toward branch tips (Plane mode only)")]
-    [Range(0f, 1f)]
-    [SerializeField] private float leafTipBias = 0.6f;
-    [Tooltip("Align leaf up direction toward world up (Plane mode only)")]
-    [Range(0f, 1f)]
-    [SerializeField] private float leafUpAlignment = 0.7f;
-    [Tooltip("Reduce leaf size toward the top of the tree (Plane mode only)")]
-    [Range(0f, 1f)]
-    [SerializeField] private float leafSizeByHeight = 0.3f;
-    [Tooltip("Random radial jitter for leaf distance from the branch (Plane mode only)")]
-    [Range(0f, 0.2f)]
-    [SerializeField] private float leafRadialJitter = 0.04f;
     
     [Header("Leaf Appearance")]
     [Tooltip("Transparency of the leaf material (0 = fully transparent, 1 = fully opaque). Note: Material must support transparency")]
@@ -228,36 +309,6 @@ public partial class TreeGenerator : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float branchBlendDistance = 0.2f; // How far to extrude child ring back along parent
 
-    [Header("Advanced Growth Parameters")]
-    [Tooltip("Probability (0-100) that branch segments grow longer. Higher values create taller trees")]
-    [Range(0f, 100f)]
-    [SerializeField] private float segmentGrowthChance = 50f; // Probability (0-100) of branch growth
-    [Tooltip("Probability (0-100) affecting branch pattern distribution. Experiment for different shapes")]
-    [Range(0f, 100f)]
-    [SerializeField] private float branchPatternVariation = 50f; // Probability (0-100) of branch type selection
-    [Tooltip("Minimum angle for branch rotation (affects how spread out branches are)")]
-    [Range(0f, 90f)]
-    [SerializeField] private float minBranchAngle = 15f; // Minimum angle for left rotation
-    [Tooltip("Maximum angle for branch rotation (affects how spread out branches are)")]
-    [Range(0f, 90f)]
-    [SerializeField] private float maxBranchAngle = 45f; // Maximum angle for left rotation
-    [Tooltip("Minimum vertical angle for branches (negative = downward, positive = upward)")]
-    [Range(-180f, 0f)]
-    [SerializeField] private float minVerticalAngle = -30f; // Minimum angle for right rotation
-    [Tooltip("Maximum vertical angle for branches (negative = downward, positive = upward)")]
-    [Range(0f, 180f)]
-    [SerializeField] private float maxVerticalAngle = 30f; // Maximum angle for right rotation
-
-    [Header("Branch Curvature")]
-    [Tooltip("Chance that a segment slightly bends to create natural curvature")]
-    [Range(0f, 1f)]
-    [SerializeField] private float branchBendChance = 0.35f;
-    [Tooltip("Maximum bend angle per segment")]
-    [Range(0f, 10f)]
-    [SerializeField] private float branchBendStrength = 3f;
-
-    private string expandedTree;
-    private Stack<TransformInfoHelper> transformStack;
     private GameObject generatedTree; // Reference to the tree created by this generator
 
     // Get the Y position of the generator
@@ -276,8 +327,6 @@ public partial class TreeGenerator : MonoBehaviour
     public void RegenerateTree()
     {
         ClearTree();
-        expandedTree = lSystemSeed;
-        ExpandTreeString();
         CreateMesh();
     }
 
@@ -316,57 +365,28 @@ public partial class TreeGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (string.IsNullOrEmpty(expandedTree))
-            return;
-
-        // Optional: Visualize tree structure in editor
-        // foreach(List<Vector3> line in LineList)
-        // {
-        //     Gizmos.DrawLine(line[0], line[1]);
-        // }
+        DrawCanopyGizmos();
     }
 
-    void ExpandTreeString()
+    private void DrawCanopyGizmos()
     {
-        StringBuilder expandedTreeBuilder = new StringBuilder(lSystemSeed);
-
-        for (int i = 0; i < complexity; i++)
+        if (!canopyTargetEnabled)
         {
-            StringBuilder nextIteration = new StringBuilder();
-            
-            foreach (char character in expandedTreeBuilder.ToString())
-            {
-                switch (character)
-                {
-                    case 'F':
-                        // Randomly decide between single or double forward segment
-                        nextIteration.Append(Random.Range(0f, 100f) > segmentGrowthChance ? "F" : "FF");
-                        break;
-
-                    case 'B':
-                        // Randomly choose branch configuration
-                        nextIteration.Append(Random.Range(0f, 100f) > branchPatternVariation 
-                            ? "[llFB][rFB]" 
-                            : "[lFB][rrFB]");
-                        break;
-
-                    case 'l': // Left rotation marker
-                    case 'r': // Right rotation marker
-                    case '[': // Push transform state
-                    case ']': // Pop transform state
-                        nextIteration.Append(character);
-                        break;
-
-                    default:
-                        nextIteration.Append(character);
-                        break;
-                }
-            }
-            
-            expandedTreeBuilder = nextIteration;
+            return;
         }
 
-        expandedTree = expandedTreeBuilder.ToString();
+        Quaternion baseRotation = transform.rotation;
+        DrawCanopyVolumeGizmo(canopyCenterOffset, canopyRadii, baseRotation, new Color(0.2f, 0.8f, 0.3f, 1f));
+    }
+
+    private void DrawCanopyVolumeGizmo(Vector3 centerOffset, Vector3 radii, Quaternion baseRotation, Color color)
+    {
+        Vector3 center = transform.position + baseRotation * centerOffset;
+        Gizmos.color = color;
+        Matrix4x4 prev = Gizmos.matrix;
+        Gizmos.matrix = Matrix4x4.TRS(center, baseRotation, radii);
+        Gizmos.DrawWireSphere(Vector3.zero, 1f);
+        Gizmos.matrix = prev;
     }
 
     void CreateMesh()
@@ -393,106 +413,7 @@ public partial class TreeGenerator : MonoBehaviour
         List<Vector2> leafUvs = new List<Vector2>();
         List<Color> leafColors = new List<Color>(); // For transparency
 
-        // Initialize stacks
-        transformStack = new Stack<TransformInfoHelper>();
-        Stack<float> radiusStack = new Stack<float>();
-        Stack<List<BranchPoint>> branchStack = new Stack<List<BranchPoint>>();
-        Stack<bool> firstSegmentStack = new Stack<bool>();
-        Stack<Vector3> branchConnectionDirStack = new Stack<Vector3>();
-        List<List<BranchPoint>> allBranches = new List<List<BranchPoint>>();
-        int branchCounter = 0; // For unique branch seeds
-
-        // Create temporary transform for tree generation
-        Transform treeTransform = treeObject.transform;
-        treeTransform.position = transform.position;
-        treeTransform.rotation = transform.rotation;
-
-        float currentRadius = baseThickness;
-        List<BranchPoint> currentBranch = new List<BranchPoint>();
-        bool isFirstSegmentInBranch = false;
-        Vector3 currentConnectionDirection = Vector3.zero;
-        currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
-
-        // Process L-system string
-        foreach (char instruction in expandedTree)
-        {
-            switch (instruction)
-            {
-                case 'F':
-                    if (branchBendStrength > 0f && Random.value < branchBendChance)
-                    {
-                        float bendPitch = Random.Range(-branchBendStrength, branchBendStrength);
-                        float bendYaw = Random.Range(-branchBendStrength, branchBendStrength);
-                        treeTransform.Rotate(Vector3.right, bendPitch, Space.Self);
-                        treeTransform.Rotate(Vector3.forward, bendYaw, Space.Self);
-                    }
-                    Vector3 prevPos = treeTransform.position;
-                    treeTransform.Translate(Vector3.up * segmentLength);
-                    currentConnectionDirection = (treeTransform.position - prevPos).normalized;
-                    float endRadius = isFirstSegmentInBranch
-                        ? currentRadius * childBranchThickness * branchThinningRate
-                        : currentRadius * branchThinningRate;
-                    currentRadius = endRadius;
-                    currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
-                    isFirstSegmentInBranch = false;
-                    break;
-
-                case 'B':
-                    // Branch marker (handled implicitly by [ and ])
-                    break;
-
-                case '[':
-                    // Save current transform and radius state
-                    transformStack.Push(new TransformInfoHelper()
-                    {
-                        position = treeTransform.position,
-                        rotation = treeTransform.rotation
-                    });
-                    radiusStack.Push(currentRadius);
-                    branchStack.Push(currentBranch);
-                    firstSegmentStack.Push(isFirstSegmentInBranch);
-                    branchConnectionDirStack.Push(currentConnectionDirection);
-                    isFirstSegmentInBranch = true;
-                    currentBranch = new List<BranchPoint>();
-                    currentBranch.Add(new BranchPoint(treeTransform.position, currentRadius));
-                    break;
-
-                case ']':
-                    // Generate mesh for the branch
-                    Vector3 parentConnectionDir = branchConnectionDirStack.Peek();
-                    AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, parentConnectionDir, branchCounter++);
-                    allBranches.Add(currentBranch);
-                    // Restore transform and radius state
-                    TransformInfoHelper savedTransform = transformStack.Pop();
-                    treeTransform.position = savedTransform.position;
-                    treeTransform.rotation = savedTransform.rotation;
-                    currentRadius = radiusStack.Pop();
-                    currentBranch = branchStack.Pop();
-                    isFirstSegmentInBranch = firstSegmentStack.Pop();
-                    currentConnectionDirection = branchConnectionDirStack.Pop();
-                    break;
-
-                case 'l':
-                    // Left rotation - rotate around z-axis for horizontal spread
-                    treeTransform.Rotate(Vector3.back, Random.Range(minBranchAngle, maxBranchAngle));
-                    // Add vertical tilt and depth rotation for 3D branching
-                    treeTransform.Rotate(Vector3.up, Random.Range(minVerticalAngle, maxVerticalAngle));
-                    treeTransform.Rotate(Vector3.right, Random.Range(-15f, 15f)); // Add depth variation
-                    break;
-
-                case 'r':
-                    // Right rotation - rotate around z-axis for horizontal spread
-                    treeTransform.Rotate(Vector3.forward, Random.Range(minBranchAngle, maxBranchAngle));
-                    // Add vertical tilt and depth rotation for 3D branching
-                    treeTransform.Rotate(Vector3.up, Random.Range(minVerticalAngle, maxVerticalAngle));
-                    treeTransform.Rotate(Vector3.right, Random.Range(-15f, 15f)); // Add depth variation
-                    break;
-            }
-        }
-
-        // Generate mesh for the main trunk
-        AddTube(vertices, triangles, uvs, currentBranch, DefaultSegments, Vector3.zero, branchCounter++);
-        allBranches.Add(currentBranch);
+        List<List<BranchPoint>> allBranches = GenerateGuidedGrowthBranches(vertices, triangles, uvs);
 
         // Assign mesh data
         mesh.vertices = vertices.ToArray();

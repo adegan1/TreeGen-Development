@@ -10,9 +10,39 @@ public partial class TreeGenerator
             return;
         }
 
-        lSystemSeed = newPreset.lSystemSeed;
-        complexity = newPreset.complexity;
         segmentLength = newPreset.segmentLength;
+
+        randomSeed = newPreset.randomSeed;
+        trunkHeight = newPreset.trunkHeight;
+        trunkHeightVariation = newPreset.trunkHeightVariation;
+        trunkLeanStrength = newPreset.trunkLeanStrength;
+        trunkNoiseScale = newPreset.trunkNoiseScale;
+        trunkNoiseStrength = newPreset.trunkNoiseStrength;
+
+        branchLevels = newPreset.branchLevels;
+        branchesPerLevel = newPreset.branchesPerLevel;
+        branchLevelDensityFalloff = newPreset.branchLevelDensityFalloff;
+        branchLengthFactor = newPreset.branchLengthFactor;
+        branchLengthFalloff = newPreset.branchLengthFalloff;
+        branchAngleMin = newPreset.branchAngleMin;
+        branchAngleMax = newPreset.branchAngleMax;
+        branchUpwardBias = newPreset.branchUpwardBias;
+        branchDroop = newPreset.branchDroop;
+        branchNoiseScale = newPreset.branchNoiseScale;
+        branchNoiseStrength = newPreset.branchNoiseStrength;
+        branchTwistJitter = newPreset.branchTwistJitter;
+        maxGeneratedBranches = newPreset.maxGeneratedBranches;
+        minBranchUpward = newPreset.minBranchUpward;
+        clampBranchesAboveBase = newPreset.clampBranchesAboveBase;
+        branchGroundClearance = newPreset.branchGroundClearance;
+
+        canopyTargetEnabled = newPreset.canopyTargetEnabled;
+        canopyCenterOffset = newPreset.canopyCenterOffset;
+        canopyRadii = newPreset.canopyRadii;
+        canopyAttraction = newPreset.canopyAttraction;
+        canopySurfaceTarget = newPreset.canopySurfaceTarget;
+        canopyHeightStart = newPreset.canopyHeightStart;
+        canopyHeightEnd = newPreset.canopyHeightEnd;
 
         baseThickness = newPreset.baseThickness;
         branchThinningRate = newPreset.branchThinningRate;
@@ -26,12 +56,6 @@ public partial class TreeGenerator
         leafSizeVariation = newPreset.leafSizeVariation;
         doubleSidedLeaves = newPreset.doubleSidedLeaves;
         leafDistanceFromBranch = newPreset.leafDistanceFromBranch;
-        leafClumpiness = newPreset.leafClumpiness;
-        leafClumpSpread = newPreset.leafClumpSpread;
-        leafTipBias = newPreset.leafTipBias;
-        leafUpAlignment = newPreset.leafUpAlignment;
-        leafSizeByHeight = newPreset.leafSizeByHeight;
-        leafRadialJitter = newPreset.leafRadialJitter;
 
         leafTransparency = newPreset.leafTransparency;
         leafUVRandomness = newPreset.leafUVRandomness;
@@ -70,15 +94,5 @@ public partial class TreeGenerator
         minBranchRadiusForLeaves = newPreset.minBranchRadiusForLeaves;
 
         branchBlendDistance = newPreset.branchBlendDistance;
-
-        segmentGrowthChance = newPreset.segmentGrowthChance;
-        branchPatternVariation = newPreset.branchPatternVariation;
-        minBranchAngle = newPreset.minBranchAngle;
-        maxBranchAngle = newPreset.maxBranchAngle;
-        minVerticalAngle = newPreset.minVerticalAngle;
-        maxVerticalAngle = newPreset.maxVerticalAngle;
-
-        branchBendChance = newPreset.branchBendChance;
-        branchBendStrength = newPreset.branchBendStrength;
     }
 }

@@ -120,4 +120,36 @@ public partial class TreeGenerator
         }
         return center / positions.Count;
     }
+
+    private static Vector3 RotateAroundAxis(Vector3 vector, Vector3 axis, float angleDegrees)
+    {
+        return Quaternion.AngleAxis(angleDegrees, axis) * vector;
+    }
+
+    private static Vector3 GetNoiseVector(Vector3 position, float scale, int seedOffset)
+    {
+        float x = Mathf.PerlinNoise(position.y * scale + seedOffset, position.z * scale + seedOffset * 2) * 2f - 1f;
+        float y = Mathf.PerlinNoise(position.z * scale + seedOffset * 3, position.x * scale + seedOffset * 4) * 2f - 1f;
+        float z = Mathf.PerlinNoise(position.x * scale + seedOffset * 5, position.y * scale + seedOffset * 6) * 2f - 1f;
+        return new Vector3(x, y, z);
+    }
+
+    private static BranchPoint SampleBranchPoint(List<BranchPoint> branch, float t, out Vector3 direction)
+    {
+        int count = branch.Count;
+        int index = Mathf.Clamp(Mathf.RoundToInt(t * (count - 1)), 0, count - 1);
+        int nextIndex = Mathf.Min(count - 1, index + 1);
+        int prevIndex = Mathf.Max(0, index - 1);
+
+        if (nextIndex != index)
+        {
+            direction = (branch[nextIndex].pos - branch[index].pos).normalized;
+        }
+        else
+        {
+            direction = (branch[index].pos - branch[prevIndex].pos).normalized;
+        }
+
+        return branch[index];
+    }
 }
