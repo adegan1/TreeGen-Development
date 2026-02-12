@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1271286569198422673
+--- !u!1 &2446128481241670360
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,187 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7880225530874784784}
-  - component: {fileID: 5256633677204902775}
+  - component: {fileID: 5798287773059530131}
+  - component: {fileID: 8706484359023767109}
+  - component: {fileID: 3116958495517331810}
+  m_Layer: 0
+  m_Name: Tree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5798287773059530131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446128481241670360}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2069124049767512809}
+  m_Father: {fileID: 2044489251780701772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8706484359023767109
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446128481241670360}
+  m_Mesh: {fileID: 0}
+--- !u!23 &3116958495517331810
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446128481241670360}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2697441309154166650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2069124049767512809}
+  - component: {fileID: 1354215911776125830}
+  - component: {fileID: 5080152087583814179}
+  m_Layer: 0
+  m_Name: Leaves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2069124049767512809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697441309154166650}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5798287773059530131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1354215911776125830
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697441309154166650}
+  m_Mesh: {fileID: 0}
+--- !u!23 &5080152087583814179
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697441309154166650}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3904811598461102039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044489251780701772}
+  - component: {fileID: 6671658246520675913}
   m_Layer: 0
   m_Name: Tree Generator
   m_TagString: Untagged
@@ -17,52 +196,119 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7880225530874784784
+--- !u!4 &2044489251780701772
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271286569198422673}
+  m_GameObject: {fileID: 3904811598461102039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5798287773059530131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5256633677204902775
+--- !u!114 &6671658246520675913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271286569198422673}
+  m_GameObject: {fileID: 3904811598461102039}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57438d7b3e004a4c8b77f12b7e0a05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  barkMaterial: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-  leafMaterial: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-  axiom: FFBB
-  iterations: 5
-  segmentLength: 1
-  initialRadius: 1.33
-  taperFactor: 0.928
-  branchRadiusFactor: 0.7
-  leafWidth: 0.39
-  leafLength: 1.24
-  leafDensity: 0
-  leafStartHeightNormalized: 0.5
-  leafRadiusOffset: 0.1
-  leafSizeVariation: 0.76
+  preset: {fileID: 11400000, guid: e281de130ed364248b5e138e33d99d82, type: 2}
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: fccdd3ed1c95f4a4083ec31a3d0c34ee, type: 2}
+  barkTilingHorizontal: 0.5
+  barkTilingVertical: 0.5
+  barkUVRandomness: 0.063
+  barkUVNoiseStrength: 0
+  barkUVNoiseScale: 0.1
+  segmentLength: 0.65
+  randomSeed: 0
+  trunkHeight: 7.5
+  trunkHeightVariation: 0.18
+  trunkLeanStrength: 0.15
+  trunkNoiseScale: 0.35
+  trunkNoiseStrength: 0.18
+  branchLevels: 2
+  branchesPerLevel: 3
+  branchLevelDensityFalloff: 0.8
+  branchLengthFactor: 0.9
+  branchLengthFalloff: 0.7
+  branchAngleMin: 30
+  branchAngleMax: 70
+  branchUpwardBias: 0.05
+  branchDroop: 0.25
+  branchNoiseScale: 0.35
+  branchNoiseStrength: 0.1
+  branchTwistJitter: 10
+  maxGeneratedBranches: 90
+  minBranchUpward: 0.03
+  clampBranchesAboveBase: 0
+  branchGroundClearance: 0.05
+  canopyTargetEnabled: 0
+  canopyCenterOffset: {x: 0, y: 4.8, z: 0}
+  canopyRadii: {x: 4.6, y: 2.6, z: 4.6}
+  canopyAttraction: 0.5
+  canopySurfaceTarget: 1
+  canopyHeightStart: 0.2
+  canopyHeightEnd: 1
+  baseThickness: 0.75
+  branchThinningRate: 0.92
+  childBranchThickness: 0.7
+  leafMode: 1
+  leafWidth: 0.25
+  leafLength: 0.4
+  leafDensity: 9
+  leafStartHeight: 0.22
+  leafSizeVariation: 0.25
   doubleSidedLeaves: 0
-  branchConnectionExtrusionLength: 0.2
-  growthProbability: 33.7
-  branchProbability: 50
-  angleXMin: 0
-  angleXMax: 30.3
-  angleYMin: 0
-  angleYMax: 41
+  leafDistanceFromBranch: 0.1
+  planeLeafTextureTiling: 1
+  enablePlaneLeafSizeByHeight: 0
+  planeLeafSizeBottom: 1
+  planeLeafSizeTop: 1
+  leafSizeByHeight: 0.3
+  leafRadialJitter: 0.04
+  leafTransparency: 0.95
+  leafUVRandomness: 0.2
+  leafUVNoiseStrength: 0.05
+  leafUVNoiseScale: 2
+  clusterRadius: 1.7
+  clusterSizeMin: 0.85
+  clusterSizeMax: 1.5
+  clusterShapeX: 1.35
+  clusterShapeY: 0.9
+  clusterShapeZ: 1.25
+  clusterNoiseStrength: 0.22
+  clusterNoiseScale: 2.2
+  enableOuterShell: 1
+  outerShellThickness: 1.25
+  outerShellTransparency: 0.32
+  clusterSegments: 16
+  clusterTextureTiling: 4.5
+  randomizeClusterRotation: 1
+  clusterOffset: 0.2
+  domeRadius: 1.2
+  domeShapeX: 1.15
+  domeShapeY: 0.75
+  domeShapeZ: 1.05
+  domeOffset: 0.5
+  domeSegments: 12
+  domeNoiseScale: 2
+  domeNoiseStrength: 0.12
+  randomizeDomeRotation: 1
+  domeTextureTiling: 1
+  maxLeafCount: 11000
+  optimizeLeafDistribution: 1
+  minBranchRadiusForLeaves: 0.015
+  branchBlendDistance: 0.25

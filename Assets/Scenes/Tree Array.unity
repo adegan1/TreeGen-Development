@@ -211,7 +211,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &209872170
+--- !u!1001 &212470445
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -219,111 +219,882 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1271286569198422673, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_Name
-      value: Tree Generator 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMax
-      value: 25.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMax
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafWidth
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafDensity
-      value: 2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: barkMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 5cffce26f5ebf25429a17c3f81be82cf, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: initialRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: segmentLength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: growthProbability
-      value: 35.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafSizeVariation
-      value: 0.864
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafStartHeightNormalized
-      value: 0.545
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Birch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: be40872f6bf887244bfe187894bb2ef8, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 7800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &460880190
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: f8153bc901d41b84889f07c2a03fc968, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 99813732e8f8e46478f65b18468c1ed0, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevelDensityFalloff
+      value: 0.85
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &545832412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Maple
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: e53c5e9d394f76247934e2014bfe802c, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0953957cdf7934b44877edd21a02df03, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 10500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &662443332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Ash - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 39e888346cf810c47865c41ef20c0c33, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f90d81093d7492446bf0963189a88df6, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 5800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
 --- !u!1 &693421931
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +1222,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1001 &1348880352
+--- !u!1001 &740615349
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -459,478 +1230,2594 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1271286569198422673, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_Name
-      value: Tree Generator 4
+      value: Tree Generator - Redwood
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMax
-      value: 25.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMin
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e6fb4dcafb7b7648ae43b93d35c9144, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMax
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafWidth
-      value: 3.05
+      value: 2.16
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: iterations
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafLength
-      value: 3
+      value: 5.36
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafDensity
-      value: 2.7
+      value: 13.33
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      objectReference: {fileID: 2100000, guid: 9f708d980141a6443a05c73b1401dd81, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 5cffce26f5ebf25429a17c3f81be82cf, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: initialRadius
-      value: 1
+      objectReference: {fileID: 2100000, guid: 99813732e8f8e46478f65b18468c1ed0, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 9800
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.435
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: growthProbability
-      value: 35.7
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.35
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeTop
+      value: 2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafSizeVariation
-      value: 0.864
+      value: 0.431
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafStartHeightNormalized
-      value: 0.545
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.06
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeBottom
+      value: 5.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDistanceFromBranch
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafTextureTiling
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: enablePlaneLeafSizeByHeight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &826279227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Aspen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98c692c51d76c0242a9ef8e3f06ffc66, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 8200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &835224404
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
---- !u!1001 &1453080688
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1271286569198422673, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_Name
-      value: Tree Generator 1
+      value: Tree Generator - Maple - Young
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMax
-      value: 25.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMax
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafWidth
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: iterations
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafDensity
-      value: 2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: barkMaterial
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
       value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+      objectReference: {fileID: 11400000, guid: 0dd543a166cfe024e8bd98b7f46f7cf2, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 5cffce26f5ebf25429a17c3f81be82cf, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: initialRadius
-      value: 1
+      objectReference: {fileID: 2100000, guid: 0953957cdf7934b44877edd21a02df03, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 6200
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: growthProbability
-      value: 35.7
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafSizeVariation
-      value: 0.864
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: branchRadiusFactor
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafStartHeightNormalized
-      value: 0.545
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.22
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &848953763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Oak
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &957369208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Oak - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 34ff3b54bff7d8e47aee6c74a2c5646e, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &1276885320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Pine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 070d12c50f85abf499fb6f729d1e70a9, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 12.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
---- !u!1001 &1805930839
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1271286569198422673, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_Name
-      value: Tree Generator 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMax
-      value: 25.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMax
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafWidth
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: iterations
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafDensity
-      value: 2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: barkMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 5cffce26f5ebf25429a17c3f81be82cf, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: initialRadius
-      value: 1
+      objectReference: {fileID: 2100000, guid: 7be463d439a2a594e9dd50d9c2f05245, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 9500
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: segmentLength
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: growthProbability
-      value: 35.7
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafSizeVariation
-      value: 0.864
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafStartHeightNormalized
-      value: 0.545
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
---- !u!1001 &1955103831
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1271286569198422673, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_Name
-      value: Tree Generator 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMax
-      value: 25.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleXMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMax
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: angleYMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafWidth
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: iterations
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafDensity
-      value: 2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: barkMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 57186b8c85271d541bf13f45af6a1280, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 5cffce26f5ebf25429a17c3f81be82cf, type: 2}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: initialRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: segmentLength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: growthProbability
-      value: 35.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafSizeVariation
-      value: 0.864
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256633677204902775, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: leafStartHeightNormalized
-      value: 0.545
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeTop
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeBottom
+      value: 6.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDistanceFromBranch
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: enablePlaneLeafSizeByHeight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &1289172278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7880225530874784784, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Redwood - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: d3761c0f8900692459306208aa3606a1, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 4.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 11.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f708d980141a6443a05c73b1401dd81, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 99813732e8f8e46478f65b18468c1ed0, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 8200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.408
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeTop
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeBottom
+      value: 5.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDistanceFromBranch
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafTextureTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: enablePlaneLeafSizeByHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5c3a2c0eb6cb7949aae79370b8f2ae7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &1429917025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Pine - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: eef8b1f1914bda24f934da2ad69ce61e, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafWidth
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafLength
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 12.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLevels
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7be463d439a2a594e9dd50d9c2f05245, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 7059
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.188
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchUpward
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeTop
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: doubleSidedLeaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafSizeBottom
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDistanceFromBranch
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: enablePlaneLeafSizeByHeight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &1772695737
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Aspen - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5134ce140b20d09438e1dbc5d642daea, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 13595ce861d1d1248a88b576ea7feb07, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 5600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &2039342315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Birch - Young
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: bccb314169353b64899e90e7a95c1362, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafDensity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: barkMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b4e2b4fa62c23243bad7b0c91236363, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 5600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterOffset
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSegments
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseScale
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchTwistJitter
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchThinningRate
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkNoiseStrength
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchNoiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: childBranchThickness
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeightVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchGroundClearance
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: minBranchRadiusForLeaves
+      value: 0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+--- !u!1001 &2078252132
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044489251780701772, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904811598461102039, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: m_Name
+      value: Tree Generator - Ash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 766c94dedd4ed394e803f149504544e9, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchDroop
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkHeight
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f90d81093d7492446bf0963189a88df6, type: 2}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxLeafCount
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: baseThickness
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyRadii.z
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterRadius
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeX
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeY
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterShapeZ
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: segmentLength
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMax
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchAngleMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafStartHeight
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchUpwardBias
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyAttraction
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafTransparency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyHeightStart
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseScale
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: leafSizeVariation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: trunkLeanStrength
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFactor
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchBlendDistance
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchLengthFalloff
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellThickness
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: canopyCenterOffset.y
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterNoiseStrength
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: maxGeneratedBranches
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: outerShellTransparency
+      value: 0.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2446128481241670360, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 199653265}
   - {fileID: 693421933}
-  - {fileID: 1453080688}
-  - {fileID: 1955103831}
-  - {fileID: 209872170}
-  - {fileID: 1348880352}
-  - {fileID: 1805930839}
+  - {fileID: 2078252132}
+  - {fileID: 662443332}
+  - {fileID: 826279227}
+  - {fileID: 1772695737}
+  - {fileID: 212470445}
+  - {fileID: 2039342315}
+  - {fileID: 460880190}
+  - {fileID: 545832412}
+  - {fileID: 835224404}
+  - {fileID: 848953763}
+  - {fileID: 957369208}
+  - {fileID: 1276885320}
+  - {fileID: 1429917025}
+  - {fileID: 740615349}
+  - {fileID: 1289172278}
