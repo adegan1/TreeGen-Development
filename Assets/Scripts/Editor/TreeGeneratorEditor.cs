@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,9 +12,16 @@ public class TreeGeneratorEditor : Editor
     private bool showBranching = true;
     private bool showLeaves = true;
     private bool showAdvanced = false;
+
+    private const string PresetNoneLabel = "None";
+    private TreePreset[] cachedPresets = Array.Empty<TreePreset>();
+    private string[] presetNames = new[] { PresetNoneLabel };
+    private int selectedPresetIndex;
     
     // Serialized properties
     SerializedProperty leafMode;
+
+    SerializedProperty preset;
     
     // Tree Materials
     SerializedProperty barkMaterial;
@@ -66,7 +75,18 @@ public class TreeGeneratorEditor : Editor
     SerializedProperty clusterTextureTiling;
     SerializedProperty randomizeClusterRotation;
     SerializedProperty clusterOffset;
-    SerializedProperty minBranchesPerCluster;
+
+    // Leaves - Dome mode
+    SerializedProperty domeRadius;
+    SerializedProperty domeShapeX;
+    SerializedProperty domeShapeY;
+    SerializedProperty domeShapeZ;
+    SerializedProperty domeOffset;
+    SerializedProperty domeSegments;
+    SerializedProperty domeNoiseScale;
+    SerializedProperty domeNoiseStrength;
+    SerializedProperty randomizeDomeRotation;
+    SerializedProperty domeTextureTiling;
     
     // Leaf Performance
     SerializedProperty maxLeafCount;
@@ -88,6 +108,7 @@ public class TreeGeneratorEditor : Editor
     {
         // Find all serialized properties
         leafMode = serializedObject.FindProperty("leafMode");
+        preset = serializedObject.FindProperty("preset");
         
         // Tree Materials
         barkMaterial = serializedObject.FindProperty("barkMaterial");
@@ -141,7 +162,18 @@ public class TreeGeneratorEditor : Editor
         clusterTextureTiling = serializedObject.FindProperty("clusterTextureTiling");
         randomizeClusterRotation = serializedObject.FindProperty("randomizeClusterRotation");
         clusterOffset = serializedObject.FindProperty("clusterOffset");
-        minBranchesPerCluster = serializedObject.FindProperty("minBranchesPerCluster");
+
+        // Leaves - Dome
+        domeRadius = serializedObject.FindProperty("domeRadius");
+        domeShapeX = serializedObject.FindProperty("domeShapeX");
+        domeShapeY = serializedObject.FindProperty("domeShapeY");
+        domeShapeZ = serializedObject.FindProperty("domeShapeZ");
+        domeOffset = serializedObject.FindProperty("domeOffset");
+        domeSegments = serializedObject.FindProperty("domeSegments");
+        domeNoiseScale = serializedObject.FindProperty("domeNoiseScale");
+        domeNoiseStrength = serializedObject.FindProperty("domeNoiseStrength");
+        randomizeDomeRotation = serializedObject.FindProperty("randomizeDomeRotation");
+        domeTextureTiling = serializedObject.FindProperty("domeTextureTiling");
         
         // Leaf Performance
         maxLeafCount = serializedObject.FindProperty("maxLeafCount");
@@ -158,6 +190,100 @@ public class TreeGeneratorEditor : Editor
         maxBranchAngle = serializedObject.FindProperty("maxBranchAngle");
         minVerticalAngle = serializedObject.FindProperty("minVerticalAngle");
         maxVerticalAngle = serializedObject.FindProperty("maxVerticalAngle");
+
+        RefreshPresets();
+        selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+    }
+
+    private void RefreshPresets()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:TreePreset");
+        var presets = new List<TreePreset>(guids.Length);
+
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            TreePreset loaded = AssetDatabase.LoadAssetAtPath<TreePreset>(path);
+            if (loaded != null)
+            {
+                presets.Add(loaded);
+            }
+        }
+
+        presets.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+
+        cachedPresets = presets.ToArray();
+        presetNames = new string[cachedPresets.Length + 1];
+        presetNames[0] = PresetNoneLabel;
+        for (int i = 0; i < cachedPresets.Length; i++)
+        {
+            presetNames[i + 1] = cachedPresets[i].name;
+        }
+    }
+
+    private int GetPresetIndex(TreePreset current)
+    {
+        if (current == null)
+        {
+            return 0;
+        }
+
+        for (int i = 0; i < cachedPresets.Length; i++)
+        {
+            if (cachedPresets[i] == current)
+            {
+                return i + 1;
+            }
+        }
+
+        return 0;
+    }
+
+    private TreePreset GetPresetByIndex(int index)
+    {
+        if (index <= 0 || index - 1 >= cachedPresets.Length)
+        {
+            return null;
+        }
+
+        return cachedPresets[index - 1];
+    }
+
+    private void DrawPresetSelector(TreeGenerator treeGenerator)
+    {
+        EditorGUILayout.LabelField("Presets", EditorStyles.boldLabel);
+
+        EditorGUI.BeginChangeCheck();
+        int newIndex = EditorGUILayout.Popup("Preset", selectedPresetIndex, presetNames);
+        if (EditorGUI.EndChangeCheck())
+        {
+            TreePreset selectedPreset = GetPresetByIndex(newIndex);
+            if (preset.objectReferenceValue != selectedPreset)
+            {
+                Undo.RecordObject(treeGenerator, "Apply Tree Preset");
+                treeGenerator.ApplyPreset(selectedPreset);
+                preset.objectReferenceValue = selectedPreset;
+                EditorUtility.SetDirty(treeGenerator);
+                PrefabUtility.RecordPrefabInstancePropertyModifications(treeGenerator);
+                serializedObject.Update();
+            }
+
+            selectedPresetIndex = newIndex;
+        }
+
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Create Default Presets"))
+        {
+            TreePresetDefaults.CreateDefaultPresets();
+            RefreshPresets();
+            selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+        }
+        if (GUILayout.Button("Refresh Preset List"))
+        {
+            RefreshPresets();
+            selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+        }
+        EditorGUILayout.EndHorizontal();
     }
 
     public override void OnInspectorGUI()
@@ -165,6 +291,9 @@ public class TreeGeneratorEditor : Editor
         serializedObject.Update();
         
         TreeGenerator treeGenerator = (TreeGenerator)target;
+
+        DrawPresetSelector(treeGenerator);
+        EditorGUILayout.Space(8);
 
         // Create a button at the top that regenerates the tree
         if (GUILayout.Button("Regenerate Tree", GUILayout.Height(30)))
@@ -280,6 +409,23 @@ public class TreeGeneratorEditor : Editor
                     EditorGUI.indentLevel--;
                 }
             }
+            else if (mode == TreeGenerator.LeafGenerationMode.Domes)
+            {
+                EditorGUILayout.LabelField("Dome Settings", EditorStyles.miniLabel);
+                EditorGUILayout.PropertyField(domeRadius);
+                EditorGUILayout.PropertyField(domeOffset);
+                EditorGUILayout.PropertyField(domeSegments);
+                EditorGUILayout.PropertyField(domeTextureTiling);
+                EditorGUILayout.PropertyField(randomizeDomeRotation);
+
+                EditorGUILayout.Space(3);
+                EditorGUILayout.LabelField("Dome Shape", EditorStyles.miniLabel);
+                EditorGUILayout.PropertyField(domeShapeX);
+                EditorGUILayout.PropertyField(domeShapeY);
+                EditorGUILayout.PropertyField(domeShapeZ);
+                EditorGUILayout.PropertyField(domeNoiseStrength);
+                EditorGUILayout.PropertyField(domeNoiseScale);
+            }
             
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Leaf Appearance", EditorStyles.miniLabel);
@@ -301,7 +447,6 @@ public class TreeGeneratorEditor : Editor
             EditorGUILayout.PropertyField(maxLeafCount);
             EditorGUILayout.PropertyField(optimizeLeafDistribution);
             EditorGUILayout.PropertyField(minBranchRadiusForLeaves);
-            EditorGUILayout.PropertyField(minBranchesPerCluster);
             EditorGUI.indentLevel--;
         }
 

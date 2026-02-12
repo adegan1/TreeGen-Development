@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
+  m_Name: Pine
+  m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  lSystemSeed: FFFFB
+  complexity: 4
+  segmentLength: 0.9
+  baseThickness: 0.4
+  branchThinningRate: 0.92
+  childBranchThickness: 0.65
+  leafMode: 0
+  leafWidth: 0.05
+  leafLength: 0.35
+  leafDensity: 9
+  leafStartHeight: 0.25
+  leafSizeVariation: 0.15
+  doubleSidedLeaves: 1
+  leafDistanceFromBranch: 0.05
+  leafClumpiness: 0.7
+  leafClumpSpread: 0.2
+  leafTipBias: 0.8
+  leafUpAlignment: 0.2
+  leafSizeByHeight: 0.4
+  leafRadialJitter: 0.05
+  leafTransparency: 1
+  leafUVRandomness: 0.2
+  leafUVNoiseStrength: 0.05
+  leafUVNoiseScale: 2
+  clusterRadius: 0.8
+  clusterSizeMin: 0.8
+  clusterSizeMax: 1.2
+  clusterShapeX: 1.2
+  clusterShapeY: 0.8
+  clusterShapeZ: 1.1
+  clusterNoiseStrength: 0.15
+  clusterNoiseScale: 2
+  enableOuterShell: 1
+  outerShellThickness: 1.2
+  outerShellTransparency: 0.3
+  clusterSegments: 12
+  clusterTextureTiling: 1
+  randomizeClusterRotation: 1
+  clusterOffset: 0.3
+  domeRadius: 1.2
+  domeShapeX: 1.15
+  domeShapeY: 0.75
+  domeShapeZ: 1.05
+  domeOffset: 0.5
+  domeSegments: 12
+  domeNoiseScale: 2
+  domeNoiseStrength: 0.12
+  randomizeDomeRotation: 1
+  domeTextureTiling: 1
+  maxLeafCount: 4500
+  optimizeLeafDistribution: 1
+  minBranchRadiusForLeaves: 0.015
+  branchBlendDistance: 0.15
+  segmentGrowthChance: 35
+  branchPatternVariation: 35
+  minBranchAngle: 15
+  maxBranchAngle: 35
+  minVerticalAngle: -55
+  maxVerticalAngle: 5
+  branchBendChance: 0.2
+  branchBendStrength: 2

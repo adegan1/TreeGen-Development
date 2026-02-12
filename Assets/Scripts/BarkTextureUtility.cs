@@ -31,26 +31,6 @@ public static class BarkTextureUtility
     }
 
     /// <summary>
-    /// Generates a vertex color for variation that can be used in shaders
-    /// </summary>
-    public static Color GetVariationColor(Vector3 worldPosition, float variation)
-    {
-        if (variation <= 0f) return Color.white;
-
-        // Generate variation based on world position
-        float r = Mathf.PerlinNoise(worldPosition.x * 0.5f, worldPosition.y * 0.5f);
-        float g = Mathf.PerlinNoise(worldPosition.y * 0.5f, worldPosition.z * 0.5f);
-        float b = Mathf.PerlinNoise(worldPosition.z * 0.5f, worldPosition.x * 0.5f);
-
-        // Blend with white based on variation strength
-        r = Mathf.Lerp(1f, r, variation);
-        g = Mathf.Lerp(1f, g, variation);
-        b = Mathf.Lerp(1f, b, variation);
-
-        return new Color(r, g, b, 1f);
-    }
-
-    /// <summary>
     /// Combines multiple variation techniques
     /// </summary>
     public static Vector2 ApplyAllUVVariation(
