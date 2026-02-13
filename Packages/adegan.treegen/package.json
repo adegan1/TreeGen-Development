@@ -4,8 +4,14 @@
   "displayName": "TreeGen",
   "description": "Procedural tree generator tool. Simply create and customize trees for your Unity projects.",
   "unity": "6000.2",
+  "license": "MIT",
+  "keywords": ["procedural", "tree", "generator", "nature", "environment", "foliage"],
   "dependencies": {
     "com.unity.render-pipelines.universal": "17.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adegan1/TreeGen.git"
   },
   "samples": [
     {
@@ -15,6 +21,6 @@
     }
   ],
   "author": {
-    "name": "Generator"
+    "name": "Andrew Degan"
   }
 }
