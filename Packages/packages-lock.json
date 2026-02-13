@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.generator.treegen": {
-      "version": "file:com.generator.treegen",
+    "adegan.treegen": {
+      "version": "file:adegan.treegen",
       "depth": 0,
       "source": "embedded",
       "dependencies": {

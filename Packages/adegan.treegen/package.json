@@ -1,8 +1,8 @@
 {
-  "name": "com.generator.treegen",
+  "name": "adegan.treegen",
   "version": "1.0.0",
   "displayName": "TreeGen",
-  "description": "Procedural tree generator tool.",
+  "description": "Procedural tree generator tool. Simply create and customize trees for your Unity projects.",
   "unity": "6000.2",
   "dependencies": {
     "com.unity.render-pipelines.universal": "17.2.0"
@@ -10,8 +10,8 @@
   "samples": [
     {
       "displayName": "TreeGen Samples",
-      "description": "Example scenes, prefabs, presets, and textures.",
-      "path": "Samples~/TreeGen Samples"
+      "description": "Example scenes, prefabs, presets, and materials. Press 'import' to add them to your project.",
+      "path": "Samples~"
     }
   ],
   "author": {

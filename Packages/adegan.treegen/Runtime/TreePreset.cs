@@ -244,7 +244,7 @@ public static class TreePresetDefaults
 {
     private const string PresetFolder = "Assets/TreePresets";
     private const string PresetDefaultsFolder = "Assets/TreePresets/Defaults";
-    private const string PackageRoot = "Packages/com.generator.treegen";
+    private const string PackageRoot = "Packages/adegan.treegen";
     private const string MaterialFolder = PackageRoot + "/Runtime/Materials";
     private const string PresetMaterialFolder = PackageRoot + "/Runtime/Materials/Presets";
 
