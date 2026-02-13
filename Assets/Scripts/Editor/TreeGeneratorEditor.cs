@@ -8,9 +8,20 @@ public class TreeGeneratorEditor : Editor
 {
     // Foldout states
     private bool showMaterials = true;
+    private bool showBarkTextureSettings = false;
     private bool showTreeStructure = true;
-    private bool showBranching = true;
+    private bool showTrunkSettings = false;
+    private bool showThicknessSettings = false;
+    private bool showBranching = false;
     private bool showLeaves = true;
+    private bool showPlaneLeafSettings = false;
+    private bool showClusterSettings = false;
+    private bool showClusterShape = false;
+    private bool showOuterShell = false;
+    private bool showDomeSettings = false;
+    private bool showDomeShape = false;
+    private bool showLeafAppearance = false;
+    private bool showPresetSettings = false;
     private bool showAdvanced = false;
 
     private const string PresetNoneLabel = "None";
@@ -325,23 +336,36 @@ public class TreeGeneratorEditor : Editor
             selectedPresetIndex = newIndex;
         }
 
-        EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Create Missing Default Presets"))
+        showPresetSettings = EditorGUILayout.Foldout(showPresetSettings, "Preset Settings", true);
+        if (showPresetSettings)
         {
-            TreePresetDefaults.CreateDefaultPresets();
-            RefreshPresets();
-            selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+            EditorGUI.indentLevel++;
+            if (GUILayout.Button(new GUIContent(
+                "Create Missing Default Presets",
+                "Create any missing default preset assets without overwriting existing ones."
+            )))
+            {
+                TreePresetDefaults.CreateDefaultPresets();
+                RefreshPresets();
+                selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+            }
+            if (GUILayout.Button(new GUIContent(
+                "Set Defaults From Current Presets",
+                "Save current presets as the default source used for future default creation."
+            )))
+            {
+                TreePresetDefaults.SaveCurrentPresetsAsDefaults();
+            }
+            if (GUILayout.Button(new GUIContent(
+                "Refresh Preset List",
+                "Re-scan the project for TreePreset assets and update the dropdown."
+            )))
+            {
+                RefreshPresets();
+                selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
+            }
+            EditorGUI.indentLevel--;
         }
-        if (GUILayout.Button("Set Defaults From Current Presets"))
-        {
-            TreePresetDefaults.SaveCurrentPresetsAsDefaults();
-        }
-        if (GUILayout.Button("Refresh Preset List"))
-        {
-            RefreshPresets();
-            selectedPresetIndex = GetPresetIndex(preset.objectReferenceValue as TreePreset);
-        }
-        EditorGUILayout.EndHorizontal();
     }
 
     public override void OnInspectorGUI()
@@ -370,12 +394,17 @@ public class TreeGeneratorEditor : Editor
             EditorGUILayout.PropertyField(leafMaterial);
             
             EditorGUILayout.Space(5);
-            EditorGUILayout.LabelField("Bark Texture Settings", EditorStyles.miniLabel);
-            EditorGUILayout.PropertyField(barkTilingHorizontal);
-            EditorGUILayout.PropertyField(barkTilingVertical);
-            EditorGUILayout.PropertyField(barkUVRandomness);
-            EditorGUILayout.PropertyField(barkUVNoiseStrength);
-            EditorGUILayout.PropertyField(barkUVNoiseScale);
+            showBarkTextureSettings = EditorGUILayout.Foldout(showBarkTextureSettings, "Bark Texture Settings", true);
+            if (showBarkTextureSettings)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(barkTilingHorizontal);
+                EditorGUILayout.PropertyField(barkTilingVertical);
+                EditorGUILayout.PropertyField(barkUVRandomness);
+                EditorGUILayout.PropertyField(barkUVNoiseStrength);
+                EditorGUILayout.PropertyField(barkUVNoiseScale);
+                EditorGUI.indentLevel--;
+            }
             EditorGUI.indentLevel--;
         }
         EditorGUILayout.Space(5);
@@ -387,19 +416,29 @@ public class TreeGeneratorEditor : Editor
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(segmentLength);
             EditorGUILayout.Space(4);
-            EditorGUILayout.LabelField("Trunk", EditorStyles.miniLabel);
-            EditorGUILayout.PropertyField(trunkHeight);
-            EditorGUILayout.PropertyField(trunkHeightVariation);
-            EditorGUILayout.PropertyField(trunkLeanStrength);
-            EditorGUILayout.PropertyField(trunkNoiseScale);
-            EditorGUILayout.PropertyField(trunkNoiseStrength);
-            EditorGUILayout.PropertyField(randomSeed);
+            showTrunkSettings = EditorGUILayout.Foldout(showTrunkSettings, "Trunk Settings", true);
+            if (showTrunkSettings)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(trunkHeight);
+                EditorGUILayout.PropertyField(trunkHeightVariation);
+                EditorGUILayout.PropertyField(trunkLeanStrength);
+                EditorGUILayout.PropertyField(trunkNoiseScale);
+                EditorGUILayout.PropertyField(trunkNoiseStrength);
+                EditorGUILayout.PropertyField(randomSeed);
+                EditorGUI.indentLevel--;
+            }
             
             EditorGUILayout.Space(5);
-            EditorGUILayout.LabelField("Branch Thickness", EditorStyles.miniLabel);
-            EditorGUILayout.PropertyField(baseThickness);
-            EditorGUILayout.PropertyField(branchThinningRate);
-            EditorGUILayout.PropertyField(childBranchThickness);
+            showThicknessSettings = EditorGUILayout.Foldout(showThicknessSettings, "Thickness", true);
+            if (showThicknessSettings)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(baseThickness);
+                EditorGUILayout.PropertyField(branchThinningRate);
+                EditorGUILayout.PropertyField(childBranchThickness);
+                EditorGUI.indentLevel--;
+            }
             EditorGUI.indentLevel--;
         }
         EditorGUILayout.Space(5);
@@ -477,75 +516,121 @@ public class TreeGeneratorEditor : Editor
             
             if (mode == TreeGenerator.LeafGenerationMode.Planes)
             {
-                EditorGUILayout.LabelField("Plane Leaf Settings", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(leafWidth);
-                EditorGUILayout.PropertyField(leafLength);
-                EditorGUILayout.PropertyField(leafDistanceFromBranch);
-                EditorGUILayout.PropertyField(planeLeafTextureTiling, new GUIContent("Texture Tiling"));
-                EditorGUILayout.PropertyField(enablePlaneLeafSizeByHeight, new GUIContent("Size By Height"));
-                if (enablePlaneLeafSizeByHeight.boolValue)
+                showPlaneLeafSettings = EditorGUILayout.Foldout(showPlaneLeafSettings, "Plane Leaf Settings", true);
+                if (showPlaneLeafSettings)
                 {
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.PropertyField(planeLeafSizeBottom, new GUIContent("Size Bottom"));
-                    EditorGUILayout.PropertyField(planeLeafSizeTop, new GUIContent("Size Top"));
+                    EditorGUILayout.PropertyField(leafWidth);
+                    EditorGUILayout.PropertyField(leafLength);
+                    EditorGUILayout.PropertyField(leafDistanceFromBranch);
+                    EditorGUILayout.PropertyField(enablePlaneLeafSizeByHeight, new GUIContent("Size By Height"));
+                    if (enablePlaneLeafSizeByHeight.boolValue)
+                    {
+                        EditorGUI.indentLevel++;
+                        EditorGUILayout.PropertyField(planeLeafSizeBottom, new GUIContent("Size Bottom"));
+                        EditorGUILayout.PropertyField(planeLeafSizeTop, new GUIContent("Size Top"));
+                        EditorGUI.indentLevel--;
+                    }
+                    EditorGUILayout.PropertyField(doubleSidedLeaves);
                     EditorGUI.indentLevel--;
                 }
-                EditorGUILayout.PropertyField(doubleSidedLeaves);
             }
             else if (mode == TreeGenerator.LeafGenerationMode.Clusters)
             {
-                EditorGUILayout.LabelField("Cluster Settings", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(clusterRadius);
-                EditorGUILayout.PropertyField(clusterSizeMin);
-                EditorGUILayout.PropertyField(clusterSizeMax);
-                EditorGUILayout.PropertyField(clusterOffset);
-                EditorGUILayout.PropertyField(clusterSegments);
-                EditorGUILayout.PropertyField(clusterTextureTiling);
-                EditorGUILayout.PropertyField(randomizeClusterRotation);
-                
-                EditorGUILayout.Space(3);
-                EditorGUILayout.LabelField("Cluster Shape", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(clusterShapeX);
-                EditorGUILayout.PropertyField(clusterShapeY);
-                EditorGUILayout.PropertyField(clusterShapeZ);
-                EditorGUILayout.PropertyField(clusterNoiseStrength);
-                EditorGUILayout.PropertyField(clusterNoiseScale);
-                
-                EditorGUILayout.Space(3);
-                EditorGUILayout.LabelField("Outer Shell", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(enableOuterShell);
-                if (enableOuterShell.boolValue)
+                showClusterSettings = EditorGUILayout.Foldout(showClusterSettings, "Cluster Settings", true);
+                if (showClusterSettings)
                 {
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.PropertyField(outerShellThickness);
-                    EditorGUILayout.PropertyField(outerShellTransparency);
+                    EditorGUILayout.PropertyField(clusterRadius);
+                    EditorGUILayout.PropertyField(clusterSizeMin);
+                    EditorGUILayout.PropertyField(clusterSizeMax);
+                    EditorGUILayout.PropertyField(clusterOffset);
+                    EditorGUILayout.PropertyField(clusterSegments);
+                    EditorGUILayout.PropertyField(randomizeClusterRotation);
+                    EditorGUI.indentLevel--;
+                }
+
+                EditorGUILayout.Space(3);
+                showClusterShape = EditorGUILayout.Foldout(showClusterShape, "Cluster Shape", true);
+                if (showClusterShape)
+                {
+                    EditorGUI.indentLevel++;
+                    EditorGUILayout.PropertyField(clusterShapeX);
+                    EditorGUILayout.PropertyField(clusterShapeY);
+                    EditorGUILayout.PropertyField(clusterShapeZ);
+                    EditorGUILayout.PropertyField(clusterNoiseStrength);
+                    EditorGUILayout.PropertyField(clusterNoiseScale);
+                    EditorGUI.indentLevel--;
+                }
+
+                EditorGUILayout.Space(3);
+                showOuterShell = EditorGUILayout.Foldout(showOuterShell, "Outer Shell", true);
+                if (showOuterShell)
+                {
+                    EditorGUI.indentLevel++;
+                    EditorGUILayout.PropertyField(enableOuterShell);
+                    if (enableOuterShell.boolValue)
+                    {
+                        EditorGUI.indentLevel++;
+                        EditorGUILayout.PropertyField(outerShellThickness);
+                        EditorGUILayout.PropertyField(outerShellTransparency);
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUI.indentLevel--;
                 }
             }
             else if (mode == TreeGenerator.LeafGenerationMode.Domes)
             {
-                EditorGUILayout.LabelField("Dome Settings", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(domeRadius);
-                EditorGUILayout.PropertyField(domeOffset);
-                EditorGUILayout.PropertyField(domeSegments);
-                EditorGUILayout.PropertyField(domeTextureTiling);
-                EditorGUILayout.PropertyField(randomizeDomeRotation);
+                showDomeSettings = EditorGUILayout.Foldout(showDomeSettings, "Dome Settings", true);
+                if (showDomeSettings)
+                {
+                    EditorGUI.indentLevel++;
+                    EditorGUILayout.PropertyField(domeRadius);
+                    EditorGUILayout.PropertyField(domeOffset);
+                    EditorGUILayout.PropertyField(domeSegments);
+                    EditorGUILayout.PropertyField(randomizeDomeRotation);
+                    EditorGUI.indentLevel--;
+                }
 
                 EditorGUILayout.Space(3);
-                EditorGUILayout.LabelField("Dome Shape", EditorStyles.miniLabel);
-                EditorGUILayout.PropertyField(domeShapeX);
-                EditorGUILayout.PropertyField(domeShapeY);
-                EditorGUILayout.PropertyField(domeShapeZ);
-                EditorGUILayout.PropertyField(domeNoiseStrength);
-                EditorGUILayout.PropertyField(domeNoiseScale);
+                showDomeShape = EditorGUILayout.Foldout(showDomeShape, "Dome Shape", true);
+                if (showDomeShape)
+                {
+                    EditorGUI.indentLevel++;
+                    EditorGUILayout.PropertyField(domeShapeX);
+                    EditorGUILayout.PropertyField(domeShapeY);
+                    EditorGUILayout.PropertyField(domeShapeZ);
+                    EditorGUILayout.PropertyField(domeNoiseStrength);
+                    EditorGUILayout.PropertyField(domeNoiseScale);
+                    EditorGUI.indentLevel--;
+                }
             }
             
             EditorGUILayout.Space(5);
-            EditorGUILayout.LabelField("Leaf Appearance", EditorStyles.miniLabel);
-            EditorGUILayout.PropertyField(leafTransparency);
-            EditorGUILayout.PropertyField(leafUVRandomness);
-            EditorGUILayout.PropertyField(leafUVNoiseStrength);
-            EditorGUILayout.PropertyField(leafUVNoiseScale);
+            showLeafAppearance = EditorGUILayout.Foldout(showLeafAppearance, "Leaf Appearance", true);
+            if (showLeafAppearance)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(leafTransparency);
+                EditorGUILayout.PropertyField(leafUVRandomness);
+                EditorGUILayout.PropertyField(leafUVNoiseStrength);
+                EditorGUILayout.PropertyField(leafUVNoiseScale);
+
+                EditorGUILayout.Space(3);
+                if (mode == TreeGenerator.LeafGenerationMode.Planes)
+                {
+                    EditorGUILayout.PropertyField(planeLeafTextureTiling, new GUIContent("Texture Tiling"));
+                }
+                else if (mode == TreeGenerator.LeafGenerationMode.Clusters)
+                {
+                    EditorGUILayout.PropertyField(clusterTextureTiling, new GUIContent("Texture Tiling"));
+                }
+                else if (mode == TreeGenerator.LeafGenerationMode.Domes)
+                {
+                    EditorGUILayout.PropertyField(domeTextureTiling, new GUIContent("Texture Tiling"));
+                }
+                EditorGUI.indentLevel--;
+            }
             
             EditorGUI.indentLevel--;
         }
