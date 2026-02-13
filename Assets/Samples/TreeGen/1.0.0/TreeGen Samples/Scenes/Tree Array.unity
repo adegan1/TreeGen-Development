@@ -1739,7 +1739,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 14a27d4d2aeda2c488f45b70cc51987b, type: 2}
+      objectReference: {fileID: 2100000, guid: 2035616b8e9dc82448c5be6dca2dabc0, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 8200
@@ -1815,6 +1815,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchUpwardBias
       value: 0.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: branchesPerLevel
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: canopyAttraction
@@ -3771,7 +3775,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: leafMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 14a27d4d2aeda2c488f45b70cc51987b, type: 2}
+      objectReference: {fileID: 2100000, guid: 2035616b8e9dc82448c5be6dca2dabc0, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxLeafCount
       value: 5600
@@ -3931,6 +3935,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: outerShellTransparency
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: planeLeafTextureTiling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: minBranchRadiusForLeaves
@@ -4481,7 +4489,7 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: barkMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 27e1127f74815f748be2c7b195f0e836, type: 2}
+      objectReference: {fileID: 2100000, guid: a57b02e5b5d84840a4e27366d049174a, type: 2}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: branchLevels
       value: 3
@@ -4545,6 +4553,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSizeMax
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterSizeMin
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterSegments
@@ -4641,6 +4653,10 @@ PrefabInstance:
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: clusterNoiseStrength
       value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
+      propertyPath: clusterTextureTiling
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6671658246520675913, guid: 2e82b57009c432a4393997dc93b0580a, type: 3}
       propertyPath: maxGeneratedBranches
