@@ -264,6 +264,7 @@ public static class TreePresetDefaults
 
         Material barkMat = LoadMaterial("WoodMaterial");
         Material leafClusterMat = LoadMaterial("LeafCluster");
+        Material leafClusterYellowMat = LoadMaterial("LeafCluster_Yellow");
         Material leafPlaneMat = LoadMaterial("LeafPlane");
         Material pineLeafMat = LoadMaterial("PineLeaf");
         Material leafDomeMat = LoadMaterial("LeafDome");
@@ -271,12 +272,12 @@ public static class TreePresetDefaults
 
         Material barkBrownMat = LoadPresetMaterial("Bark_Brown");
         Material barkWhiteMat = LoadPresetMaterial("Bark_White");
+        Material barkAspenMat = LoadPresetMaterial("Bark_Aspen");
         Material barkRedwoodMat = LoadPresetMaterial("Bark_Redwood");
         Material barkGrayMat = LoadPresetMaterial("Bark_Gray");
 
         Material leafClusterLushMat = LoadPresetMaterial("LeafCluster_LushGreen");
         Material leafClusterLightMat = LoadPresetMaterial("LeafCluster_LightGreen");
-        Material leafClusterLimeMat = LoadPresetMaterial("LeafCluster_Lime");
         Material leafClusterRedMat = LoadPresetMaterial("LeafCluster_Red");
         Material leafClusterOliveMat = LoadPresetMaterial("LeafCluster_Olive");
 
@@ -527,8 +528,8 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Aspen.asset", preset =>
         {
-            preset.barkMaterial = barkWhiteMat;
-            preset.leafMaterial = leafClusterLimeMat;
+            preset.barkMaterial = barkAspenMat;
+            preset.leafMaterial = leafClusterYellowMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
             preset.baseThickness = 0.42f;
@@ -657,7 +658,7 @@ public static class TreePresetDefaults
 
         CreateOrUpdatePreset(PresetFolder + "/Birch.asset", preset =>
         {
-            preset.barkMaterial = barkWhiteMat;
+            preset.barkMaterial = barkAspenMat;
             preset.leafMaterial = leafClusterLightMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.7f;
@@ -1051,7 +1052,7 @@ public static class TreePresetDefaults
         CreateOrUpdatePreset(PresetFolder + "/Aspen_Young.asset", preset =>
         {
             preset.barkMaterial = barkWhiteMat;
-            preset.leafMaterial = leafClusterLimeMat;
+            preset.leafMaterial = leafClusterYellowMat;
             preset.structureMode = TreeGenerator.TreeStructureMode.GuidedGrowth;
             preset.segmentLength = 0.55f;
             preset.baseThickness = 0.38f;

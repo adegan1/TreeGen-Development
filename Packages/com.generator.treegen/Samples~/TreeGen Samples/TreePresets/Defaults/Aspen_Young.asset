@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aspen_Young
   m_EditorClassIdentifier: Assembly-CSharp::TreePreset
   barkMaterial: {fileID: 2100000, guid: 2db606fe54825b0439bd17b305947988, type: 2}
-  leafMaterial: {fileID: 2100000, guid: 14a27d4d2aeda2c488f45b70cc51987b, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 2035616b8e9dc82448c5be6dca2dabc0, type: 2}
   structureMode: 1
   lSystemSeed: FB
   complexity: 3
