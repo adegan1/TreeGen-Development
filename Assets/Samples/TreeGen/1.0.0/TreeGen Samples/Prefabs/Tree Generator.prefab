@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3904811598461102039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044489251780701772}
+  - component: {fileID: 6671658246520675913}
+  m_Layer: 0
+  m_Name: Tree Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044489251780701772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904811598461102039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6671658246520675913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904811598461102039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57438d7b3e004a4c8b77f12b7e0a05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  preset: {fileID: 0}
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: fccdd3ed1c95f4a4083ec31a3d0c34ee, type: 2}
+  barkTilingHorizontal: 0.5
+  barkTilingVertical: 0.5
+  barkUVRandomness: 0.063
+  barkUVNoiseStrength: 0
+  barkUVNoiseScale: 0.1
+  segmentLength: 0.65
+  randomSeed: 0
+  trunkHeight: 7.5
+  trunkHeightVariation: 0.18
+  trunkLeanStrength: 0.15
+  trunkNoiseScale: 0.35
+  trunkNoiseStrength: 0.18
+  branchLevels: 2
+  branchesPerLevel: 3
+  branchLevelDensityFalloff: 0.8
+  branchLengthFactor: 0.9
+  branchLengthFalloff: 0.7
+  branchAngleMin: 30
+  branchAngleMax: 70
+  branchUpwardBias: 0.05
+  branchDroop: 0.25
+  branchNoiseScale: 0.35
+  branchNoiseStrength: 0.1
+  branchTwistJitter: 10
+  maxGeneratedBranches: 90
+  minBranchUpward: 0.03
+  clampBranchesAboveBase: 0
+  branchGroundClearance: 0.05
+  canopyTargetEnabled: 0
+  canopyCenterOffset: {x: 0, y: 4.8, z: 0}
+  canopyRadii: {x: 4.6, y: 2.6, z: 4.6}
+  canopyAttraction: 0.5
+  canopySurfaceTarget: 1
+  canopyHeightStart: 0.2
+  canopyHeightEnd: 1
+  baseThickness: 0.75
+  branchThinningRate: 0.92
+  childBranchThickness: 0.7
+  leafMode: 1
+  leafWidth: 0.25
+  leafLength: 0.4
+  leafDensity: 9
+  leafStartHeight: 0.22
+  leafSizeVariation: 0.25
+  doubleSidedLeaves: 0
+  leafDistanceFromBranch: 0.1
+  planeLeafTextureTiling: 1
+  enablePlaneLeafSizeByHeight: 0
+  planeLeafSizeBottom: 1
+  planeLeafSizeTop: 1
+  leafSizeByHeight: 0.3
+  leafRadialJitter: 0.04
+  leafTransparency: 0.95
+  leafUVRandomness: 0.2
+  leafUVNoiseStrength: 0.05
+  leafUVNoiseScale: 2
+  clusterRadius: 1.7
+  clusterSizeMin: 0.85
+  clusterSizeMax: 1.5
+  clusterShapeX: 1.35
+  clusterShapeY: 0.9
+  clusterShapeZ: 1.25
+  clusterNoiseStrength: 0.22
+  clusterNoiseScale: 2.2
+  enableOuterShell: 1
+  outerShellThickness: 1.25
+  outerShellTransparency: 0.32
+  clusterSegments: 16
+  clusterTextureTiling: 4.5
+  randomizeClusterRotation: 1
+  clusterOffset: 0.2
+  domeRadius: 1.2
+  domeShapeX: 1.15
+  domeShapeY: 0.75
+  domeShapeZ: 1.05
+  domeOffset: 0.5
+  domeSegments: 12
+  domeNoiseScale: 2
+  domeNoiseStrength: 0.12
+  randomizeDomeRotation: 1
+  domeTextureTiling: 1
+  maxLeafCount: 11000
+  optimizeLeafDistribution: 1
+  minBranchRadiusForLeaves: 0.015
+  branchBlendDistance: 0.25

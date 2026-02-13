@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459d674efee34ef4b8032464f644ef1b, type: 3}
+  m_Name: Pine
+  m_EditorClassIdentifier: Assembly-CSharp::TreePreset
+  barkMaterial: {fileID: 2100000, guid: c09dc70d9bee6c449a3883002e64ca41, type: 2}
+  leafMaterial: {fileID: 2100000, guid: 7be463d439a2a594e9dd50d9c2f05245, type: 2}
+  structureMode: 1
+  lSystemSeed: FFFFB
+  complexity: 4
+  segmentLength: 0.9
+  randomSeed: 0
+  trunkHeight: 20
+  trunkHeightVariation: 0.12
+  trunkLeanStrength: 0.08
+  trunkNoiseScale: 0.25
+  trunkNoiseStrength: 0.12
+  noBranches: 1
+  branchLevels: 3
+  branchesPerLevel: 3
+  minBranchesPerLevel: 3
+  maxBranchesPerLevel: 5
+  branchLevelDensityFalloff: 0.8
+  branchLengthFactor: 0.95
+  branchLengthFalloff: 0.6
+  branchSpawnStart: 0.15
+  branchSpawnEnd: 0.98
+  branchDistributionPower: 1.1
+  branchAngleMin: 10
+  branchAngleMax: 35
+  branchUpwardBias: 0.02
+  branchDroop: 0.3
+  branchNoiseScale: 0.3
+  branchNoiseStrength: 0.08
+  branchTwistJitter: 8
+  maxGeneratedBranches: 120
+  minBranchUpward: 0.02
+  clampBranchesAboveBase: 0
+  branchGroundClearance: 0.05
+  canopyTargetEnabled: 0
+  canopyCenterOffset: {x: 0, y: 8.5, z: 0}
+  canopyRadii: {x: 2.8, y: 5.2, z: 2.8}
+  canopyAttraction: 0.4
+  canopySurfaceTarget: 1
+  canopyHeightStart: 0.2
+  canopyHeightEnd: 1
+  canopyVolumes:
+  - centerOffset: {x: 0, y: 6, z: 0}
+    radii: {x: 3.6, y: 3.2, z: 3.6}
+    attraction: 0.3
+    surfaceTarget: 1
+    heightStart: 0.2
+    heightEnd: 0.7
+  - centerOffset: {x: 0, y: 10.5, z: 0}
+    radii: {x: 1.9, y: 3.6, z: 1.9}
+    attraction: 0.45
+    surfaceTarget: 1
+    heightStart: 0.5
+    heightEnd: 1
+  baseThickness: 0.487
+  branchThinningRate: 0.884
+  childBranchThickness: 0.62
+  leafMode: 0
+  leafWidth: 0.87
+  leafLength: 4.97
+  leafDensity: 12.71
+  leafStartHeight: 0.29
+  leafSizeVariation: 0.082
+  doubleSidedLeaves: 1
+  leafDistanceFromBranch: 0.035
+  enablePlaneLeafSizeByHeight: 1
+  planeLeafSizeBottom: 6.86
+  planeLeafSizeTop: 0.76
+  leafClumpiness: 0.7
+  leafClumpSpread: 0.2
+  leafTipBias: 0.8
+  leafUpAlignment: 0.1
+  leafSizeByHeight: 0.55
+  leafRadialJitter: 0.04
+  leafTransparency: 1
+  leafUVRandomness: 0.2
+  leafUVNoiseStrength: 0.05
+  leafUVNoiseScale: 2
+  clusterRadius: 0.8
+  clusterSizeMin: 0.8
+  clusterSizeMax: 1.2
+  clusterShapeX: 1.2
+  clusterShapeY: 0.8
+  clusterShapeZ: 1.1
+  clusterNoiseStrength: 0.15
+  clusterNoiseScale: 2
+  enableOuterShell: 1
+  outerShellThickness: 1.2
+  outerShellTransparency: 0.3
+  clusterSegments: 12
+  clusterTextureTiling: 1
+  randomizeClusterRotation: 1
+  clusterOffset: 0.3
+  domeRadius: 1.2
+  domeShapeX: 1.15
+  domeShapeY: 0.75
+  domeShapeZ: 1.05
+  domeOffset: 0.5
+  domeSegments: 12
+  domeNoiseScale: 2
+  domeNoiseStrength: 0.12
+  randomizeDomeRotation: 1
+  domeTextureTiling: 1
+  maxLeafCount: 9500
+  optimizeLeafDistribution: 1
+  minBranchRadiusForLeaves: 0.015
+  branchBlendDistance: 0.16
+  segmentGrowthChance: 35
+  branchPatternVariation: 35
+  minBranchAngle: 15
+  maxBranchAngle: 35
+  minVerticalAngle: -55
+  maxVerticalAngle: 5
+  branchBendChance: 0.2
+  branchBendStrength: 2

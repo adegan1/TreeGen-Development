@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.generator.treegen": {
+      "version": "file:com.generator.treegen",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "17.2.0"
+      }
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
