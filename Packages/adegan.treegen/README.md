@@ -24,42 +24,63 @@ TreeGen is ideal for game developers, environment artists, and anyone looking to
 
 ## How To Use
 
-**How to add the package to your Unity project**:
-**Step 1**:
-Download the package from this Repository onto your system. Please keep track of where this package is located.
-**Step 2**:
-Open the Unity project that you would like to add the package to.
-At the top, click “Window” and go to “Package Management” > “Package Manager”
+### Installation
+
+**Step 1: Download the Package**
+- Download this repository and keep track of where you save the `adegan.treegen` folder.
+
+**Step 2: Open Package Manager**
+- Open your Unity project
+- Go to `Window` → `Package Manager`
+
 ![Info Package Manager](Documentation/Info-PackageManager.png)
-**Step 3**:
-Inside the package manager, click the ‘+’ icon in the top left corner and select “Install package from disk…”
+
+**Step 3: Install from Disk**
+- Click the `+` icon in the top-left corner
+- Select `Install package from disk...`
+
 ![Info Install](Documentation/Info-Install.png)
-**Step 4**:
-Find the package that you downloaded from GitHub and open the folder named “adegan.treegen”
-Open the package using “package.json”
+
+**Step 4: Select the Package**
+- Navigate to and select the `adegan.treegen` folder
+- Open the `package.json` file
+
 ![Info Package File](Documentation/Info-PackageFile.png)
-**Step 5**:
-Back inside the package manager, you should now see the “TreeGen” package in the “In Project” tab on the left.
-Go to the “Samples” tab of the package and press “Import” to add the package assets to your project.
+
+**Step 5: Import Samples**
+- In the Package Manager, find `TreeGen` in the `In Project` tab
+- Go to the `Samples` tab and click `Import` to add sample assets
+
 ![Info Package Info](Documentation/Info-PackageInfo.png)
 
 **How to create a tree**:
-**Step 1**:
-Upon importing the samples, you will find four folders:
-‘Images’ includes image files used in the tree materials.
-‘Prefabs’ includes a prefab for the Tree Generator game object.
-‘Scenes’ includes two example scenes for testing the Tree Generator.
-‘TreePresets’ includes the data for the existing tree presets. These can be changed if desired.
-To use the Tree Generator in your scene, simply add the Tree Generator prefab from the ‘Prefabs’ folder to your scene.
+
+### Creating Your First Tree
+
+**Step 1: Add the Tree Generator**
+
+Add the Tree Generator prefab from the Prefabs folder to your scene:
+
 ![Info Prefab](Documentation/Info-Prefab.png)
+
+You should now see it in your hierarchy:
+
 ![Info Hierarchy](Documentation/Info-Hierarchy.png)
-Alternatively, you may simply create an empty game object and add the “TreeGenerator” component to it.
-**Step 2**:
-If you click on the Tree Generator game object, you can see the generator settings in the inspector.
-You may now edit the tree however you like. Simply hit “Regenerate Tree” to create a tree mesh in the editor or in play mode. A tree will also be generated when entering play mode if there is not already a tree attached to the generator.
+
+*Alternatively, create an empty GameObject and add the "TreeGenerator" component manually.*
+
+**Step 2: Configure Your Tree**
+
+Select the Tree Generator and customize it in the Inspector. Click `Regenerate Tree` to update your tree in real-time:
+
 ![Info Generate Tree](Documentation/Info-GenerateTree.png)
-**Step 3**:
-When you have created the tree that you like, simply remove the generated tree mesh child object from your Tree Generator and place it wherever you please!
+
+**Step 3: Extract and Use**
+
+Once you're satisfied with your tree:
+1. Delete the "Tree" child object from the Tree Generator
+2. Place it in your scene where needed
+3. Save it as a prefab or bake it into your level
 
 ---
 
